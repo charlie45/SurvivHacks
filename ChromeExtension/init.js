@@ -826,11 +826,11 @@
                     bagSizes = exports["989ad62a"].exports.bagSizes,
                     scopeZoomRadius = (exports["989ad62a"].exports.Input, exports["989ad62a"].exports.scopeZoomRadius.desktop),
                     A = exports["989ad62a"].exports.protocolVersion,
-                    y = exports.e5d16b4d.exports.et,
-                    playerbarn = exports.a508b62a.exports.Ie,
-                    lootBarn = exports.a48f3bb2.exports.He,
-                    h = exports.c73dee75.exports.Ee,
-                    uiModel = exports.d3da5587.exports.Qe,
+                    y = exports.e5d16b4d.exports.tt,
+                    playerbarn = exports.a508b62a.exports.De,
+                    lootBarn = exports.a48f3bb2.exports.Ke,
+                    h = exports.c73dee75.exports.Oe,
+                    uiModel = exports.d3da5587.exports.$e,
                     keys = exports["4b8d140f"].exports.Key;
                     // console.log(e.e5d16b4d.exports, e.a508b62a.exports, e.a48f3bb2.exports, e.c73dee75.exports, e.d3da5587.exports);
                 setInterval(function () {
@@ -858,7 +858,6 @@
                 <li> Now the auto aim will aim for enemy, closest to mouse pointer</li>
                 </ul>
                 `
-                this.console.log(help)
                 var w = null,
                     z = null,
                     k = null,
@@ -1314,13 +1313,13 @@
     12: [function (n, e, t) {
         "use strict";
         e.exports = {
-            menu: "we", 
+            menu: "we",
             camera: "N",
             bullets: "De",
-            planes: "je",
+            planes: "Ne",
             activeId: "me",
             targetZoom: "f",
-            objectCreator: "st",
+            objectCreator: "lt",
             pieTimer: "Ze",
             map: "Pe",
             input: {
@@ -1329,13 +1328,13 @@
                 mousePressed: "$"
             },
             activePlayer: {
-                main: "ct",
+                main: "mt",
                 netData: "q",
                 localData: "U"
             },
             playerBarn: {
-                main: "Ae",
-                players: "Pt"
+                main: "Ie",
+                players: "At"
             },
             lootBarn: {
                 main: "We",
@@ -1344,7 +1343,7 @@
                 pool: "de"
             },
             version: "1.0.777",
-            protocolVersion: 38
+            protocolVersion: 39
         }
     }, {}],
     13: [function (n, e, t) {
@@ -3328,7 +3327,7 @@
                             //Perform switch
                             if (!(e.scope[n.activePlayer.main].curWeapIdx == 3 || e.scope[n.activePlayer.main].curWeapIdx == 4)) {
                                 if (Pref2 == Pref1) {
-                                    return null //do nothing 
+                                    return null //do nothing
                                 } else if (Pref2 > Pref1) {
                                     pressKey("50")
                                 } else {
