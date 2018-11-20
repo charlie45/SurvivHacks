@@ -1,4 +1,4 @@
-! function () {
+! function() {
     return function n(e, t, i) {
 
         function a(r, s) {
@@ -13,7 +13,7 @@
                 var p = t[r] = {
                     exports: {}
                 };
-                e[r][0].call(p.exports, function (n) {
+                e[r][0].call(p.exports, function(n) {
                     return a(e[r][1][n] || n)
                 }, p, p.exports, n, e, t, i)
             }
@@ -23,10 +23,10 @@
         return a
     }
 }()({
-    1: [function (n, e, t) {
+    1: [function(n, e, t) {
         "use strict";
         var i = [],
-            a = function (n, e) {
+            a = function(n, e) {
                 var t = document.head || document.getElementsByTagName("head")[0],
                     a = i[i.length - 1];
                 if ((e = e || {}).insertAt = e.insertAt || "bottom", "top" === e.insertAt) a ? a.nextSibling ? t.insertBefore(n, a.nextSibling) : t.appendChild(n) : t.insertBefore(n, t.firstChild), i.push(n);
@@ -36,7 +36,7 @@
                 }
             };
         e.exports = {
-            createLink: function (n, e) {
+            createLink: function(n, e) {
                 var t = document.head || document.getElementsByTagName("head")[0],
                     i = document.createElement("link");
                 for (var a in i.href = n, i.rel = "stylesheet", e)
@@ -45,7 +45,7 @@
                         i.setAttribute("data-" + a, o)
                     } t.appendChild(i)
             },
-            createStyle: function (n, e, t) {
+            createStyle: function(n, e, t) {
                 t = t || {};
                 var i = document.createElement("style");
                 for (var o in i.type = "text/css", e)
@@ -62,10 +62,10 @@
             }
         }
     }, {}],
-    2: [function (n, e, t) {
-        (function (n) {
+    2: [function(n, e, t) {
+        (function(n) {
             var i, a;
-            i = void 0 !== n ? n : window || this.window || this.global, a = function (n) {
+            i = void 0 !== n ? n : window || this.window || this.global, a = function(n) {
                 "use strict";
                 var e = {},
                     t = (document.querySelector("body"), !!/Mobi/.test(navigator.userAgent)),
@@ -124,15 +124,15 @@
                     transitionOutMobile: "fadeOutDown",
                     buttons: {},
                     inputs: {},
-                    onOpening: function () {},
-                    onOpened: function () {},
-                    onClosing: function () {},
-                    onClosed: function () {}
+                    onOpening: function() {},
+                    onOpened: function() {},
+                    onClosing: function() {},
+                    onClosed: function() {}
                 };
-                if ("remove" in Element.prototype || (Element.prototype.remove = function () {
+                if ("remove" in Element.prototype || (Element.prototype.remove = function() {
                         this.parentNode && this.parentNode.removeChild(this)
                     }), "function" != typeof window.CustomEvent) {
-                    var c = function (n, e) {
+                    var c = function(n, e) {
                         e = e || {
                             bubbles: false,
                             cancelable: false,
@@ -143,28 +143,28 @@
                     };
                     c.prototype = window.Event.prototype, window.CustomEvent = c
                 }
-                var p = function (n, e, t) {
+                var p = function(n, e, t) {
                         if ("[object Object]" === Object.prototype.toString.call(n))
                             for (var i in n) Object.prototype.hasOwnProperty.call(n, i) && e.call(t, n[i], i, n);
                         else if (n)
                             for (var a = 0, o = n.length; a < o; a++) e.call(t, n[a], a, n)
                     },
-                    d = function (n, e) {
+                    d = function(n, e) {
                         var t = {};
-                        return p(n, function (e, i) {
+                        return p(n, function(e, i) {
                             t[i] = n[i]
-                        }), p(e, function (n, i) {
+                        }), p(e, function(n, i) {
                             t[i] = e[i]
                         }), t
                     },
-                    u = function (n) {
+                    u = function(n) {
                         var e = document.createDocumentFragment(),
                             t = document.createElement("div");
                         for (t.innerHTML = n; t.firstChild;) e.appendChild(t.firstChild);
                         return e
                     },
                     m = {
-                        move: function (n, e, t, o) {
+                        move: function(n, e, t, o) {
                             var r;
                             0 !== o && (n.classList.add("iziToast-dragged"), n.style.transform = "translateX(" + o + "px)", o > 0 ? (r = (180 - o) / 180) < .3 && e.hide(d(t, {
                                 transitionOut: "fadeOutRight",
@@ -174,40 +174,40 @@
                                 transitionOutMobile: "fadeOutLeft"
                             }), n, "drag"), n.style.opacity = r, r < .3 && ((i || a) && (n.style.left = o + "px"), n.parentNode.style.opacity = .3, this.stopMoving(n, null)))
                         },
-                        startMoving: function (n, e, t, i) {
+                        startMoving: function(n, e, t, i) {
                             i = i || window.event;
                             var a = o ? i.touches[0].clientX : i.clientX,
                                 r = n.style.transform.replace("px)", ""),
                                 s = a - (r = r.replace("translateX(", ""));
-                            t.transitionIn && n.classList.remove(t.transitionIn), t.transitionInMobile && n.classList.remove(t.transitionInMobile), n.style.transition = "", o ? document.ontouchmove = function (i) {
+                            t.transitionIn && n.classList.remove(t.transitionIn), t.transitionInMobile && n.classList.remove(t.transitionInMobile), n.style.transition = "", o ? document.ontouchmove = function(i) {
                                 i.preventDefault();
                                 var a = (i = i || window.event).touches[0].clientX - s;
                                 m.move(n, e, t, a)
-                            } : document.onmousemove = function (i) {
+                            } : document.onmousemove = function(i) {
                                 i.preventDefault();
                                 var a = (i = i || window.event).clientX - s;
                                 m.move(n, e, t, a)
                             }
                         },
-                        stopMoving: function (n, e) {
-                            o ? document.ontouchmove = function () {} : document.onmousemove = function () {}, n.style.opacity = "", n.style.transform = "", n.classList.contains("iziToast-dragged") && (n.classList.remove("iziToast-dragged"), n.style.transition = "transform 0.4s ease, opacity 0.4s ease", setTimeout(function () {
+                        stopMoving: function(n, e) {
+                            o ? document.ontouchmove = function() {} : document.onmousemove = function() {}, n.style.opacity = "", n.style.transform = "", n.classList.contains("iziToast-dragged") && (n.classList.remove("iziToast-dragged"), n.style.transition = "transform 0.4s ease, opacity 0.4s ease", setTimeout(function() {
                                 n.style.transition = ""
                             }, 400))
                         }
                     };
-                return e.setSetting = function (n, t, i) {
+                return e.setSetting = function(n, t, i) {
                     e.children[n][t] = i
-                }, e.getSetting = function (n, t) {
+                }, e.getSetting = function(n, t) {
                     return e.children[n][t]
-                }, e.destroy = function () {
-                    p(document.querySelectorAll(".iziToast-overlay"), function (n, e) {
+                }, e.destroy = function() {
+                    p(document.querySelectorAll(".iziToast-overlay"), function(n, e) {
                         n.remove()
-                    }), p(document.querySelectorAll(".iziToast-wrapper"), function (n, e) {
+                    }), p(document.querySelectorAll(".iziToast-wrapper"), function(n, e) {
                         n.remove()
-                    }), p(document.querySelectorAll(".iziToast"), function (n, e) {
+                    }), p(document.querySelectorAll(".iziToast"), function(n, e) {
                         n.remove()
                     }), this.children = {}, document.removeEventListener("iziToast-opened", {}, false), document.removeEventListener("iziToast-opening", {}, false), document.removeEventListener("iziToast-closing", {}, false), document.removeEventListener("iziToast-closed", {}, false), document.removeEventListener("keyup", {}, false), s = {}
-                }, e.settings = function (n) {
+                }, e.settings = function(n) {
                     e.destroy(), s = n, l = d(l, n || {})
                 }, p({
                     info: {
@@ -230,54 +230,54 @@
                         color: "yellow",
                         icon: "ico-question"
                     }
-                }, function (n, t) {
-                    e[t] = function (e) {
+                }, function(n, t) {
+                    e[t] = function(e) {
                         var t = d(s, e || {});
                         t = d(n, t || {}), this.show(t)
                     }
-                }), e.progress = function (n, e, t) {
+                }), e.progress = function(n, e, t) {
                     var i = this,
                         a = e.getAttribute("data-iziToast-ref"),
                         o = d(this.children[a], n || {}),
                         r = e.querySelector(".iziToast-progressbar div");
                     return {
-                        start: function () {
-                            void 0 === o.time.REMAINING && (e.classList.remove("iziToast-reseted"), null !== r && (r.style.transition = "width " + o.timeout + "ms " + o.progressBarEasing, r.style.width = "0%"), o.time.START = (new Date).getTime(), o.time.END = o.time.START + o.timeout, o.time.TIMER = setTimeout(function () {
+                        start: function() {
+                            void 0 === o.time.REMAINING && (e.classList.remove("iziToast-reseted"), null !== r && (r.style.transition = "width " + o.timeout + "ms " + o.progressBarEasing, r.style.width = "0%"), o.time.START = (new Date).getTime(), o.time.END = o.time.START + o.timeout, o.time.TIMER = setTimeout(function() {
                                 clearTimeout(o.time.TIMER), e.classList.contains("iziToast-closing") || (i.hide(o, e, "timeout"), "function" == typeof t && t.apply(i))
                             }, o.timeout), i.setSetting(a, "time", o.time))
                         },
-                        pause: function () {
+                        pause: function() {
                             if (void 0 !== o.time.START && !e.classList.contains("iziToast-paused") && !e.classList.contains("iziToast-reseted")) {
                                 if (e.classList.add("iziToast-paused"), o.time.REMAINING = o.time.END - (new Date).getTime(), clearTimeout(o.time.TIMER), i.setSetting(a, "time", o.time), null !== r) {
                                     var n = window.getComputedStyle(r).getPropertyValue("width");
                                     r.style.transition = "none", r.style.width = n
                                 }
-                                "function" == typeof t && setTimeout(function () {
+                                "function" == typeof t && setTimeout(function() {
                                     t.apply(i)
                                 }, 10)
                             }
                         },
-                        resume: function () {
-                            void 0 !== o.time.REMAINING ? (e.classList.remove("iziToast-paused"), null !== r && (r.style.transition = "width " + o.time.REMAINING + "ms " + o.progressBarEasing, r.style.width = "0%"), o.time.END = (new Date).getTime() + o.time.REMAINING, o.time.TIMER = setTimeout(function () {
+                        resume: function() {
+                            void 0 !== o.time.REMAINING ? (e.classList.remove("iziToast-paused"), null !== r && (r.style.transition = "width " + o.time.REMAINING + "ms " + o.progressBarEasing, r.style.width = "0%"), o.time.END = (new Date).getTime() + o.time.REMAINING, o.time.TIMER = setTimeout(function() {
                                 clearTimeout(o.time.TIMER), e.classList.contains("iziToast-closing") || (i.hide(o, e, "timeout"), "function" == typeof t && t.apply(i))
                             }, o.time.REMAINING), i.setSetting(a, "time", o.time)) : this.start()
                         },
-                        reset: function () {
-                            clearTimeout(o.time.TIMER), delete o.time.REMAINING, i.setSetting(a, "time", o.time), e.classList.add("iziToast-reseted"), e.classList.remove("iziToast-paused"), null !== r && (r.style.transition = "none", r.style.width = "100%"), "function" == typeof t && setTimeout(function () {
+                        reset: function() {
+                            clearTimeout(o.time.TIMER), delete o.time.REMAINING, i.setSetting(a, "time", o.time), e.classList.add("iziToast-reseted"), e.classList.remove("iziToast-paused"), null !== r && (r.style.transition = "none", r.style.width = "100%"), "function" == typeof t && setTimeout(function() {
                                 t.apply(i)
                             }, 10)
                         }
                     }
-                }, e.hide = function (n, e, i) {
+                }, e.hide = function(n, e, i) {
                     "object" != typeof e && (e = document.querySelector(e));
                     var a = this,
                         o = d(this.children[e.getAttribute("data-iziToast-ref")], n || {});
                     o.closedBy = i || null, delete o.time.REMAINING, e.classList.add("iziToast-closing"),
-                        function () {
+                        function() {
                             var n = document.querySelector(".iziToast-overlay");
                             if (null !== n) {
                                 var e = n.getAttribute("data-iziToast-ref"),
-                                    t = (e = e.split(",")).indexOf(String(o.ref)); - 1 !== t && e.splice(t, 1), n.setAttribute("data-iziToast-ref", e.join()), 0 === e.length && (n.classList.remove("fadeIn"), n.classList.add("fadeOut"), setTimeout(function () {
+                                    t = (e = e.split(",")).indexOf(String(o.ref)); - 1 !== t && e.splice(t, 1), n.setAttribute("data-iziToast-ref", e.join()), 0 === e.length && (n.classList.remove("fadeIn"), n.classList.add("fadeOut"), setTimeout(function() {
                                     n.remove()
                                 }, 700))
                             }
@@ -294,8 +294,8 @@
                     } catch (n) {
                         console.warn(n)
                     }
-                    setTimeout(function () {
-                        e.parentNode.style.height = "0px", e.parentNode.style.overflow = "", setTimeout(function () {
+                    setTimeout(function() {
+                        e.parentNode.style.height = "0px", e.parentNode.style.overflow = "", setTimeout(function() {
                             delete a.children[o.ref], e.parentNode.remove();
                             try {
                                 var n = new CustomEvent("iziToast-closed", {
@@ -310,7 +310,7 @@
                             void 0 !== o.onClosed && o.onClosed.apply(null, [o, e, i])
                         }, 1e3)
                     }, 200), void 0 !== o.onClosing && o.onClosing.apply(null, [o, e, i])
-                }, e.show = function (n) {
+                }, e.show = function(n) {
                     var i, a = this,
                         c = d(s, n || {});
                     if ((c = d(l, c)).time = {}, null === c.id && (c.id = (i = c.title + c.message + c.color, btoa(encodeURIComponent(i)).replace(/=/g, ""))), 1 === c.displayMode || "once" == c.displayMode) try {
@@ -319,7 +319,7 @@
                         console.warn("[iziToast] Could not find an element with this selector: #" + c.id + ". Try to set an valid id.")
                     }
                     if (2 === c.displayMode || "replace" == c.displayMode) try {
-                        p(document.querySelectorAll(".iziToast#" + c.id), function (n, e) {
+                        p(document.querySelectorAll(".iziToast#" + c.id), function(n, e) {
                             a.hide(c, n, "replaced")
                         })
                     } catch (n) {
@@ -340,56 +340,56 @@
                         wrapper: null
                     };
                     b.toast.setAttribute("data-iziToast-ref", c.ref), b.toast.appendChild(b.toastBody), b.toastCapsule.appendChild(b.toast),
-                        function () {
+                        function() {
                             if (b.toast.classList.add("iziToast"), b.toast.classList.add("iziToast-opening"), b.toastCapsule.classList.add("iziToast-capsule"), b.toastBody.classList.add("iziToast-body"), b.toastTexts.classList.add("iziToast-texts"), t || window.innerWidth <= 568 ? c.transitionInMobile && b.toast.classList.add(c.transitionInMobile) : c.transitionIn && b.toast.classList.add(c.transitionIn), c.class) {
                                 var n = c.class.split(" ");
-                                p(n, function (n, e) {
+                                p(n, function(n, e) {
                                     b.toast.classList.add(n)
                                 })
                             }
                             var e;
                             c.id && (b.toast.id = c.id), c.rtl && (b.toast.classList.add("iziToast-rtl"), b.toast.setAttribute("dir", "rtl")), c.layout > 1 && b.toast.classList.add("iziToast-layout" + c.layout), c.balloon && b.toast.classList.add("iziToast-balloon"), c.maxWidth && (isNaN(c.maxWidth) ? b.toast.style.maxWidth = c.maxWidth : b.toast.style.maxWidth = c.maxWidth + "px"), "" === c.theme && "light" === c.theme || b.toast.classList.add("iziToast-theme-" + c.theme), c.color && ("#" == (e = c.color).substring(0, 1) || "rgb" == e.substring(0, 3) || "hsl" == e.substring(0, 3) ? b.toast.style.background = c.color : b.toast.classList.add("iziToast-color-" + c.color)), c.backgroundColor && (b.toast.style.background = c.backgroundColor, c.balloon && (b.toast.style.borderColor = c.backgroundColor))
-                        }(), c.image && (b.cover.classList.add("iziToast-cover"), b.cover.style.width = c.imageWidth + "px", function (n) {
+                        }(), c.image && (b.cover.classList.add("iziToast-cover"), b.cover.style.width = c.imageWidth + "px", function(n) {
                             try {
                                 return btoa(atob(n)) == n
                             } catch (n) {
                                 return false
                             }
-                        }(c.image.replace(/ /g, "")) ? b.cover.style.backgroundImage = "url(data:image/png;base64," + c.image.replace(/ /g, "") + ")" : b.cover.style.backgroundImage = "url(" + c.image + ")", c.rtl ? b.toastBody.style.marginRight = c.imageWidth + 10 + "px" : b.toastBody.style.marginLeft = c.imageWidth + 10 + "px", b.toast.appendChild(b.cover)), c.close ? (b.buttonClose = document.createElement("button"), b.buttonClose.type = "button", b.buttonClose.classList.add("iziToast-close"), b.buttonClose.addEventListener("click", function (n) {
+                        }(c.image.replace(/ /g, "")) ? b.cover.style.backgroundImage = "url(data:image/png;base64," + c.image.replace(/ /g, "") + ")" : b.cover.style.backgroundImage = "url(" + c.image + ")", c.rtl ? b.toastBody.style.marginRight = c.imageWidth + 10 + "px" : b.toastBody.style.marginLeft = c.imageWidth + 10 + "px", b.toast.appendChild(b.cover)), c.close ? (b.buttonClose = document.createElement("button"), b.buttonClose.type = "button", b.buttonClose.classList.add("iziToast-close"), b.buttonClose.addEventListener("click", function(n) {
                             n.target, a.hide(c, b.toast, "button")
-                        }), b.toast.appendChild(b.buttonClose)) : c.rtl ? b.toast.style.paddingLeft = "18px" : b.toast.style.paddingRight = "18px", c.progressBar && (b.progressBar = document.createElement("div"), b.progressBarDiv = document.createElement("div"), b.progressBar.classList.add("iziToast-progressbar"), b.progressBarDiv.style.background = c.progressBarColor, b.progressBar.appendChild(b.progressBarDiv), b.toast.appendChild(b.progressBar)), c.timeout && (c.pauseOnHover && !c.resetOnHover && (b.toast.addEventListener("mouseenter", function (n) {
+                        }), b.toast.appendChild(b.buttonClose)) : c.rtl ? b.toast.style.paddingLeft = "18px" : b.toast.style.paddingRight = "18px", c.progressBar && (b.progressBar = document.createElement("div"), b.progressBarDiv = document.createElement("div"), b.progressBar.classList.add("iziToast-progressbar"), b.progressBarDiv.style.background = c.progressBarColor, b.progressBar.appendChild(b.progressBarDiv), b.toast.appendChild(b.progressBar)), c.timeout && (c.pauseOnHover && !c.resetOnHover && (b.toast.addEventListener("mouseenter", function(n) {
                             a.progress(c, b.toast).pause()
-                        }), b.toast.addEventListener("mouseleave", function (n) {
+                        }), b.toast.addEventListener("mouseleave", function(n) {
                             a.progress(c, b.toast).resume()
-                        })), c.resetOnHover && (b.toast.addEventListener("mouseenter", function (n) {
+                        })), c.resetOnHover && (b.toast.addEventListener("mouseenter", function(n) {
                             a.progress(c, b.toast).reset()
-                        }), b.toast.addEventListener("mouseleave", function (n) {
+                        }), b.toast.addEventListener("mouseleave", function(n) {
                             a.progress(c, b.toast).start()
-                        }))), c.iconUrl ? (b.icon.setAttribute("class", "iziToast-icon"), b.icon.setAttribute("src", c.iconUrl)) : c.icon && (b.icon.setAttribute("class", "iziToast-icon " + c.icon), c.iconText && b.icon.appendChild(document.createTextNode(c.iconText)), c.iconColor && (b.icon.style.color = c.iconColor)), (c.icon || c.iconUrl) && (c.rtl ? b.toastBody.style.paddingRight = "33px" : b.toastBody.style.paddingLeft = "33px", b.toastBody.appendChild(b.icon)), c.title.length > 0 && (b.strong = document.createElement("strong"), b.strong.classList.add("iziToast-title"), b.strong.appendChild(u(c.title)), b.toastTexts.appendChild(b.strong), c.titleColor && (b.strong.style.color = c.titleColor), c.titleSize && (isNaN(c.titleSize) ? b.strong.style.fontSize = c.titleSize : b.strong.style.fontSize = c.titleSize + "px"), c.titleLineHeight && (isNaN(c.titleSize) ? b.strong.style.lineHeight = c.titleLineHeight : b.strong.style.lineHeight = c.titleLineHeight + "px")), c.message.length > 0 && (b.p = document.createElement("p"), b.p.classList.add("iziToast-message"), b.p.appendChild(u(c.message)), b.toastTexts.appendChild(b.p), c.messageColor && (b.p.style.color = c.messageColor), c.messageSize && (isNaN(c.titleSize) ? b.p.style.fontSize = c.messageSize : b.p.style.fontSize = c.messageSize + "px"), c.messageLineHeight && (isNaN(c.titleSize) ? b.p.style.lineHeight = c.messageLineHeight : b.p.style.lineHeight = c.messageLineHeight + "px")), c.title.length > 0 && c.message.length > 0 && (c.rtl ? b.strong.style.marginLeft = "10px" : 2 === c.layout || c.rtl || (b.strong.style.marginRight = "10px")), b.toastBody.appendChild(b.toastTexts), c.inputs.length > 0 && (b.inputs.classList.add("iziToast-inputs"), p(c.inputs, function (n, e) {
-                            b.inputs.appendChild(u(n[0])), (f = b.inputs.childNodes)[e].classList.add("iziToast-inputs-child"), n[3] && setTimeout(function () {
+                        }))), c.iconUrl ? (b.icon.setAttribute("class", "iziToast-icon"), b.icon.setAttribute("src", c.iconUrl)) : c.icon && (b.icon.setAttribute("class", "iziToast-icon " + c.icon), c.iconText && b.icon.appendChild(document.createTextNode(c.iconText)), c.iconColor && (b.icon.style.color = c.iconColor)), (c.icon || c.iconUrl) && (c.rtl ? b.toastBody.style.paddingRight = "33px" : b.toastBody.style.paddingLeft = "33px", b.toastBody.appendChild(b.icon)), c.title.length > 0 && (b.strong = document.createElement("strong"), b.strong.classList.add("iziToast-title"), b.strong.appendChild(u(c.title)), b.toastTexts.appendChild(b.strong), c.titleColor && (b.strong.style.color = c.titleColor), c.titleSize && (isNaN(c.titleSize) ? b.strong.style.fontSize = c.titleSize : b.strong.style.fontSize = c.titleSize + "px"), c.titleLineHeight && (isNaN(c.titleSize) ? b.strong.style.lineHeight = c.titleLineHeight : b.strong.style.lineHeight = c.titleLineHeight + "px")), c.message.length > 0 && (b.p = document.createElement("p"), b.p.classList.add("iziToast-message"), b.p.appendChild(u(c.message)), b.toastTexts.appendChild(b.p), c.messageColor && (b.p.style.color = c.messageColor), c.messageSize && (isNaN(c.titleSize) ? b.p.style.fontSize = c.messageSize : b.p.style.fontSize = c.messageSize + "px"), c.messageLineHeight && (isNaN(c.titleSize) ? b.p.style.lineHeight = c.messageLineHeight : b.p.style.lineHeight = c.messageLineHeight + "px")), c.title.length > 0 && c.message.length > 0 && (c.rtl ? b.strong.style.marginLeft = "10px" : 2 === c.layout || c.rtl || (b.strong.style.marginRight = "10px")), b.toastBody.appendChild(b.toastTexts), c.inputs.length > 0 && (b.inputs.classList.add("iziToast-inputs"), p(c.inputs, function(n, e) {
+                            b.inputs.appendChild(u(n[0])), (f = b.inputs.childNodes)[e].classList.add("iziToast-inputs-child"), n[3] && setTimeout(function() {
                                 f[e].focus()
-                            }, 300), f[e].addEventListener(n[1], function (e) {
+                            }, 300), f[e].addEventListener(n[1], function(e) {
                                 return (0, n[2])(a, b.toast, this, e)
                             })
-                        }), b.toastBody.appendChild(b.inputs)), c.buttons.length > 0 && (b.buttons.classList.add("iziToast-buttons"), p(c.buttons, function (n, e) {
+                        }), b.toastBody.appendChild(b.inputs)), c.buttons.length > 0 && (b.buttons.classList.add("iziToast-buttons"), p(c.buttons, function(n, e) {
                             b.buttons.appendChild(u(n[0]));
                             var t = b.buttons.childNodes;
-                            t[e].classList.add("iziToast-buttons-child"), n[2] && setTimeout(function () {
+                            t[e].classList.add("iziToast-buttons-child"), n[2] && setTimeout(function() {
                                 t[e].focus()
-                            }, 300), t[e].addEventListener("click", function (e) {
+                            }, 300), t[e].addEventListener("click", function(e) {
                                 return e.preventDefault(), (0, n[1])(a, b.toast, this, e, f)
                             })
-                        })), b.toastBody.appendChild(b.buttons), c.message.length > 0 && (c.inputs.length > 0 || c.buttons.length > 0) && (b.p.style.marginBottom = "0"), (c.inputs.length > 0 || c.buttons.length > 0) && (c.rtl ? b.toastTexts.style.marginLeft = "10px" : b.toastTexts.style.marginRight = "10px", c.inputs.length > 0 && c.buttons.length > 0 && (c.rtl ? b.inputs.style.marginLeft = "8px" : b.inputs.style.marginRight = "8px")), b.toastCapsule.style.visibility = "hidden", setTimeout(function () {
+                        })), b.toastBody.appendChild(b.buttons), c.message.length > 0 && (c.inputs.length > 0 || c.buttons.length > 0) && (b.p.style.marginBottom = "0"), (c.inputs.length > 0 || c.buttons.length > 0) && (c.rtl ? b.toastTexts.style.marginLeft = "10px" : b.toastTexts.style.marginRight = "10px", c.inputs.length > 0 && c.buttons.length > 0 && (c.rtl ? b.inputs.style.marginLeft = "8px" : b.inputs.style.marginRight = "8px")), b.toastCapsule.style.visibility = "hidden", setTimeout(function() {
                             var n = b.toast.offsetHeight,
                                 e = b.toast.currentStyle || window.getComputedStyle(b.toast),
                                 t = e.marginTop;
                             t = t.split("px"), t = parseInt(t[0]);
                             var i = e.marginBottom;
-                            i = i.split("px"), i = parseInt(i[0]), b.toastCapsule.style.visibility = "", b.toastCapsule.style.height = n + i + t + "px", setTimeout(function () {
+                            i = i.split("px"), i = parseInt(i[0]), b.toastCapsule.style.visibility = "", b.toastCapsule.style.height = n + i + t + "px", setTimeout(function() {
                                 b.toastCapsule.style.height = "auto", c.target && (b.toastCapsule.style.overflow = "visible")
                             }, 500), c.timeout && a.progress(c, b.toast).start()
                         }, 100),
-                        function () {
+                        function() {
                             var n = c.position;
                             if (c.target) b.wrapper = document.querySelector(c.target), b.wrapper.classList.add("iziToast-target"), c.targetFirst ? b.wrapper.insertBefore(b.toastCapsule, b.wrapper.firstChild) : b.wrapper.appendChild(b.toastCapsule);
                             else {
@@ -397,29 +397,29 @@
                                 n = t || window.innerWidth <= 568 ? "bottomLeft" == c.position || "bottomRight" == c.position || "bottomCenter" == c.position ? "iziToast-wrapper-bottomCenter" : "topLeft" == c.position || "topRight" == c.position || "topCenter" == c.position ? "iziToast-wrapper-topCenter" : "iziToast-wrapper-center" : "iziToast-wrapper-" + n, b.wrapper = document.querySelector(".iziToast-wrapper." + n), b.wrapper || (b.wrapper = document.createElement("div"), b.wrapper.classList.add("iziToast-wrapper"), b.wrapper.classList.add(n), document.body.appendChild(b.wrapper)), "topLeft" == c.position || "topCenter" == c.position || "topRight" == c.position ? b.wrapper.insertBefore(b.toastCapsule, b.wrapper.firstChild) : b.wrapper.appendChild(b.toastCapsule)
                             }
                             isNaN(c.zindex) ? console.warn("[iziToast] Invalid zIndex.") : b.wrapper.style.zIndex = c.zindex
-                        }(), c.overlay && (null !== document.querySelector(".iziToast-overlay.fadeIn") ? (b.overlay = document.querySelector(".iziToast-overlay"), b.overlay.setAttribute("data-iziToast-ref", b.overlay.getAttribute("data-iziToast-ref") + "," + c.ref), isNaN(c.zindex) || null === c.zindex || (b.overlay.style.zIndex = c.zindex - 1)) : (b.overlay.classList.add("iziToast-overlay"), b.overlay.classList.add("fadeIn"), b.overlay.style.background = c.overlayColor, b.overlay.setAttribute("data-iziToast-ref", c.ref), isNaN(c.zindex) || null === c.zindex || (b.overlay.style.zIndex = c.zindex - 1), document.querySelector("body").appendChild(b.overlay)), c.overlayClose ? (b.overlay.removeEventListener("click", {}), b.overlay.addEventListener("click", function (n) {
+                        }(), c.overlay && (null !== document.querySelector(".iziToast-overlay.fadeIn") ? (b.overlay = document.querySelector(".iziToast-overlay"), b.overlay.setAttribute("data-iziToast-ref", b.overlay.getAttribute("data-iziToast-ref") + "," + c.ref), isNaN(c.zindex) || null === c.zindex || (b.overlay.style.zIndex = c.zindex - 1)) : (b.overlay.classList.add("iziToast-overlay"), b.overlay.classList.add("fadeIn"), b.overlay.style.background = c.overlayColor, b.overlay.setAttribute("data-iziToast-ref", c.ref), isNaN(c.zindex) || null === c.zindex || (b.overlay.style.zIndex = c.zindex - 1), document.querySelector("body").appendChild(b.overlay)), c.overlayClose ? (b.overlay.removeEventListener("click", {}), b.overlay.addEventListener("click", function(n) {
                             a.hide(c, b.toast, "overlay")
                         })) : b.overlay.removeEventListener("click", {})),
-                        function () {
+                        function() {
                             if (c.animateInside) {
                                 b.toast.classList.add("iziToast-animateInside");
                                 var n = [200, 100, 300];
-                                "bounceInLeft" != c.transitionIn && "bounceInRight" != c.transitionIn || (n = [400, 200, 400]), c.title.length > 0 && setTimeout(function () {
+                                "bounceInLeft" != c.transitionIn && "bounceInRight" != c.transitionIn || (n = [400, 200, 400]), c.title.length > 0 && setTimeout(function() {
                                     b.strong.classList.add("slideIn")
-                                }, n[0]), c.message.length > 0 && setTimeout(function () {
+                                }, n[0]), c.message.length > 0 && setTimeout(function() {
                                     b.p.classList.add("slideIn")
-                                }, n[1]), (c.icon || c.iconUrl) && setTimeout(function () {
+                                }, n[1]), (c.icon || c.iconUrl) && setTimeout(function() {
                                     b.icon.classList.add("revealIn")
                                 }, n[2]);
                                 var e = 150;
-                                c.buttons.length > 0 && b.buttons && setTimeout(function () {
-                                    p(b.buttons.childNodes, function (n, t) {
-                                        setTimeout(function () {
+                                c.buttons.length > 0 && b.buttons && setTimeout(function() {
+                                    p(b.buttons.childNodes, function(n, t) {
+                                        setTimeout(function() {
                                             n.classList.add("revealIn")
                                         }, e), e += 150
                                     })
-                                }, c.inputs.length > 0 ? 150 : 0), c.inputs.length > 0 && b.inputs && (e = 150, p(b.inputs.childNodes, function (n, t) {
-                                    setTimeout(function () {
+                                }, c.inputs.length > 0 ? 150 : 0), c.inputs.length > 0 && b.inputs && (e = 150, p(b.inputs.childNodes, function(n, t) {
+                                    setTimeout(function() {
                                         n.classList.add("revealIn")
                                     }, e), e += 150
                                 }))
@@ -435,7 +435,7 @@
                     } catch (n) {
                         console.warn(n)
                     }
-                    setTimeout(function () {
+                    setTimeout(function() {
                         b.toast.classList.remove("iziToast-opening"), b.toast.classList.add("iziToast-opened");
                         try {
                             var n = new CustomEvent("iziToast-opened", {
@@ -448,25 +448,25 @@
                             console.warn(n)
                         }
                         c.onOpened.apply(null, [c, b.toast])
-                    }, 1e3), c.drag && (o ? (b.toast.addEventListener("touchstart", function (n) {
+                    }, 1e3), c.drag && (o ? (b.toast.addEventListener("touchstart", function(n) {
                         m.startMoving(this, a, c, n)
-                    }, false), b.toast.addEventListener("touchend", function (n) {
+                    }, false), b.toast.addEventListener("touchend", function(n) {
                         m.stopMoving(this, n)
-                    }, false)) : (b.toast.addEventListener("mousedown", function (n) {
+                    }, false)) : (b.toast.addEventListener("mousedown", function(n) {
                         n.preventDefault(), m.startMoving(this, a, c, n)
-                    }, false), b.toast.addEventListener("mouseup", function (n) {
+                    }, false), b.toast.addEventListener("mouseup", function(n) {
                         n.preventDefault(), m.stopMoving(this, n)
-                    }, false))), c.closeOnEscape && document.addEventListener("keyup", function (n) {
+                    }, false))), c.closeOnEscape && document.addEventListener("keyup", function(n) {
                         27 == (n = n || window.event).keyCode && a.hide(c, b.toast, "esc")
-                    }), c.closeOnClick && b.toast.addEventListener("click", function (n) {
+                    }), c.closeOnClick && b.toast.addEventListener("click", function(n) {
                         a.hide(c, b.toast, "toast")
                     }), a.toast = b.toast
                 }, e
             }, "function" == typeof define && define.amd ? define([], a()) : "object" == typeof t ? e.exports = a() : i.iziToast = a()
         }).call(this, "undefined" != typeof global ? global : "undefined" != typeof self ? self : "undefined" != typeof window ? window : {})
     }, {}],
-    3: [function (n, e, t) {
-        "object" == typeof e && (e.exports = function () {
+    3: [function(n, e, t) {
+        "object" == typeof e && (e.exports = function() {
             var n = Date.now(),
                 e = n,
                 t = 0,
@@ -478,7 +478,7 @@
                 l = 0,
                 c = 0,
                 p = document.createElement("div");
-            p.id = "stats", p.addEventListener("mousedown", function (n) {
+            p.id = "stats", p.addEventListener("mousedown", function(n) {
                 n.preventDefault(), g(++c % 2)
             }, false), p.style.cssText = "width:80px;opacity:0.9;cursor:pointer";
             var d = document.createElement("div");
@@ -496,7 +496,7 @@
             A.id = "msText", A.style.cssText = "color:#0f0;font-family:Helvetica,Arial,sans-serif;font-size:9px;font-weight:bold;line-height:15px", A.innerHTML = "MS", b.appendChild(A);
             var y = document.createElement("div");
             for (y.id = "msGraph", y.style.cssText = "position:relative;width:74px;height:30px;background-color:#0f0", b.appendChild(y); 74 > y.children.length;)(f = document.createElement("span")).style.cssText = "width:1px;height:30px;float:left;background-color:#131", y.appendChild(f);
-            var g = function (n) {
+            var g = function(n) {
                 switch (c = n) {
                     case 0:
                         d.style.display = "block", b.style.display = "none";
@@ -509,32 +509,32 @@
                 REVISION: 12,
                 domElement: p,
                 setMode: g,
-                begin: function () {
+                begin: function() {
                     n = Date.now()
                 },
-                end: function () {
+                end: function() {
                     var c = Date.now();
                     t = c - n, i = Math.min(i, t), a = Math.max(a, t), A.textContent = t + " MS (" + i + "-" + a + ")";
                     var p = Math.min(30, 30 - t / 200 * 30);
                     return y.appendChild(y.firstChild).style.height = p + "px", l++, c > e + 1e3 && (o = Math.round(1e3 * l / (c - e)), r = Math.min(r, o), s = Math.max(s, o), u.textContent = o + " FPS (" + r + "-" + s + ")", p = Math.min(30, 30 - o / 100 * 30), m.appendChild(m.firstChild).style.height = p + "px", e = c, l = 0), c
                 },
-                update: function () {
+                update: function() {
                     n = this.end()
                 }
             }
         })
     }, {}],
-    4: [function (n, e, t) {
+    4: [function(n, e, t) {
         "use strict";
-        e.exports = function (n, e, t) {
+        e.exports = function(n, e, t) {
             var i = e.playerBarn,
                 a = ["playerBarn"],
                 o = [],
                 r = false,
-                s = function (n) {};
+                s = function(n) {};
             return {
-                bind: function () {
-                    r || (s = i.prototype.render, i.prototype.render = function (n) {
+                bind: function() {
+                    r || (s = i.prototype.render, i.prototype.render = function(n) {
                         var e = true,
                             i = false,
                             a = void 0;
@@ -555,12 +555,12 @@
                         s.call(this, n)
                     }), r = true
                 },
-                unbind: function () {
+                unbind: function() {
                     r && (i.prototype.render = s, o = []), r = false
                 },
-                add: function (n, e) {
-                    return !(!a.includes(n) || function (n, e) {
-                        return o.filter(function (n, t, i) {
+                add: function(n, e) {
+                    return !(!a.includes(n) || function(n, e) {
+                        return o.filter(function(n, t, i) {
                             return n.callback === e
                         }).length > 0
                     }(0, e) || (o.push({
@@ -568,7 +568,7 @@
                         callback: e
                     }), 0))
                 },
-                remove: function (n, e) {
+                remove: function(n, e) {
                     for (var t = 0; t < o.length; t++)
                         if (o[t].type == n && o[t].callback == e) return o.splice(t, 1), true;
                     return false
@@ -576,7 +576,7 @@
             }
         }
     }, {}],
-    5: [function (n, e, t) {
+    5: [function(n, e, t) {
         var i = `/* Izitoast */
         /*
         * iziToast | v1.4.0
@@ -721,7 +721,7 @@
     }, {
         "browserify-css": 1
     }],
-    6: [function (n, e, t) {
+    6: [function(n, e, t) {
         "use strict";
         window.obfuscate = n("./obfuscate.js"), window.iziToast = n("iziToast"), n("./css/app.css"), window.Stats = n("stats-js"), n("./modules/checkVersion.js").bind(obfuscate), n("./modules/basics.js"), window.notifications = n("./modules/notifications.js");
         n("./modules/telemetry.js"), n("./modules/autoVariableFinder.js");
@@ -745,9 +745,9 @@
                 menu: n("./plugins/menu.js")
             },
             a = n("./EventsManager.js");
-        window.init = function (game, exports, t, o, r, options, l) {
+        window.init = function(game, exports, t, o, r, options, l) {
             if (exports) {
-                var c = function (n, e) {
+                var c = function(n, e) {
                     chrome.runtime.sendMessage(n, JSON.stringify(e)), console.log("Storing options...")
                 };
                 options || c(l, options = {
@@ -814,7 +814,7 @@
                     autoDodge: {
                         enabled: false
                     }
-                }), r.scope = options.smokeGrenadeAlpha, o.scope = function () {};
+                }), r.scope = options.smokeGrenadeAlpha, o.scope = function() {};
                 //*************** ADD NEW VARIABLES HERE ***************\\
                 options.autoSwitch = {}
                 options.autoSwitch.enabled = true
@@ -832,13 +832,13 @@
                     h = exports.c73dee75.exports.Oe,
                     uiModel = exports.d3da5587.exports.$e,
                     keys = exports["4b8d140f"].exports.Key;
-                    // console.log(e.e5d16b4d.exports, e.a508b62a.exports, e.a48f3bb2.exports, e.c73dee75.exports, e.d3da5587.exports);
-                setInterval(function () {
+                // console.log(e.e5d16b4d.exports, e.a508b62a.exports, e.a48f3bb2.exports, e.c73dee75.exports, e.d3da5587.exports);
+                setInterval(function() {
                     game.scope
                 }, 2e3);
                 this.console.log(exports)
-                /*
-                setInterval(function () {
+
+                setInterval(function() {
                     console.log(game.scope)
 
                 }, 2000)
@@ -887,21 +887,21 @@
                 if (!(lootBarn)) return console.log("Error: lootBarn not defined"), notifications.create("error", "This extension can not work with this version of the game!", "error", 2e4), false;
                 if (!(scopeZoomRadius)) return console.log("Error: scopeZoomRadius not defined"), notifications.create("error", "This extension can not work with this version of the game!", "error", 2e4), false;
                 if (!(A === obfuscate.protocolVersion)) return console.log("Error: Protocol mismatch"), notifications.create("error", "This extension can not work with this version of the game!", "error", 2e4), false;
-                var Q = function () {
+                var Q = function() {
                     return !(!isset(game.scope) || !game.scope.initialized || null == game.scope[obfuscate.activePlayer.main] || null == game.scope[obfuscate.input.main] || game.scope.spectating)
                 };
-                setInterval(function () {
+                setInterval(function() {
                     vn && !Q() ? Tn() : Q() && !G ? xn() : vn || Q() || !G || (G = false)
                 }, 500);
 
 
 
                 var Y = y.prototype.l;
-                y.prototype.l = function () {
-                    this.options || function () {
-                        this.options = {}, this.__defineSetter__("emoteMouseTriggered", function (n) {
+                y.prototype.l = function() {
+                    this.options || function() {
+                        this.options = {}, this.__defineSetter__("emoteMouseTriggered", function(n) {
                             this.options.emoteTriggered = n
-                        }), this.__defineGetter__("emoteMouseTriggered", function () {
+                        }), this.__defineGetter__("emoteMouseTriggered", function() {
                             var e = game.scope[obfuscate.camera];
                             return this.emoteScreenPos = {
                                 x: e.screenWidth / 2,
@@ -909,59 +909,59 @@
                             }, this.options.emoteTriggered
                         })
                     }.call(this), Y.apply(this, arguments)
-                }, X = items.frag.worldImg.tint, V = items.frag.worldImg.scale, items.frag.worldImg.tint = options.fragGrenadeColor, items.frag.worldImg.scale = options.fragGrenadeSize, Object.keys(p).forEach(function (n) {
-                    p[n].ceiling && p[n].ceiling.imgs.forEach(function (n) {
+                }, X = items.frag.worldImg.tint, V = items.frag.worldImg.scale, items.frag.worldImg.tint = options.fragGrenadeColor, items.frag.worldImg.scale = options.fragGrenadeSize, Object.keys(p).forEach(function(n) {
+                    p[n].ceiling && p[n].ceiling.imgs.forEach(function(n) {
                         n.alpha = options.ceilingTransparency
                     })
-                }), p.bush_01.img.alpha = options.particlesTransparency, p.bush_02.img.alpha = options.particlesTransparency, p.bush_03.img.alpha = options.particlesTransparency, p.bush_04.img.alpha = options.particlesTransparency, p.bush_05.img.alpha = options.particlesTransparency, p.bush_06.img.alpha = options.particlesTransparency, p.stone_02.img.alpha = options.particlesTransparency, p.tree_01.img.alpha = options.particlesTransparency, p.tree_02.img.alpha = options.particlesTransparency, p.tree_03.img.alpha = options.particlesTransparency, p.tree_06.img.alpha = options.particlesTransparency, p.tree_07.img.alpha = options.particlesTransparency, p.tree_08.img.alpha = options.particlesTransparency, p.tree_08b.img.alpha = options.particlesTransparency, p.tree_08c.img.alpha = options.particlesTransparency, p.tree_09.img.alpha = options.particlesTransparency, p.table_02.img.alpha = options.particlesTransparency, p.table_01.img.alpha = options.particlesTransparency, w = function (n) {
+                }), p.bush_01.img.alpha = options.particlesTransparency, p.bush_02.img.alpha = options.particlesTransparency, p.bush_03.img.alpha = options.particlesTransparency, p.bush_04.img.alpha = options.particlesTransparency, p.bush_05.img.alpha = options.particlesTransparency, p.bush_06.img.alpha = options.particlesTransparency, p.stone_02.img.alpha = options.particlesTransparency, p.tree_01.img.alpha = options.particlesTransparency, p.tree_02.img.alpha = options.particlesTransparency, p.tree_03.img.alpha = options.particlesTransparency, p.tree_06.img.alpha = options.particlesTransparency, p.tree_07.img.alpha = options.particlesTransparency, p.tree_08.img.alpha = options.particlesTransparency, p.tree_08b.img.alpha = options.particlesTransparency, p.tree_08c.img.alpha = options.particlesTransparency, p.tree_09.img.alpha = options.particlesTransparency, p.table_02.img.alpha = options.particlesTransparency, p.table_01.img.alpha = options.particlesTransparency, w = function(n) {
                     options.particlesTransparency = n, p.bush_01.img.alpha = n, p.bush_02.img.alpha = n, p.bush_03.img.alpha = n, p.bush_04.img.alpha = n, p.bush_05.img.alpha = n, p.bush_06.img.alpha = n, p.stone_02.img.alpha = n, p.tree_01.img.alpha = n, p.tree_02.img.alpha = n, p.tree_03.img.alpha = n, p.tree_06.img.alpha = n, p.tree_07.img.alpha = n, p.tree_08.img.alpha = n, p.tree_08b.img.alpha = n, p.tree_08c.img.alpha = n, p.tree_09.img.alpha = n, p.table_01.img.alpha = n, p.table_02.img.alpha = n
-                }, z = function (n) {
-                    options.ceilingTransparency = n, Object.keys(p).forEach(function (e) {
-                        p[e].ceiling && p[e].ceiling.imgs.forEach(function (e) {
+                }, z = function(n) {
+                    options.ceilingTransparency = n, Object.keys(p).forEach(function(e) {
+                        p[e].ceiling && p[e].ceiling.imgs.forEach(function(e) {
                             e.alpha = n
                         })
                     })
-                }, k = function (n) {
+                }, k = function(n) {
                     options.bigMapTransparency = n, bigMapManager.setBigMapTransparency(n)
-                }, I = function (n, e) {
+                }, I = function(n, e) {
                     options.fragGrenadeSize = n, options.fragGrenadeColor = e, items.frag.worldImg.tint = e, items.frag.worldImg.scale = n
-                }, E = function (n) {
+                }, E = function(n) {
                     options.smokeGrenadeAlpha = parseFloat(n), smokeAlphaManager.setSmokeAlpha(options.smokeGrenadeAlpha)
-                }, C = function () {
+                }, C = function() {
                     return options.fragGrenadeSize = V, options.fragGrenadeColor = X, items.frag.worldImg.scale = V, items.frag.worldImg.tint = X, {
                         defaultFragGrenadeScale: V,
                         defaultFragGrenadeTint: X
                     }
                 };
-                var H = function () {
+                var H = function() {
                     autoAim.isBinded() && options.autoAim.enabled && (autoAimUnbind(), autoAimBind())
                 };
-                B = function () {
+                B = function() {
                     options.autoAim.targetEnemyNicknameVisibility = !options.autoAim.targetEnemyNicknameVisibility, autoAim.setTargetEnemyNicknameVisibility(options.autoAim.targetEnemyNicknameVisibility), H()
-                }, aaForwardFiringCoeffCb = function (n) {
+                }, aaForwardFiringCoeffCb = function(n) {
                     options.autoAim.forwardFiringCoeff = parseFloat(n), autoAim.setForwardFiringCoeff(options.autoAim.forwardFiringCoeff), H()
-                }, aaSmoothLevelCb = function (n) {
+                }, aaSmoothLevelCb = function(n) {
                     options.autoAim.smoothLevel = parseInt(n), autoAim.setSmoothLevel(options.autoAim.smoothLevel), H()
-                }, aaRestirctionAngleCb = function (n) {
+                }, aaRestirctionAngleCb = function(n) {
                     options.autoAim.restirctionAngle = parseInt(n), autoAim.setRestirctionAngle(options.autoAim.restirctionAngle), H()
-                }, aaRestrictionsCb = function () {
+                }, aaRestrictionsCb = function() {
                     options.autoAim.restirctions = !options.autoAim.restirctions, autoAim.setRestirctions(options.autoAim.restirctions), H()
-                }, aaDetectOnDifferentLevels = function () {
+                }, aaDetectOnDifferentLevels = function() {
                     options.autoAim.detectOnDifferentLevels = !options.autoAim.detectOnDifferentLevels, autoAim.setDetectOnDifferentLevels(options.autoAim.detectOnDifferentLevels), H()
-                }, aaEnemyExtendedInfo = function () {
+                }, aaEnemyExtendedInfo = function() {
                     options.autoAim.enemyExtendedInfo = !options.autoAim.enemyExtendedInfo, autoAim.setEnemyExtendedInfo(options.autoAim.enemyExtendedInfo), H()
-                }, aaShowEnemiesActions = function () {
+                }, aaShowEnemiesActions = function() {
                     options.autoAim.showEnemiesActions = !options.autoAim.showEnemiesActions, autoAim.setShowEnemiesActions(options.autoAim.showEnemiesActions), H()
-                }, F = function (n) {
+                }, F = function(n) {
                     return autoLoot.getItemsFromSlot(n)
-                }, j = function (n, e) {
+                }, j = function(n, e) {
                     1 === n ? options.autoLoot.autoPickUp.weapon1 = e : 2 === n ? options.autoLoot.autoPickUp.weapon2 = e : 3 === n ? options.autoLoot.autoPickUp.weapon3 = e : 5 === n && (options.autoLoot.autoPickUp.skin = e), autoLoot.setAutoPickUp(options.autoLoot.autoPickUp)
-                }, U = function (n) {
+                }, U = function(n) {
                     options.autoLoot.safeDistance = n, autoLoot.setSafeDistance(options.autoLoot.safeDistance)
-                }, N = function (n) {
+                }, N = function(n) {
                     options.autoLoot.dropDelay = n, autoLoot.setDropDelay(options.autoLoot.dropDelay)
                 };
-                var autoAimBind = function () {
+                var autoAimBind = function() {
                         autoAim.bind({
                             targetEnemyNicknameVisibility: options.autoAim.targetEnemyNicknameVisibility,
                             forwardFiringCoeff: options.autoAim.forwardFiringCoeff,
@@ -973,41 +973,41 @@
                             showEnemiesActions: options.autoAim.showEnemiesActions
                         })
                     },
-                    autoAimUnbind = function () {
+                    autoAimUnbind = function() {
                         autoAim.unbind()
                     },
-                    autoLootBind = function () {
+                    autoLootBind = function() {
                         autoLoot.bind({
                             autoPickUp: options.autoLoot.autoPickUp,
                             safeDistance: options.autoLoot.safeDistance,
                             dropDelay: options.autoLoot.dropDelay
                         })
                     },
-                    autoLootUnbind = function () {
+                    autoLootUnbind = function() {
                         autoLoot.unbind()
                     },
-                    q = function (e) {
+                    q = function(e) {
                         return !(!isset(game.scope) || true !== game.scope.initialized) && e.isBinded()
                     };
                 window.events = a(obfuscate, {
                     playerBarn: playerbarn
                 }, {
-                    autoAimRenderCb: function () {
+                    autoAimRenderCb: function() {
                         q(autoAim) && autoAim.render()
                     },
-                    laserPointerRenderCb: function () {
+                    laserPointerRenderCb: function() {
                         q(laserPointer) && laserPointer.render()
                     },
-                    linesToPlayersRenderCb: function () {
+                    linesToPlayersRenderCb: function() {
                         q(linesToPlayers) && linesToPlayers.render()
                     },
-                    airDropTrackingRenderCb: function () {
+                    airDropTrackingRenderCb: function() {
                         q(airDropTracking) && airDropTracking.render()
                     },
-                    tiggerBotRenderCb: function () {
+                    tiggerBotRenderCb: function() {
                         q(triggerBot) && triggerBot.render()
                     },
-                    autoFireRenderCb: function () {
+                    autoFireRenderCb: function() {
                         q(autoFire) && autoFire.render()
                     }
                 });
@@ -1057,29 +1057,29 @@
                         player: u,
                         key: keys
                     }),
-                    fn = function (e) {
+                    fn = function(e) {
                         var t = game.scope[obfuscate.input.main].binds,
                             i = null != t[31] ? t[31].code : -1;
                         16 == e.which ? (autoAim.isBinded() && autoAimUnbind(), autoLoot.isBinded() && autoLootUnbind(), autoHeal.isBinded() && autoHeal.unbind(), autoSwitch.isBinded() && autoSwitch.unbind()) : e.which == i && autoAim.isBinded() && autoAimUnbind()
                     },
-                    bn = function (e) {
+                    bn = function(e) {
                         var t = game.scope[obfuscate.input.main].binds,
                             i = null != t[31] ? t[31].code : -1;
                         16 == e.which ? (options.autoAim.enabled && !autoAim.isBinded() && autoAimBind(), options.autoLoot.enabled && !autoLoot.isBinded() && autoLootBind(), options.autoHeal.enabled && !autoHeal.isBinded() && autoHeal.bind(), options.autoSwitch.enabled && !autoSwitch.isBinded() && autoSwitch.bind()) : e.which == i && options.autoAim.enabled && !autoAim.isBinded() && autoAimBind()
                     },
-                    An = function () {
+                    An = function() {
                         window.addEventListener("keydown", fn), window.addEventListener("keyup", bn), options.autoAim.enabled && !autoAim.isBinded() && autoAimBind(), options.autoLoot.enabled && !autoLoot.isBinded() && autoLootBind(), options.autoHeal.enabled && !autoHeal.isBinded() && autoHeal.bind(), options.autoSwitch.enabled && !autoSwitch.isBinded() && autoSwitch.bind(), options.autoOpeningDoors.enabled && !autoOpeningDoors.isBinded() && autoOpeningDoors.bind(), bigMapManager.isBinded() || bigMapManager.bind(options.bigMapTransparency), options.grenadeTimer.enabled && !grenadeTimer.isBinded() && grenadeTimer.bind(), options.laserPointer.enabled && !laserPointer.isBinded() && laserPointer.bind(), options.linesToPlayers.enabled && !linesToPlayers.isBinded() && linesToPlayers.bind(), options.autoFire.enabled && !autoFire.isBinded() && autoFire.bind(), options.zoomRadiusManager.enabled && !zoomRadiusManager.isBinded() && zoomRadiusManager.bind(), smokeAlphaManager.isBinded() || smokeAlphaManager.bind({
                             smokeAlpha: options.smokeGrenadeAlpha
                         }), options.fpsCounter.enabled && !fpsCounter.isBinded() && fpsCounter.bind(), options.airDropTracking.enabled && !airDropTracking.isBinded() && airDropTracking.bind(), options.tiggerBot.enabled && !triggerBot.isBinded() && triggerBot.bind(), options.autoDodge.enabled && !autoDodge.isBinded() && autoDodge.bind(), window.events.bind()
                     },
-                    yn = function () {
+                    yn = function() {
                         window.removeEventListener("keydown", fn), window.removeEventListener("keyup", bn), autoAim.isBinded() && autoAimUnbind(), autoLoot.isBinded() && autoLootUnbind(), autoHeal.isBinded() && autoHeal.unbind(), autoSwitch.isBinded() && autoSwitch.unbind(), autoOpeningDoors.isBinded() && autoOpeningDoors.unbind(), bigMapManager.isBinded() && bigMapManager.unbind(), grenadeTimer.isBinded() && grenadeTimer.unbind(), laserPointer.isBinded() && laserPointer.unbind(), linesToPlayers.isBinded() && linesToPlayers.unbind(), autoFire.isBinded() && autoFire.unbind(), zoomRadiusManager.isBinded() && zoomRadiusManager.unbind(), smokeAlphaManager.isBinded() && smokeAlphaManager.unbind(), fpsCounter.isBinded() && fpsCounter.unbind(), airDropTracking.isBinded() && airDropTracking.unbind(), triggerBot.isBinded() && triggerBot.unbind(), autoDodge.isBinded() && autoDodge.unbind(), window.events.unbind()
                     },
-                    gn = function () {
+                    gn = function() {
                         return !game.scope || !!game.scope.gameOver
                     },
                     vn = false,
-                    hn = function (n) {
+                    hn = function(n) {
                         90 == n.which && (gn() || (vn ? (Tn(), G = true) : xn()))
                     };
                 scripts.menu(obfuscate, game, options, {
@@ -1089,7 +1089,7 @@
                     grenadePropertiesCb: I,
                     defaultGrenadePropertiesCb: C,
                     smokeGrenadePropertiesCb: E,
-                    autoAimEnableCb: function () {
+                    autoAimEnableCb: function() {
                         options.autoAim.enabled ? (q(autoAim) && autoAimUnbind(), options.autoAim.enabled = false) : options.autoAim.enabled || (!q(autoAim) && Q() && autoAimBind(), options.autoAim.enabled = true)
                     },
                     autoAimSmoothLevelCb: aaSmoothLevelCb,
@@ -1100,50 +1100,50 @@
                     autoAimDetectOnDifferentLevelsCb: aaDetectOnDifferentLevels,
                     autoAimTargetEnemyNicknameVisibilityCb: B,
                     autoAimShowEnemiesActionsCb: aaShowEnemiesActions,
-                    autoLootEnableCb: function () {
+                    autoLootEnableCb: function() {
                         options.autoLoot.enabled ? (q(autoLoot) && autoLootUnbind(), options.autoLoot.enabled = false) : options.autoLoot.enabled || (!q(autoLoot) && Q() && autoLootBind(), options.autoLoot.enabled = true)
                     },
                     getAutoLootAutoPickUpCb: F,
                     setAutoLootAutoPickUpCb: j,
                     autoLootSafeDistanceCb: U,
                     autoLootDropDelayCb: N,
-                    airDropTrackingEnableCb: function () {
+                    airDropTrackingEnableCb: function() {
                         options.airDropTracking.enabled ? (q(airDropTracking) && airDropTracking.unbind(), options.airDropTracking.enabled = false) : options.airDropTracking.enabled || (!q(airDropTracking) && Q() && airDropTracking.bind(), options.airDropTracking.enabled = true)
                     },
-                    autoHealEnableCb: function () {
+                    autoHealEnableCb: function() {
                         options.autoHeal.enabled ? (q(autoHeal) && autoHeal.unbind(), options.autoHeal.enabled = false) : options.autoHeal.enabled || (!q(autoHeal) && Q() && autoHeal.bind(), options.autoHeal.enabled = true)
                     },
-                    autoSwitchEnableCb: function () {
+                    autoSwitchEnableCb: function() {
                         options.autoSwitch.enabled ? (q(autoSwitch) && autoSwitch.unbind(), options.autoSwitch.enabled = false) : options.autoSwitch.enabled || (!q(autoSwitch) && Q() && autoSwitch.bind(), options.autoSwitch.enabled = true)
                     },
-                    autoOpeningDoorsEnableCb: function () {
+                    autoOpeningDoorsEnableCb: function() {
                         options.autoOpeningDoors.enabled ? (q(autoOpeningDoors) && autoOpeningDoors.unbind(), options.autoOpeningDoors.enabled = false) : options.autoOpeningDoors.enabled || (!q(autoOpeningDoors) && Q() && autoOpeningDoors.bind(), options.autoOpeningDoors.enabled = true)
                     },
-                    laserPointerEnableCb: function () {
+                    laserPointerEnableCb: function() {
                         options.laserPointer.enabled ? (q(laserPointer) && laserPointer.unbind(), options.laserPointer.enabled = false) : options.laserPointer.enabled || (!q(laserPointer) && Q() && laserPointer.bind(), options.laserPointer.enabled = true)
                     },
-                    linesToPlayersEnableCb: function () {
+                    linesToPlayersEnableCb: function() {
                         options.linesToPlayers.enabled ? (q(linesToPlayers) && linesToPlayers.unbind(), options.linesToPlayers.enabled = false) : options.linesToPlayers.enabled || (!q(linesToPlayers) && Q() && linesToPlayers.bind(), options.linesToPlayers.enabled = true)
                     },
-                    autoFireEnableCb: function () {
+                    autoFireEnableCb: function() {
                         options.autoFire.enabled ? (q(autoFire) && autoFire.unbind(), options.autoFire.enabled = false) : options.autoFire.enabled || (!q(autoFire) && Q() && autoFire.bind(), options.autoFire.enabled = true)
                     },
-                    zoomRadiusManagerEnableCb: function () {
+                    zoomRadiusManagerEnableCb: function() {
                         options.zoomRadiusManager.enabled ? (q(zoomRadiusManager) && zoomRadiusManager.unbind(), options.zoomRadiusManager.enabled = false) : options.zoomRadiusManager.enabled || (!q(zoomRadiusManager) && Q() && zoomRadiusManager.bind(), options.zoomRadiusManager.enabled = true)
                     },
-                    grenadeTimerEnableCb: function () {
+                    grenadeTimerEnableCb: function() {
                         options.grenadeTimer.enabled ? (q(grenadeTimer) && grenadeTimer.unbind(), options.grenadeTimer.enabled = false) : options.grenadeTimer.enabled || (!q(grenadeTimer) && Q() && grenadeTimer.bind(), options.grenadeTimer.enabled = true)
                     },
-                    fpsCounterEnableCb: function () {
+                    fpsCounterEnableCb: function() {
                         options.fpsCounter.enabled ? (q(fpsCounter) && fpsCounter.unbind(), options.fpsCounter.enabled = false) : options.fpsCounter.enabled || (!q(fpsCounter) && Q() && fpsCounter.bind(), options.fpsCounter.enabled = true)
                     },
-                    tiggerBotEnableCb: function () {
+                    tiggerBotEnableCb: function() {
                         options.tiggerBot.enabled ? (q(triggerBot) && triggerBot.unbind(), options.tiggerBot.enabled = false) : options.tiggerBot.enabled || (!q(triggerBot) && Q() && triggerBot.bind(), options.tiggerBot.enabled = true)
                     },
-                    autoDodgeEnableCb: function () {
+                    autoDodgeEnableCb: function() {
                         options.autoDodge.enabled ? (q(autoDodge) && autoDodge.unbind(), options.autoDodge.enabled = false) : options.autoDodge.enabled || (!q(autoDodge) && Q() && autoDodge.bind(), options.autoDodge.enabled = true)
                     },
-                    storeOptionsCb: function () {
+                    storeOptionsCb: function() {
                         c(l, options)
                     }
                 }).bind(), window.removeEventListener("keyup", hn), window.addEventListener("keyup", hn)
@@ -1186,92 +1186,92 @@
         iziToast: 2,
         "stats-js": 3
     }],
-    7: [function (n, e, t) {
+    7: [function(n, e, t) {
         "use strict";
-        var i = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (n) {
+        var i = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(n) {
             return typeof n
-        } : function (n) {
+        } : function(n) {
             return n && "function" == typeof Symbol && n.constructor === Symbol && n !== Symbol.prototype ? "symbol" : typeof n
         };
-        e.exports = function (n) {
-            var e = function (e) {
+        e.exports = function(n) {
+            var e = function(e) {
                 for (var t = Object.keys(n), a = 0; a < t.length; a++)
                     if ("object" == i(n[t[a]]) && null != n[t[a]] && void 0 !== n[t[a]][e]) return t[a]
             };
             return {
-                findAllVariables: function (n, t) {
+                findAllVariables: function(n, t) {
                     for (var i = Object.keys(n), a = 0; a < i.length; a++) n[i[a]] = e(t[i[a]]);
                     return n
                 }
             }
         }
     }, {}],
-    8: [function (n, e, t) {
+    8: [function(n, e, t) {
         "use strict";
-        var i = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (n) {
+        var i = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(n) {
             return typeof n
-        } : function (n) {
+        } : function(n) {
             return n && "function" == typeof Symbol && n.constructor === Symbol && n !== Symbol.prototype ? "symbol" : typeof n
         };
-        window.isset = function (n) {
+        window.isset = function(n) {
             return void 0 !== n && null !== n && "" !== n
         };
-        window.removeHTMLElement = function (n) {
-            document.getElementById(n) && function (n) {
+        window.removeHTMLElement = function(n) {
+            document.getElementById(n) && function(n) {
                 var e = document.getElementById(n);
                 e.parentNode.removeChild(e)
             }(n)
-        }, window.fetchFromObject = function (n, e) {
+        }, window.fetchFromObject = function(n, e) {
             if (!isset(n)) return false;
             var t = e.indexOf(".");
             return t > -1 ? fetchFromObject(n[e.substring(0, t)], e.substr(t + 1)) : n[e]
-        }, window.hasClass = function (n, e) {
+        }, window.hasClass = function(n, e) {
             return n.classList ? n.classList.contains(e) : !!n.className.match(new RegExp("(\\s|^)" + e + "(\\s|$)"))
-        }, window.addClass = function (n, e) {
+        }, window.addClass = function(n, e) {
             n.classList ? n.classList.add(e) : hasClass(n, e) || (n.className += " " + e)
-        }, window.removeClass = function (n, e) {
+        }, window.removeClass = function(n, e) {
             if (n.classList) n.classList.remove(e);
             else if (hasClass(n, e)) {
                 var t = new RegExp("(\\s|^)" + e + "(\\s|$)");
                 n.className = n.className.replace(t, " ")
             }
-        }, document.getElementsByAttribute = function (n, e, t) {
+        }, document.getElementsByAttribute = function(n, e, t) {
             e = e.replace(/\|/g, "\\|").replace(/\[/g, "\\[").replace(/\(/g, "\\(").replace(/\+/g, "\\+").replace(/\./g, "\\.").replace(/\*/g, "\\*").replace(/\?/g, "\\?").replace(/\//g, "\\/");
             t = !!isset(t) && t;
             for (var i, a, o = document.getElementsByTagName("*"), r = [], s = new RegExp(t ? "\\b" + e + "\\b" : "^" + e + "$"), l = 0; a = o.item(l++);)(i = a.getAttributeNode(n)) && i.specified && s.test(i.value) && r.push(a);
             return r
-        }, window.isObject = function (n) {
+        }, window.isObject = function(n) {
             return n && "object" === (void 0 === n ? "undefined" : i(n)) && n.constructor === Object
         }
     }, {}],
-    9: [function (n, e, t) {
+    9: [function(n, e, t) {
         "use strict";
         var i = {},
-            a = function () {
-                fetch("https://raw.githubusercontent.com/zbot473/SurvivHacks/master/ChromeExtension/manifest.json").then(function (n) {
+            a = function() {
+                fetch("https://raw.githubusercontent.com/zbot473/SurvivHacks/master/ChromeExtension/manifest.json").then(function(n) {
                     return n.json()
-                }).then(function (n) {
-                    return function (n, e) {
+                }).then(function(n) {
+                    return function(n, e) {
                         if (n && e) {
                             var t = n.split("."),
                                 i = e.split(".");
-                            t.filter(function (n, e, t) {
+                            t.filter(function(n, e, t) {
                                 return n < i[e]
                             }).length > 0 && notifications.create("info", "A new version of the cheat is available! Use the auto update scripts!", "INFO", 1e4)
                         }
                     }(i.version, n.version)
-                }).catch(function (n) {
+                }).catch(function(n) {
                     return console.error("Error:", n)
                 })
             };
         e.exports = {
-            bind: function (n) {
+            bind: function(n) {
                 i = n, a()
             },
-            unbind: function () {}
+            unbind: function() {}
         }
     }, {}],
-    10: [function (n, e, t) {
+    10: [function(n, e, t) {
         "use strict";
         iziToast.settings({
             transitionIn: "flipInX",
@@ -1279,7 +1279,7 @@
             zindex: 1e4
         });
         e.exports = {
-            create: function (n, e, t) {
+            create: function(n, e, t) {
                 var i = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : 1500;
                 return ("success" == n || "error" == n || "info" == n) && (iziToast[n]({
                     timeout: i,
@@ -1289,11 +1289,11 @@
             }
         }
     }, {}],
-    11: [function (n, e, t) {
+    11: [function(n, e, t) {
         "use strict";
         e.exports = {
-            init: function (n, e) {
-                window.onerror = function (t, i, a, o, r) {
+            init: function(n, e) {
+                window.onerror = function(t, i, a, o, r) {
                     var s = {
                         msg: t,
                         url: i,
@@ -1310,17 +1310,17 @@
             }
         }
     }, {}],
-    12: [function (n, e, t) {
+    12: [function(n, e, t) {
         "use strict";
         e.exports = {
             menu: "we",
             camera: "N",
-            bullets: "De",
+            bullets: "Ee",
             planes: "Ne",
             activeId: "me",
             targetZoom: "f",
             objectCreator: "lt",
-            pieTimer: "Ze",
+            pieTimer: "Ye",
             map: "Pe",
             input: {
                 main: "ye",
@@ -1337,18 +1337,18 @@
                 players: "At"
             },
             lootBarn: {
-                main: "We",
-                itemf: "Mt",
-                lootPool: "it",
+                main: "He",
+                itemf: "Pt",
+                lootPool: "rt",
                 pool: "de"
             },
             version: "1.0.778",
             protocolVersion: 39
         }
     }, {}],
-    13: [function (n, e, t) {
+    13: [function(n, e, t) {
         "use strict";
-        e.exports = function (n, e) {
+        e.exports = function(n, e) {
             var t = false,
                 i = {
                     draw: [],
@@ -1356,12 +1356,12 @@
                 },
                 a = {},
                 o = window.PIXI.Texture.fromImage("img/map/map-plane-01.svg"),
-                r = function (t) {
+                r = function(t) {
                     var a = e.scope[n.menu];
                     if (a && a.container) {
                         var r = null;
                         if (isset(i.draw[t.id]) && (r = i.draw[t.id]), r || ((r = window.PIXI.Sprite.from(o)).visible = false, r.scale.set(.4, .4), r.tint = 16711680, r.alpha = .6, r.anchor.set(.5, .5), a.display.player.addChild(r), i.draw[t.id] = r), r) {
-                            var s = function (n, e) {
+                            var s = function(n, e) {
                                 return {
                                     x: n.mapSprite.x - n.mapSprite.width / 2 + e.x / n.mapWidth * n.mapSprite.width,
                                     y: n.mapSprite.y + n.mapSprite.height / 2 - e.y / n.mapHeight * n.mapSprite.height
@@ -1371,27 +1371,27 @@
                         }
                     }
                 },
-                s = function () {
+                s = function() {
                     for (var t = e.scope[n.menu].airdropSprites, i = 0; i < t.length; i++) {
                         var o = t[i];
                         0 != o.pingPulseWave.position.x && true === o.pingPulseWave.displayed && 1 == !a[i] && (o.mapSprite.maxLife = 100, o.mapSprite.life = 100, a[i] = true)
                     }
                 };
             return {
-                bind: function () {
-                    ! function () {
+                bind: function() {
+                    ! function() {
                         i.draw = [], i.lastPlaneId = -1, a = {};
                         for (var n = 0; n < 20; n++) a[n] = false
                     }(), t = true, window.events.add("playerBarn", "airDropTrackingRenderCb")
                 },
-                unbind: function () {
+                unbind: function() {
                     window.events.remove("playerBarn", "airDropTrackingRenderCb"), t = false
                 },
-                isBinded: function () {
+                isBinded: function() {
                     return t
                 },
-                render: function () {
-                    t && e.scope.initialized && (s(), function () {
+                render: function() {
+                    t && e.scope.initialized && (s(), function() {
                         var t = e.scope[n.planes].planes,
                             a = t.length;
                         if (a > 0) {
@@ -1403,9 +1403,9 @@
             }
         }
     }, {}],
-    14: [function (n, e, t) {
+    14: [function(n, e, t) {
         "use strict";
-        e.exports = function (n, e, t) {
+        e.exports = function(n, e, t) {
             var i = t.bullets,
                 a = t.items,
                 o = t.playerBarn,
@@ -1416,46 +1416,46 @@
                 p = window.PIXI.Texture.fromImage("https://cdn.rawgit.com/zbot473/SurvivHacks/e0e08a8d/ChromeExtension/images/reload.svg"),
                 d = window.PIXI.Texture.fromImage("https://cdn.rawgit.com/zbot473/SurvivHacks/e0e08a8d/ChromeExtension/images/heal.svg");
             if (i && a && o) {
-                var u = function (t) {
+                var u = function(t) {
                         var i = e.scope[n.input.main][n.input.input].keys;
-                        i[t] || setTimeout(function () {
-                            i[t] = true, setTimeout(function () {
+                        i[t] || setTimeout(function() {
+                            i[t] = true, setTimeout(function() {
                                 delete i[t]
                             }, 50)
                         }, 0)
                     },
                     //angle
-                    m = function (n, e, t, i) {
+                    m = function(n, e, t, i) {
                         var a = i - e,
                             o = t - n;
                         return Math.atan2(a, o)
                     },
                     //distance
-                    f = function (n, e, t, i) {
+                    f = function(n, e, t, i) {
                         return Math.sqrt(Math.pow(n - t, 2) + Math.pow(e - i, 2))
                     },
-                    b = function () {
+                    b = function() {
                         return e.scope[n.activePlayer.main].pos
                     },
-                    A = function () {
+                    A = function() {
                         return e.scope[n.input.main][n.input.input].mousePos
                     },
-                    y = function (n, e) {
+                    y = function(n, e) {
                         var t = true;
                         return l.detectOnDifferentLevels || n.layer == e.layer || 2 == e.layer || 2 == n.layer || 3 == e.layer || 3 == n.layer || (t = false), t
                     },
-                    g = function (n, e, t, i) {
+                    g = function(n, e, t, i) {
                         return t.teamId == e || i == n
                     },
-                    v = function () {
+                    v = function() {
                         s.player.nameText.visible = false, s.player.nameText.style.fontSize = 22, s.player.nameText.style.fill = "#00FFFF"
                     },
                     h = null,
-                    x = function () {
+                    x = function() {
                         var n = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : null;
                         null != h && h != n && (h.visible = false, h = null), h = null != n ? n : null
                     },
-                    T = function (t) {
+                    T = function(t) {
                         var o = b(),
                             r = {
                                 x: o.x + s.mouseRelPointPos.x,
@@ -1479,7 +1479,7 @@
                         var B, L = null;
                         if (l.restirctions) {
                             var M = null;
-                            y = y.map(function (n, e) {
+                            y = y.map(function(n, e) {
                                 var t = A[e] < l.restirctionAngle * Math.PI / 180;
                                 return t && (null == M || d[M] > d[e]) && (M = e), t
                             }), L = M
@@ -1490,7 +1490,7 @@
                                     radianAngle: u[L],
                                     pos: t[g[L]][n.activePlayer.netData].pos,
                                     timestamp: Date.now()
-                                }), s.pop(), s[0].targetMousePosition = function (t, o, r, s, c) {
+                                }), s.pop(), s[0].targetMousePosition = function(t, o, r, s, c) {
                                     var p = 0,
                                         d = 1 / 0;
                                     p = e.scope[n.activePlayer.main].weapType && a[e.scope[n.activePlayer.main].weapType].bulletType ? i[a[e.scope[n.activePlayer.main].weapType].bulletType].speed * l.forwardFiringCoeff : 1e3;
@@ -1515,7 +1515,7 @@
                                     y: 0
                                 }, h = 0; h < s.length; h++) s.averageTargetMousePosition.x += s[h].targetMousePosition.x, s.averageTargetMousePosition.y += s[h].targetMousePosition.y;
                             s.averageTargetMousePosition.x /= s.length, s.averageTargetMousePosition.y /= s.length, l.targetEnemyNicknameVisibility && v(), s.player = t[g[L]], l.targetEnemyNicknameVisibility && (s.player.nameText.visible = true, s.player.nameText.style.fontSize = 100, s.player.nameText.style.fill = "#D50000"), window.aimTarget = s.player,
-                                function () {
+                                function() {
                                     var e = s.player,
                                         t = e[n.activePlayer.netData].dir;
                                     if (e && e[n.activePlayer.netData].dir) {
@@ -1531,7 +1531,7 @@
                                 }(), l.enemyExtendedInfo && z(), s.new = true
                         } else s.new = false, window.aimTarget = null, x()
                     },
-                    w = function (n) {
+                    w = function(n) {
                         var e = Object.keys(a),
                             t = true,
                             i = false,
@@ -1553,11 +1553,11 @@
                         }
                         return null
                     },
-                    z = function () {
+                    z = function() {
                         var e, t = s.player,
                             i = t[n.activePlayer.netData];
                         k(), e = t.nameText._text, t[n.activePlayer.netData].curWeapType, document.getElementById("ui-cheat-info").getElementsByClassName("ui-cheat-team-member-name")[0].innerHTML = e,
-                            function (n) {
+                            function(n) {
                                 var e = document.getElementById("ui-cheat-armor-container"),
                                     t = true,
                                     i = false,
@@ -1591,16 +1591,16 @@
                                 }
                             }(i)
                     },
-                    k = function () {
+                    k = function() {
                         var n = document.getElementById("ui-game");
                         if (!document.getElementById("ui-cheat-info")) {
                             var e = document.createElement("div");
-                            e.id = "ui-cheat-info", e.className = "ui-cheat-enemy-info ui-bg-standard", e.appendChild(function () {
+                            e.id = "ui-cheat-info", e.className = "ui-cheat-enemy-info ui-bg-standard", e.appendChild(function() {
                                 var n = document.createElement("div");
                                 n.className = "ui-basic-info";
                                 var e = document.createElement("div");
                                 return e.className = "ui-team-member-name ui-cheat-team-member-name", n.appendChild(e), n
-                            }()), e.appendChild(function () {
+                            }()), e.appendChild(function() {
                                 var n = document.createElement("div");
                                 n.id = "ui-cheat-armor-container", n.className = "ui-armor-container";
                                 var e = true,
@@ -1631,11 +1631,11 @@
                             }()), n.appendChild(e)
                         }
                     },
-                    I = function () {
+                    I = function() {
                         var n, e;
                         document.getElementById("ui-cheat-info") && (n = "ui-cheat-info", (e = document.getElementById(n)).parentNode.removeChild(e))
                     },
-                    C = function (e) {
+                    C = function(e) {
                         var t = e[n.activePlayer.netData].dir,
                             i = e.curAction.type;
                         if (e && e[n.activePlayer.netData].dir) {
@@ -1650,14 +1650,14 @@
                             }
                         }
                     },
-                    E = function (n) {},
-                    B = function (n) {},
-                    L = function () {
+                    E = function(n) {},
+                    B = function(n) {},
+                    L = function() {
                         for (var t = e.scope[n.input.main].binds, i = t.length, a = 0; a < i; a++)
                             if (null != t[a] && 2 == t[a].type && 2 == t[a].code) return true;
                         return false
                     },
-                    M = function (t) {
+                    M = function(t) {
                         if (2 === t.button && !L()) {
                             var i = e.scope[n.activePlayer.main];
                             if (i.curWeapIdx) return void u("49");
@@ -1669,7 +1669,7 @@
                             a.mousePos = s.averageTargetMousePosition, a.mouseButtonsOld[o] = false, a.mouseButtons[o] = true
                         } else E(t)
                     },
-                    D = function (t) {
+                    D = function(t) {
                         var i = b(),
                             a = e.scope[n.camera].screenToPoint({
                                 x: t.clientX,
@@ -1680,24 +1680,24 @@
                             y: a.y - i.y
                         }, s.new || B(t)
                     },
-                    P = function () {
+                    P = function() {
                         window.removeEventListener("mousedown", M), window.removeEventListener("mousemove", D)
                     },
-                    O = function (t) {
+                    O = function(t) {
                         var i = e.scope[n.input.main][n.input.input].mouseButtons;
                         32 == t.which && (i[0] = true)
                     },
-                    R = function (t) {
+                    R = function(t) {
                         var i = e.scope[n.input.main][n.input.input].mouseButtons;
                         32 == t.which && (i[0] = false)
                     },
-                    S = function () {
+                    S = function() {
                         window.removeEventListener("keydown", O), window.removeEventListener("keyup", R)
                     };
                 return {
-                    bind: function (t) {
+                    bind: function(t) {
                         var i, a, o, c = e.scope[n.input.main][n.input.input];
-                        i = t, l.targetEnemyNicknameVisibility = i.targetEnemyNicknameVisibility, l.forwardFiringCoeff = i.forwardFiringCoeff, l.smoothLevel = i.smoothLevel, l.restirctionAngle = i.restirctionAngle, l.restirctions = i.restirctions, l.detectOnDifferentLevels = i.detectOnDifferentLevels, l.enemyExtendedInfo = i.enemyExtendedInfo, l.showEnemiesActions = i.showEnemiesActions, s = function () {
+                        i = t, l.targetEnemyNicknameVisibility = i.targetEnemyNicknameVisibility, l.forwardFiringCoeff = i.forwardFiringCoeff, l.smoothLevel = i.smoothLevel, l.restirctionAngle = i.restirctionAngle, l.restirctions = i.restirctions, l.detectOnDifferentLevels = i.detectOnDifferentLevels, l.enemyExtendedInfo = i.enemyExtendedInfo, l.showEnemiesActions = i.showEnemiesActions, s = function() {
                             for (var n = [], e = 0; e < l.smoothLevel; e++) n.push({
                                 distance: null,
                                 radianAngle: null,
@@ -1719,39 +1719,39 @@
                             }, n
                         }(), E = c.bOnMouseDown, B = c.bOnMouseMove, window.removeEventListener("mousedown", c.bOnMouseDown), window.removeEventListener("mousemove", c.bOnMouseMove), P(), S(), window.addEventListener("mousedown", M), window.addEventListener("mousemove", D), window.addEventListener("keydown", O), window.addEventListener("keyup", R), a = e.scope[n.input.main].binds, o = e.scope[n.input.main].boundKeys, null != a[31] && 2 === a[31].code && 2 === a[31].type && (a[31].type = 1, a[31].code = 66, o[66] = true), r = true, window.events.add("playerBarn", "autoAimRenderCb")
                     },
-                    unbind: function () {
+                    unbind: function() {
                         window.events.remove("playerBarn", "autoAimRenderCb"), P(), S(), window.removeEventListener("mousedown", E), window.removeEventListener("mousemove", B), window.addEventListener("mousedown", E), window.addEventListener("mousemove", B), x(), I(), window.aimTarget = null, r = false
                     },
-                    isBinded: function () {
+                    isBinded: function() {
                         return r
                     },
-                    setTargetEnemyNicknameVisibility: function (n) {
+                    setTargetEnemyNicknameVisibility: function(n) {
                         l.setTargetEnemyNicknameVisibility = n
                     },
-                    setForwardFiringCoeff: function (n) {
+                    setForwardFiringCoeff: function(n) {
                         l.forwardFiringCoeff = n
                     },
-                    setSmoothLevel: function (n) {
+                    setSmoothLevel: function(n) {
                         l.smoothLevel = n
                     },
-                    setRestirctionAngle: function (n) {
+                    setRestirctionAngle: function(n) {
                         l.restirctionAngle = n
                     },
-                    setRestirctions: function (n) {
+                    setRestirctions: function(n) {
                         l.restirctions = n
                     },
-                    setDetectOnDifferentLevels: function (n) {
+                    setDetectOnDifferentLevels: function(n) {
                         l.detectOnDifferentLevels = n
                     },
-                    setEnemyExtendedInfo: function (n) {
+                    setEnemyExtendedInfo: function(n) {
                         l.enemyExtendedInfo = n
                     },
-                    setShowEnemiesActions: function (n) {
+                    setShowEnemiesActions: function(n) {
                         l.showEnemiesActions = n
                     },
-                    render: function () {
+                    render: function() {
                         var t;
-                        T(function () {
+                        T(function() {
                             var t = [];
                             if (!e.scope[n.playerBarn.main][n.playerBarn.players][e.scope[n.activeId]]) return t;
                             for (var i, a = e.scope[n.activeId], o = e.scope[n.playerBarn.main][n.playerBarn.players][a].teamId, r = Object.keys(e.scope[n.playerBarn.main][n.playerBarn.players]), s = e.scope[n.activePlayer.main], c = 0; c < r.length; c++) {
@@ -1767,36 +1767,36 @@
             console.log("Cannot init autoaim")
         }
     }, {}],
-    15: [function (n, e, t) {
+    15: [function(n, e, t) {
         "use strict";
-        e.exports = function (n, e, t) {
+        e.exports = function(n, e, t) {
             var i = t.bulletBarn,
                 a = t.player,
                 o = t.key,
                 r = false;
             if (i && a) {
-                var s = function (t) {
+                var s = function(t) {
                         var i = e.scope[n.input.main][n.input.input].keys;
-                        i[t] || setTimeout(function () {
-                            i[t] = true, setTimeout(function () {
+                        i[t] || setTimeout(function() {
+                            i[t] = true, setTimeout(function() {
                                 delete i[t]
                             }, 50)
                         }, 0)
                     },
-                    l = function () {
+                    l = function() {
                         return e.scope[n.activePlayer.main].pos
                     },
-                    c = function (n, e, t, i) {
+                    c = function(n, e, t, i) {
                         return (i * n - t * e) / -t
                     },
-                    p = function (n, e, t, i) {
+                    p = function(n, e, t, i) {
                         return Math.sqrt(Math.pow(n - t, 2) + Math.pow(e - i, 2))
                     },
-                    d = function (n) {};
+                    d = function(n) {};
                 return {
-                    bind: function () {
-                        d = i.prototype.render, i.prototype.render = function (t) {
-                            ! function (n) {
+                    bind: function() {
+                        d = i.prototype.render, i.prototype.render = function(t) {
+                            ! function(n) {
                                 if (n.length)
                                     for (var e = l(), t = 0; t < n.length; t++) {
                                         var i = {
@@ -1809,7 +1809,7 @@
                                             };
                                         a.x < a.y ? Math.sign(n[t].intersectionOfCoordLines.x) < 0 ? s(o.D) : s(o.A) : Math.sign(n[t].intersectionOfCoordLines.y) < 0 ? s(o.W) : s(o.S)
                                     }
-                            }(function () {
+                            }(function() {
                                 for (var t, i, o, r, s = [], p = l(), d = a.maxVisualRadius * Math.sqrt(2), u = e.scope[n.activePlayer.main], m = e.scope[n.bullets].bullets, f = 0; f < m.length; f++)
                                     if (m[f].alive && u.layer == m[f].layer) {
                                         var b = {
@@ -1830,10 +1830,10 @@
                             }()), d.call(this, t)
                         }, r = true
                     },
-                    unbind: function () {
+                    unbind: function() {
                         i.prototype.render = d, r = false
                     },
-                    isBinded: function () {
+                    isBinded: function() {
                         return r
                     }
                 }
@@ -1841,18 +1841,18 @@
             console.log("Cannot init autododge")
         }
     }, {}],
-    16: [function (n, e, t) {
+    16: [function(n, e, t) {
         "use strict";
-        e.exports = function (n, e, t) {
+        e.exports = function(n, e, t) {
             var i = t.items,
                 a = false,
                 o = false,
                 r = [];
             if (i) {
-                var s = function (n) {};
+                var s = function(n) {};
                 return {
-                    bind: function () {
-                        var t = function (n) {
+                    bind: function() {
+                        var t = function(n) {
                                 var e = [],
                                     t = Object.keys(i),
                                     a = true,
@@ -1874,7 +1874,7 @@
                                 }
                                 return e
                             }("single"),
-                            l = function (n) {
+                            l = function(n) {
                                 var e = [],
                                     t = Object.keys(i),
                                     a = true,
@@ -1896,19 +1896,19 @@
                                 }
                                 return e
                             }("melee");
-                        r = t.concat(l, "fists"), s = e.scope[n.input.main][n.input.input][n.input.mousePressed], e.scope[n.input.main][n.input.input][n.input.mousePressed] = function (t) {
+                        r = t.concat(l, "fists"), s = e.scope[n.input.main][n.input.input][n.input.mousePressed], e.scope[n.input.main][n.input.input][n.input.mousePressed] = function(t) {
                             return !(0 !== t || !o && !window.autoFire) || s.call(e.scope[n.input.main][n.input.input], t)
                         }, a = true, window.events.add("playerBarn", "autoFireRenderCb")
                     },
-                    unbind: function () {
-                        window.events.remove("playerBarn", "autoFireRenderCb"), a = false, s = function (n) {
+                    unbind: function() {
+                        window.events.remove("playerBarn", "autoFireRenderCb"), a = false, s = function(n) {
                             return !this.mouseButtonsOld[n] && !!this.mouseButtons[n]
                         }, e.scope[n.input.main][n.input.input][n.input.mousePressed] = s, o = false
                     },
-                    isBinded: function () {
+                    isBinded: function() {
                         return a
                     },
-                    render: function () {
+                    render: function() {
                         var t = e.scope[n.activePlayer.main],
                             i = e.scope[n.input.main][n.input.input].mouseButtons;
                         o = !(!i[0] || !r.includes(t.weapType))
@@ -1918,22 +1918,22 @@
             console.log("Cannot init autoFire")
         }
     }, {}],
-    17: [function (n, e, t) {
+    17: [function(n, e, t) {
         "use strict";
-        e.exports = function (n, e, t) {
+        e.exports = function(n, e, t) {
             var i = t.key,
                 a = false,
                 o = null,
-                r = function (t) {
+                r = function(t) {
                     var i = e.scope[n.input.main][n.input.input].keys;
-                    i[t] || setTimeout(function () {
-                        i[t] = true, setTimeout(function () {
+                    i[t] || setTimeout(function() {
+                        i[t] = true, setTimeout(function() {
                             delete i[t]
                         }, 90)
                     }, 0)
                 },
-                s = function () {
-                    if (function () {
+                s = function() {
+                    if (function() {
                             var t = e.scope[n.playerBarn.main][n.playerBarn.players];
                             if (!t[e.scope[n.activeId]]) return false;
                             for (var i = t[e.scope[n.activeId]].teamId, a = Object.keys(t), o = e.scope[n.objectCreator].idToObj, r = 0; r < a.length; r++) {
@@ -1951,23 +1951,23 @@
                     var a, o
                 };
             return {
-                bind: function () {
+                bind: function() {
                     ! function n() {
                         s(), o = setTimeout(n, 1e3)
                     }(), a = true
                 },
-                unbind: function () {
+                unbind: function() {
                     clearTimeout(o), o = null, a = false
                 },
-                isBinded: function () {
+                isBinded: function() {
                     return a
                 }
             }
         }
     }, {}],
-    18: [function (n, e, t) {
+    18: [function(n, e, t) {
         "use strict";
-        e.exports = function (n, e, t) {
+        e.exports = function(n, e, t) {
             var i = t.lootBarn,
                 a = t.bagSizes,
                 o = t.items,
@@ -1976,15 +1976,15 @@
                 l = {},
                 c = window.performance.now();
             if (i && a && o && r) {
-                var p = function (t) {
+                var p = function(t) {
                         var i = e.scope[n.input.main][n.input.input].keys;
-                        i[t] || setTimeout(function () {
-                            i[t] = true, setTimeout(function () {
+                        i[t] || setTimeout(function() {
+                            i[t] = true, setTimeout(function() {
                                 delete i[t]
                             }, 90)
                         }, 0)
                     },
-                    d = function (n, e) {
+                    d = function(n, e) {
                         var t = Object.keys(o),
                             i = true,
                             a = false,
@@ -2022,20 +2022,20 @@
                         }
                         return null
                     },
-                    u = function (n, e) {
+                    u = function(n, e) {
                         return t = n.pos, i = e.pos, a = i.x - t.x, o = i.y - t.y, Math.sqrt(a * a + o * o);
                         var t, i, a, o
                     },
-                    m = function () {
+                    m = function() {
                         var t, i, o = e.scope[n.lootBarn.main][n.lootBarn.itemf],
                             r = e.scope[n.activePlayer.main][n.activePlayer.netData],
                             s = e.scope[n.activePlayer.main][n.activePlayer.localData];
-                        if (o && o.active && function (t) {
-                                return e.scope[n.lootBarn.main][n.lootBarn.lootPool][n.lootBarn.pool].filter(function (n) {
+                        if (o && o.active && function(t) {
+                                return e.scope[n.lootBarn.main][n.lootBarn.lootPool][n.lootBarn.pool].filter(function(n) {
                                     return n.active && u(n, t) < l.safeDistance
                                 }).length > 0
                             }(r) && (i = c, window.performance.now() - i > l.dropDelay)) {
-                            if (function (n, e, t) {
+                            if (function(n, e, t) {
                                     if (null !== d(n.name, ["ammo", "heal", "boost", "throwable"])) {
                                         var i = t ? parseInt(t.slice(-2), 10) : 0,
                                             o = a[n.name][i];
@@ -2043,10 +2043,10 @@
                                     }
                                     return false
                                 }(o, s.inventory, r.backpack)) return;
-                            if (function (n, e) {
+                            if (function(n, e) {
                                     return !!/scope/.test(n.name) && (parseInt(n.name.slice(0, -6), 10), e[n.name] || p("70"), true)
                                 }(o, s.inventory)) return;
-                            if (function (t, i, a) {
+                            if (function(t, i, a) {
                                     if (/helmet/.test(t.name) || /chest/.test(t.name) || /backpack/.test(t.name)) {
                                         var o = t.name.slice(0, -2),
                                             r = parseInt(t.name.slice(-2), 10);
@@ -2054,7 +2054,7 @@
                                     }
                                     return false
                                 }(o, r.backpack, r)) return;
-                            if (l.autoPickUp.allow = function () {
+                            if (l.autoPickUp.allow = function() {
                                     var t = e.scope[n.playerBarn.main][n.playerBarn.players];
                                     if (!t[e.scope[n.activeId]]) return false;
                                     for (var i = t[e.scope[n.activeId]].teamId, a = Object.keys(t), o = e.scope[n.objectCreator].idToObj, r = 0; r < a.length; r++) {
@@ -2062,7 +2062,7 @@
                                         if (o[s] && !o[s][n.activePlayer.netData].dead && !o[s][n.activePlayer.netData].downed && t[s].teamId != i) return false
                                     }
                                     return true
-                                }() && ("Reloading" != (t = e.scope[n.menu].pieTimer).clientData.label || !t.active), function (n, e) {
+                                }() && ("Reloading" != (t = e.scope[n.menu].pieTimer).clientData.label || !t.active), function(n, e) {
                                     var t = d(n.name, ["gun"]);
                                     if (l.autoPickUp.allow) {
                                         if (l.autoPickUp.weapon1 === t && e[0].name !== t) return p("49"), p("70"), true;
@@ -2070,40 +2070,40 @@
                                     }
                                     return ("" === e[0].name || "" === e[1].name) && null !== t && (p("70"), true)
                                 }(o, s.weapons)) return;
-                            if (function (n, e) {
+                            if (function(n, e) {
                                     var t = d(n.name, ["melee"]);
                                     return l.autoPickUp.allow && l.autoPickUp.weapon3 === t && e[2].name !== t ? (p("51"), p("70"), true) : "fists" === e[2].name && null !== t && (p("70"), true)
                                 }(o, s.weapons)) return;
-                            if (function (n, e) {
+                            if (function(n, e) {
                                     var t = d(n.name, ["skin"]);
                                     return l.autoPickUp.skin === t && e.skin !== t ? (p("70"), true) : "outfitBase" === e.skin && "outfitBase" !== l.autoPickUp.skin && t !== e.skin && "outfitBase" !== t && null !== t && (p("70"), true)
                                 }(o, r)) return
                         }
                     },
-                    f = function (n, e, t, i) {},
+                    f = function(n, e, t, i) {},
                     b = {},
-                    A = function (n) {};
+                    A = function(n) {};
                 return {
-                    bind: function (n) {
+                    bind: function(n) {
                         var e;
-                        e = n, l.autoPickUp = e.autoPickUp, l.safeDistance = e.safeDistance, l.dropDelay = e.dropDelay, f = i.prototype.l, i.prototype.l = function (n, e, t, i) {
+                        e = n, l.autoPickUp = e.autoPickUp, l.safeDistance = e.safeDistance, l.dropDelay = e.dropDelay, f = i.prototype.l, i.prototype.l = function(n, e, t, i) {
                             b = this, m(), f.call(b, n, e, t, i)
-                        }, A = r.prototype.pushAction, r.prototype.pushAction = function (n) {
-                            ! function (n) {
+                        }, A = r.prototype.pushAction, r.prototype.pushAction = function(n) {
+                            ! function(n) {
                                 "drop" === n.action && (c = window.performance.now())
                             }(n), A.call(this, n)
                         }, s = true
                     },
-                    unbind: function () {
+                    unbind: function() {
                         i.prototype.l = f, r.prototype.pushAction = A, s = false
                     },
-                    isBinded: function () {
+                    isBinded: function() {
                         return s
                     },
-                    getItemsFromSlot: function (n) {
+                    getItemsFromSlot: function(n) {
                         var e = void 0;
                         return 1 != n && 2 != n || (e = "gun"), 3 == n && (e = "melee"), 5 == n && (e = "skin"),
-                            function (n) {
+                            function(n) {
                                 var e = [],
                                     t = Object.keys(o),
                                     i = true,
@@ -2127,17 +2127,17 @@
                                     }
                                 }
                                 return e
-                            }(e).filter(function (n) {
+                            }(e).filter(function(n) {
                                 return "fists" != n.key.toLowerCase()
                             })
                     },
-                    setAutoPickUp: function (n) {
+                    setAutoPickUp: function(n) {
                         l.autoPickUp = n
                     },
-                    setSafeDistance: function (n) {
+                    setSafeDistance: function(n) {
                         l.safeDistance = n
                     },
-                    setDropDelay: function (n) {
+                    setDropDelay: function(n) {
                         l.dropDelay = n
                     }
                 }
@@ -2145,18 +2145,18 @@
             console.log("Cannot init autoloot")
         }
     }, {}],
-    19: [function (n, e, t) {
+    19: [function(n, e, t) {
         "use strict";
-        e.exports = function (n, e, t, i) {
+        e.exports = function(n, e, t, i) {
             var a = false,
                 o = 2;
             return {
-                bind: function () {
-                    t.scope = function () {
+                bind: function() {
+                    t.scope = function() {
                         if (i.scope) switch (i.scope.__type) {
                             case o:
-                                i.scope.hasOwnProperty("door") && !i.scope.door.open && (t = "70", (a = e.scope[n.input.main][n.input.input].keys)[t] || setTimeout(function () {
-                                    a[t] = true, setTimeout(function () {
+                                i.scope.hasOwnProperty("door") && !i.scope.door.open && (t = "70", (a = e.scope[n.input.main][n.input.input].keys)[t] || setTimeout(function() {
+                                    a[t] = true, setTimeout(function() {
                                         delete a[t]
                                     }, 50)
                                 }, 50))
@@ -2164,70 +2164,70 @@
                         var t, a
                     }, a = true
                 },
-                unbind: function () {
-                    t.scope = function () {}, a = false
+                unbind: function() {
+                    t.scope = function() {}, a = false
                 },
-                isBinded: function () {
+                isBinded: function() {
                     return a
                 }
             }
         }
     }, {}],
-    20: [function (n, e, t) {
+    20: [function(n, e, t) {
         "use strict";
-        e.exports = function (n, e) {
+        e.exports = function(n, e) {
             var t = false,
-                i = function (t) {
+                i = function(t) {
                     e.scope[n.menu].container.alpha = t
                 };
             return {
-                bind: function (n) {
+                bind: function(n) {
                     i(n), t = true
                 },
-                unbind: function () {
+                unbind: function() {
                     t = false
                 },
-                isBinded: function () {
+                isBinded: function() {
                     return t
                 },
                 setBigMapTransparency: i
             }
         }
     }, {}],
-    21: [function (n, e, t) {
+    21: [function(n, e, t) {
         "use strict";
-        e.exports = function (n, e) {
+        e.exports = function(n, e) {
             var t = false,
                 i = false,
                 a = function n() {
                     i && i.update(), t && requestAnimationFrame(n)
                 };
             return {
-                bind: function () {
+                bind: function() {
                     t = true, i = new Stats,
-                        function () {
+                        function() {
                             if (i) {
                                 var n = i.domElement.style;
                                 n.position = "absolute", n.top = "", n.bottom = "4px", n.left = "4px", document.body.appendChild(i.domElement)
                             }
                         }(), requestAnimationFrame(a)
                 },
-                unbind: function () {
+                unbind: function() {
                     t = false, i.domElement.remove(), i = false
                 },
-                isBinded: function () {
+                isBinded: function() {
                     return t
                 }
             }
         }
     }, {}],
-    22: [function (n, e, t) {
+    22: [function(n, e, t) {
         "use strict";
-        e.exports = function (n, e) {
+        e.exports = function(n, e) {
             var t = false,
                 i = true,
-                a = function () {
-                    e.scope[n.pieTimer].a(function () {
+                a = function() {
+                    e.scope[n.pieTimer].a(function() {
                             o()
                         }, 4.2, "Grenade", true), i = false,
                         function t() {
@@ -2235,32 +2235,32 @@
                             3 !== a.curWeapIdx || "frag" !== a.weapType || i ? o() : setTimeout(t, 100)
                         }()
                 },
-                o = function () {
+                o = function() {
                     e.scope[n.pieTimer] && e.scope[n.pieTimer].o(true), i = true
                 },
-                r = function (t) {
+                r = function(t) {
                     var o = e.scope[n.activePlayer.main];
                     3 === o.curWeapIdx && "frag" === o.weapType && i && 0 === t.button && !e.scope.gameOver && a()
                 },
-                s = function (n) {
+                s = function(n) {
                     0 !== n.button || i || o()
                 };
             return {
-                bind: function (n) {
+                bind: function(n) {
                     window.addEventListener("mousedown", r), window.addEventListener("mouseup", s), t = true
                 },
-                unbind: function () {
+                unbind: function() {
                     window.removeEventListener("mousedown", r), window.addEventListener("mouseup", s), t = false
                 },
-                isBinded: function () {
+                isBinded: function() {
                     return t
                 }
             }
         }
     }, {}],
-    23: [function (n, e, t) {
+    23: [function(n, e, t) {
         "use strict";
-        e.exports = function (n, e, t) {
+        e.exports = function(n, e, t) {
             var i = t.bullets,
                 a = t.items,
                 o = false,
@@ -2271,10 +2271,10 @@
                     angle: 0
                 };
             if (i && a) {
-                var s = function (n) {
+                var s = function(n) {
                         return (window.performance.now() - n) / 1e3
                     },
-                    l = function (n, e) {
+                    l = function(n, e) {
                         if (n) {
                             var t = {
                                 pos: n.pos,
@@ -2294,25 +2294,25 @@
                             for (n.speed && (p = p * (1 - e) + n.speed * e), n.speed = p, n.distance = c, n.posData.push(t); n.posData.length > 4;) n.posData.shift()
                         }
                     },
-                    c = function () {
+                    c = function() {
                         r.draw && e.scope.initialized && r.draw.clear()
                     };
                 return {
-                    bind: function () {
+                    bind: function() {
                         o = true, r.draw = null, c(), window.events.add("playerBarn", "laserPointerRenderCb")
                     },
-                    unbind: function () {
+                    unbind: function() {
                         window.events.remove("playerBarn", "laserPointerRenderCb"), o = false, c()
                     },
-                    isBinded: function () {
+                    isBinded: function() {
                         return o
                     },
-                    render: function () {
+                    render: function() {
                         var t = e.scope[n.activePlayer.main];
                         if (t.weapType) {
                             var o = e.scope[n.camera],
                                 s = a[t.weapType];
-                            isset(s.shotSpread) && isset(s.bulletType) ? (l(t[n.activePlayer.netData], .1), r.range = i[s.bulletType].distance * o.ppu, r.direction = Math.atan2(t[n.activePlayer.netData].dir.x, t[n.activePlayer.netData].dir.y) - Math.PI / 2, r.angle = .01745329252 * (s.shotSpread + (t[n.activePlayer.netData].speed > .01 ? s.moveSpread : 0)) / 2, function () {
+                            isset(s.shotSpread) && isset(s.bulletType) ? (l(t[n.activePlayer.netData], .1), r.range = i[s.bulletType].distance * o.ppu, r.direction = Math.atan2(t[n.activePlayer.netData].dir.x, t[n.activePlayer.netData].dir.y) - Math.PI / 2, r.angle = .01745329252 * (s.shotSpread + (t[n.activePlayer.netData].speed > .01 ? s.moveSpread : 0)) / 2, function() {
                                 var t, i = r.draw;
                                 if (i || (i = new window.PIXI.Graphics, r.draw = i, (t = e.scope[n.activePlayer.main]).container.addChild(i), t.container.setChildIndex(i, 0)), i.graphicsData) {
                                     i.clear();
@@ -2331,16 +2331,16 @@
             console.log("Cannot init laserpointer")
         }
     }, {}],
-    24: [function (n, e, t) {
+    24: [function(n, e, t) {
         "use strict";
-        e.exports = function (n, e) {
+        e.exports = function(n, e) {
             var t = false,
                 i = {
                     draw: null,
                     points: null
                 },
-                a = function (t) {
-                    var a = function () {
+                a = function(t) {
+                    var a = function() {
                             var t = e.scope[n.playerBarn.main][n.playerBarn.players],
                                 i = e.scope[n.activeId],
                                 a = [];
@@ -2349,34 +2349,34 @@
                             return a
                         }(),
                         o = e.scope[n.camera];
-                    i.points = a.map(function (e) {
+                    i.points = a.map(function(e) {
                         return {
                             x: (e.pos.x - t[n.activePlayer.netData].pos.x) * o.ppu,
                             y: (t[n.activePlayer.netData].pos.y - e.pos.y) * o.ppu
                         }
                     })
                 },
-                o = function () {
+                o = function() {
                     i.draw && e.scope.initialized && i.draw.clear()
                 };
             return {
-                bind: function () {
+                bind: function() {
                     t = true, i.draw = null, o(), window.events.add("playerBarn", "linesToPlayersRenderCb")
                 },
-                unbind: function () {
+                unbind: function() {
                     window.events.remove("playerBarn", "linesToPlayersRenderCb"), t = false, o()
                 },
-                isBinded: function () {
+                isBinded: function() {
                     return t
                 },
-                render: function () {
+                render: function() {
                     var t = e.scope[n.activePlayer.main];
                     a(t),
-                        function (n) {
+                        function(n) {
                             if (n && n.container) {
                                 var e = i.points,
                                     t = i.draw;
-                                !e && e.length > 0 || (t || (t = new window.PIXI.Graphics, i.draw = t, n.container.addChild(t), n.container.setChildIndex(t, 0)), t.graphicsData && (t.clear(), t.beginFill(), t.lineStyle(2, 16562432), e.forEach(function (n) {
+                                !e && e.length > 0 || (t || (t = new window.PIXI.Graphics, i.draw = t, n.container.addChild(t), n.container.setChildIndex(t, 0)), t.graphicsData && (t.clear(), t.beginFill(), t.lineStyle(2, 16562432), e.forEach(function(n) {
                                     t.moveTo(0, 0), t.lineTo(n.x, n.y)
                                 }), t.endFill()))
                             }
@@ -2385,9 +2385,9 @@
             }
         }
     }, {}],
-    25: [function (n, e, t) {
+    25: [function(n, e, t) {
         "use strict";
-        e.exports = function (n, e, t, i) {
+        e.exports = function(n, e, t, i) {
             var a = false,
                 o = false,
                 r = false,
@@ -2836,15 +2836,15 @@
                     },
                     tabId: 1
                 }],
-                d = function () {
-                    setTimeout(function () {
+                d = function() {
+                    setTimeout(function() {
                         i.storeOptionsCb.call()
                     })
                 },
-                u = function (n, e) {
+                u = function(n, e) {
                     e ? removeClass(n, "btn-grey") : addClass(n, "btn-grey")
                 },
-                m = function (n) {
+                m = function(n) {
                     var e = arguments.length > 1 && void 0 !== arguments[1] && arguments[1],
                         t = arguments.length > 2 && void 0 !== arguments[2] && arguments[2],
                         i = document.createElement("div");
@@ -2852,13 +2852,13 @@
                     var a = document.createElement("a");
                     a.className = "btn-game-settings btn-game-tab-select btn-game-menu btn-darken", a.setAttribute("data-cheat-tab", "tab-" + n), e && (a.innerHTML = e);
                     var o = document.createElement("div");
-                    return t && (o.className = "btn-double-row game-menu-icon-static", addClass(o, t.className)), a.addEventListener("click", function () {
+                    return t && (o.className = "btn-double-row game-menu-icon-static", addClass(o, t.className)), a.addEventListener("click", function() {
                         var n = this.getAttribute("data-cheat-tab").split("-")[1];
                         b(n)
                     }), i.appendChild(a), i.appendChild(o), i
                 },
-                f = function () {
-                    var n = function () {
+                f = function() {
+                    var n = function() {
                             var n = document.createElement("div");
                             return n.className = "btn-game-tabs btns-game-double-row", n.style = "display: flex", n
                         }(),
@@ -2885,7 +2885,7 @@
                     }
                     return n
                 },
-                b = function (n) {
+                b = function(n) {
                     if (n = parseInt(n), s !== n) {
                         var e = document.getElementsByAttribute("data-cheat-tab", "tab-" + n)[0];
                         if (addClass(e, "btn-game-menu-selected"), null !== s) {
@@ -2895,17 +2895,17 @@
                         document.getElementById("ui-cheat-tab-" + n).style = "display: block", null !== s && (document.getElementById("ui-cheat-tab-" + s).style = "display: none"), s = n
                     }
                 },
-                A = function (n) {
+                A = function(n) {
                     var e = document.createElement("div");
                     e.className = "ui-list ui-game-tab ui-game-tab-settings-desktop full-height", e.style = "display: none;", e.id = "ui-cheat-tab-" + n;
                     var t = document.createElement("div");
                     return t.style = "height: 100%;", e.appendChild(t), e
                 },
-                y = function (n) {
+                y = function(n) {
                     var e, a, o, r, s = null;
                     if ("slider" === n.type) {
                         var l = false;
-                        isset(n.options) && (l = n.options), s = function (n, e, a) {
+                        isset(n.options) && (l = n.options), s = function(n, e, a) {
                             var o = arguments.length > 3 && void 0 !== arguments[3] && arguments[3],
                                 r = document.createElement("div");
                             if (i[a.value]) {
@@ -2916,7 +2916,7 @@
                                     c = document.createElement("span");
                                 c.className = "slider-current-value right", c.innerHTML = l;
                                 var p = document.createElement("input");
-                                p.className = "slider", p.type = "range", p.min = e.min, p.max = e.max, p.step = e.step, p.value = l, p.addEventListener("input", function () {
+                                p.className = "slider", p.type = "range", p.min = e.min, p.max = e.max, p.step = e.step, p.value = l, p.addEventListener("input", function() {
                                     if (isset(a.useInputValueFrom)) {
                                         var n = fetchFromObject(t, a.useInputValueFrom),
                                             e = 0 === a.position ? n : this.value,
@@ -2928,12 +2928,12 @@
                             }
                             return r
                         }(n.description, n.inputProps, n.callbacks, l)
-                    } else "checkbox" === n.type ? (l = false, isset(n.options) && (l = n.options), s = function (n, e, a) {
+                    } else "checkbox" === n.type ? (l = false, isset(n.options) && (l = n.options), s = function(n, e, a) {
                         var o = arguments.length > 3 && void 0 !== arguments[3] && arguments[3],
                             r = document.createElement("div");
                         if (i[a]) {
                             var s = document.createElement("button");
-                            s.className = "btn-game-menu btn-darken", s.style = "display: block", s.innerHTML = n, s.setAttribute("data", fetchFromObject(t, e.value)), u(s, fetchFromObject(t, e.value)), s.addEventListener("click", function () {
+                            s.className = "btn-game-menu btn-darken", s.style = "display: block", s.innerHTML = n, s.setAttribute("data", fetchFromObject(t, e.value)), u(s, fetchFromObject(t, e.value)), s.addEventListener("click", function() {
                                 i[a].call();
                                 var n = fetchFromObject(t, e.value);
                                 if (u(this, n), d(), isset(o.showOrHide)) {
@@ -2959,11 +2959,11 @@
                             }, false), r.appendChild(s)
                         }
                         return r
-                    }(n.description, n.inputProps, n.callbacks.value, l)) : "resetButton" === n.type ? (e = n.description, a = n.callbacks.value, o = n.tabId, r = document.createElement("div"), i[a] && (r.className = "menu-option btn-darken", r.innerHTML = e, r.addEventListener("click", function () {
-                        i[a].call(), setTimeout(function () {
+                    }(n.description, n.inputProps, n.callbacks.value, l)) : "resetButton" === n.type ? (e = n.description, a = n.callbacks.value, o = n.tabId, r = document.createElement("div"), i[a] && (r.className = "menu-option btn-darken", r.innerHTML = e, r.addEventListener("click", function() {
+                        i[a].call(), setTimeout(function() {
                             v(), g(), b(o), d()
                         })
-                    }, false)), s = r) : "select" === n.type ? s = function (n, e, a) {
+                    }, false)), s = r) : "select" === n.type ? s = function(n, e, a) {
                         var o = document.createElement("div");
                         if (i[a.value]) {
                             var r = document.createElement("p");
@@ -2984,7 +2984,7 @@
                                 var u = document.createElement("option");
                                 u.value = l[p].key, u.text = l[p].name, fetchFromObject(t, e.selected) === l[p].key && (u.selected = true), s.appendChild(u)
                             }
-                            s.addEventListener("change", function () {
+                            s.addEventListener("change", function() {
                                 if (isset(a.functionValue)) {
                                     var n = a.functionValue.value,
                                         e = 0 === a.functionValue.position ? n : this.value,
@@ -2995,7 +2995,7 @@
                             }, false), o.appendChild(r), o.appendChild(s)
                         }
                         return o
-                    }(n.description, n.inputProps, n.callbacks) : "info" === n.type && (s = function (n) {
+                    }(n.description, n.inputProps, n.callbacks) : "info" === n.type && (s = function(n) {
                         var e = document.createElement("div");
                         e.className = "info-container";
                         var t = document.createElement("p");
@@ -3003,16 +3003,16 @@
                     }(n.description));
                     return s
                 },
-                g = function () {
+                g = function() {
                     var n;
                     r && ((n = document.getElementById("game-area-wrapper")).style.display = "contents", n.style.opacity = ""), removeHTMLElement("ui-cheat-menu"), T();
-                    var e = function () {
+                    var e = function() {
                             var n = document.createElement("div");
                             return n.className = "ui-game-menu ui-game-menu-desktop", r && addClass(n, "ui-green"), n.style = "display: block; float: right;", n.id = "ui-cheat-menu", n
                         }(),
                         t = f();
                     e.appendChild(t);
-                    var i = function () {
+                    var i = function() {
                             for (var n = [], e = 0; e < c.length; e++) {
                                 for (var t = A(e), i = 0; i < p.length; i++)
                                     if (p[i].tabId === e) {
@@ -3044,63 +3044,63 @@
                 v = function n() {
                     removeHTMLElement("ui-cheat-menu"), l && document.getElementById("btn-game-resume").removeEventListener("click", n, false), l && document.getElementById("btn-game-quit").removeEventListener("click", n, false), o = false, l = false
                 },
-                h = function (n) {
+                h = function(n) {
                     27 == event.which && (T(true), (o = !o) ? g() : v())
                 },
-                x = function () {
+                x = function() {
                     window.removeEventListener("keyup", h)
                 },
-                T = function () {
+                T = function() {
                     var t, i = arguments.length > 0 && void 0 !== arguments[0] && arguments[0];
                     t = !(r = !(isset(e.scope) && true === e.scope.initialized)) && i ? !e.scope[n.menu].escMenuDisplayed : r ? o : e.scope[n.menu].escMenuDisplayed, o = t
                 };
             return {
-                bind: function () {
+                bind: function() {
                     removeHTMLElement("ui-cheat-menu"), T(), x(), window.addEventListener("keyup", h), a = true
                 },
-                unbind: function () {
+                unbind: function() {
                     o && (v(), o = false), x(), a = false
                 },
-                isBinded: function () {
+                isBinded: function() {
                     return a
                 }
             }
         }
     }, {}],
-    26: [function (n, e, t) {
+    26: [function(n, e, t) {
         "use strict";
-        e.exports = function (n, e, t) {
+        e.exports = function(n, e, t) {
             var i = false;
             return {
-                bind: function (n) {
+                bind: function(n) {
                     t.scope = n.smokeAlpha, i = true
                 },
-                unbind: function () {
+                unbind: function() {
                     t.scope = 1, i = false
                 },
-                isBinded: function () {
+                isBinded: function() {
                     return i
                 },
-                setSmokeAlpha: function (n) {
+                setSmokeAlpha: function(n) {
                     t.scope = n
                 }
             }
         }
     }, {}],
-    27: [function (n, e, t) {
+    27: [function(n, e, t) {
         "use strict";
-        e.exports = function (n, e, t) {
+        e.exports = function(n, e, t) {
             var i = t.bullets,
                 a = t.items,
                 o = false;
             if (a) {
-                var r = function (n, e, t, i) {
+                var r = function(n, e, t, i) {
                         return Math.sqrt(Math.pow(n - t, 2) + Math.pow(e - i, 2))
                     },
-                    s = function (t) {
+                    s = function(t) {
                         var pos = (u = e.scope[n.activePlayer.main]).pos,
                             objects = e.scope[n.objectCreator].idToObj,
-                            collidableObjects = Object.keys(objects).filter(function (n) {
+                            collidableObjects = Object.keys(objects).filter(function(n) {
                                 if (typeof objects[n].img == "string") {
                                     return void 0 !== objects[n].collidable && objects[n].collidable || !objects[n].isDoor || !objects[n].img.includes("stair")
                                 } else {
@@ -3110,9 +3110,9 @@
                             p = [];
                         p.A = [], p.B = [], p.C = [], p.D = [], p.A.x = pos.x, p.A.y = pos.y, p.B.x = t.x, p.B.y = t.y;
                         var d = true;
-                        collidableObjects.forEach(function (n, e, t) {
+                        collidableObjects.forEach(function(n, e, t) {
                             var i;
-                            objects[n].layer !== u.layer || objects[n].dead || void 0 !== (i = objects[n]).img && i.img.indexOf("window") > -1 || (void 0 !== objects[n].collider && void 0 !== objects[n].collider.min && void 0 !== objects[n].collider.max ? (p.C.x = objects[n].collider.min.x, p.C.y = objects[n].collider.min.y, p.D.x = objects[n].collider.max.x, p.D.y = objects[n].collider.min.y, l(p) && (d = false), p.C.x = objects[n].collider.max.x, p.C.y = objects[n].collider.min.y, p.D.x = objects[n].collider.max.x, p.D.y = objects[n].collider.max.y, l(p) && (d = false), p.C.x = objects[n].collider.max.x, p.C.y = objects[n].collider.max.y, p.D.x = objects[n].collider.min.x, p.D.y = objects[n].collider.max.y, l(p) && (d = false), p.C.x = objects[n].collider.min.x, p.C.y = objects[n].collider.max.y, p.D.x = objects[n].collider.min.x, p.D.y = objects[n].collider.max.y, l(p) && (d = false)) : function (n, e, t, i, a, o) {
+                            objects[n].layer !== u.layer || objects[n].dead || void 0 !== (i = objects[n]).img && i.img.indexOf("window") > -1 || (void 0 !== objects[n].collider && void 0 !== objects[n].collider.min && void 0 !== objects[n].collider.max ? (p.C.x = objects[n].collider.min.x, p.C.y = objects[n].collider.min.y, p.D.x = objects[n].collider.max.x, p.D.y = objects[n].collider.min.y, l(p) && (d = false), p.C.x = objects[n].collider.max.x, p.C.y = objects[n].collider.min.y, p.D.x = objects[n].collider.max.x, p.D.y = objects[n].collider.max.y, l(p) && (d = false), p.C.x = objects[n].collider.max.x, p.C.y = objects[n].collider.max.y, p.D.x = objects[n].collider.min.x, p.D.y = objects[n].collider.max.y, l(p) && (d = false), p.C.x = objects[n].collider.min.x, p.C.y = objects[n].collider.max.y, p.D.x = objects[n].collider.min.x, p.D.y = objects[n].collider.max.y, l(p) && (d = false)) : function(n, e, t, i, a, o) {
                                 var r, s, l = a - t,
                                     c = o - i,
                                     p = l * l + c * c,
@@ -3124,7 +3124,7 @@
                             }(objects[n].collider.pos.x, objects[n].collider.pos.y, p.A.x, p.A.y, p.B.x, p.B.y) <= objects[n].collider.rad && (d = false))
                         });
                         var u = e.scope[n.activePlayer.main];
-                        d && !e.scope[n.menu].pieTimer.active && 3 !== u.curWeapIdx && function (n, e) {
+                        d && !e.scope[n.menu].pieTimer.active && 3 !== u.curWeapIdx && function(n, e) {
                             var t = r(n.pos.x, n.pos.y, e.pos.x, e.pos.y);
                             if (n.weapType) {
                                 var o = a[n.weapType];
@@ -3134,23 +3134,23 @@
                         }(u, window.aimTarget) ? window.autoFire = true : window.autoFire = false
                     };
                 return {
-                    bind: function () {
+                    bind: function() {
                         window.events.add("playerBarn", "tiggerBotRenderCb"), o = true
                     },
-                    unbind: function () {
+                    unbind: function() {
                         window.events.remove("playerBarn", "tiggerBotRenderCb"), o = false, window.autoFire = false
                     },
-                    isBinded: function () {
+                    isBinded: function() {
                         return o
                     },
-                    render: function () {
+                    render: function() {
                         void 0 !== window.aimTarget && null != window.aimTarget ? s(window.aimTarget.pos) : window.autoFire = false
                     }
                 }
             }
 
             function l(n) {
-                return !! function (n) {
+                return !! function(n) {
                     return c(n.A, n.B, n.C) || c(n.A, n.B, n.D) || c(n.C, n.D, n.A) || c(n.C, n.D, n.B)
                 }(n) || !(p(n.A, n.B, n.C) * p(n.A, n.B, n.D) >= 0 || p(n.C, n.D, n.A) * p(n.C, n.D, n.B) >= 0)
             }
@@ -3165,40 +3165,40 @@
             console.log("Cannot init autoFire")
         }
     }, {}],
-    28: [function (n, e, t) {
+    28: [function(n, e, t) {
         "use strict";
-        e.exports = function (n, e, t) {
+        e.exports = function(n, e, t) {
             var i = t.scopeZoomRadius,
                 a = Object.assign({}, i),
                 o = false;
             if (i) {
-                var r = function (n) {
-                        i ? Object.keys(i).map(function (e) {
+                var r = function(n) {
+                        i ? Object.keys(i).map(function(e) {
                             "scope" === e.replace(/[0-9]/g, "").slice(1) && (i[e] = n)
                         }) : console.log("Scope zoom and radius not patched")
                     },
                     s = 68,
-                    l = function (n) {},
-                    c = function (n) {
+                    l = function(n) {},
+                    c = function(n) {
                         if (n.shiftKey) {
                             var e = n.deltaY || n.detail || n.wheelDelta;
                             (s += 10 * Math.sign(e)) < 10 && (s = 10), s > 1e3 && (s = 1e3), r(s)
                         } else l(n)
                     },
-                    p = function (n) {
+                    p = function(n) {
                         window.removeEventListener("wheel", c)
                     };
                 return {
-                    bind: function () {
+                    bind: function() {
                         var t = e.scope[n.input.main][n.input.input];
                         l = t.bOnMouseWheel, window.removeEventListener("wheel", t.bOnMouseWheel), p(), window.addEventListener("wheel", c), r(s), o = true
                     },
-                    unbind: function () {
-                        p(), window.removeEventListener("wheel", l), window.addEventListener("wheel", l), i ? Object.keys(i).map(function (n) {
+                    unbind: function() {
+                        p(), window.removeEventListener("wheel", l), window.addEventListener("wheel", l), i ? Object.keys(i).map(function(n) {
                             "scope" === n.replace(/[0-9]/g, "").slice(1) && (i[n] = a[n])
                         }) : console.log("Scope zoom and radius not patched"), o = false
                     },
-                    isBinded: function () {
+                    isBinded: function() {
                         return o
                     }
                 }
@@ -3206,9 +3206,9 @@
             console.log("Cannot init zoom radius manager")
         }
     }, {}],
-    29: [function (n, e, t) {
+    29: [function(n, e, t) {
         "use strict";
-        e.exports = function (n, e, t) {
+        e.exports = function(n, e, t) {
             var isBinded = false,
                 o = null,
                 realMousePos = {
@@ -3219,7 +3219,7 @@
                 items = t.items,
                 bullets = t.bullets,
                 //returns enemies inside playerbarn from objectcreator
-                getEnemies = function () {
+                getEnemies = function() {
                     var result = [],
                         curTeamId = e.scope[n.playerBarn.main][n.playerBarn.players][e.scope[n.activeId]].teamId,
                         playerIds = Object.keys(e.scope[n.playerBarn.main][n.playerBarn.players])
@@ -3232,36 +3232,36 @@
                     return result
 
                 },
-                calculateDistance = function (x1, y1, x2, y2) {
+                calculateDistance = function(x1, y1, x2, y2) {
                     // ___________________
                     //√(x1-x2)^2+(y1-y2)^2
                     return (Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2)))
                 },
                 //get player position
-                getCurPos = function () {
+                getCurPos = function() {
                     return e.scope[n.activePlayer.main].pos
                 },
-                pressKey = function (key) {
+                pressKey = function(key) {
                     var keys = e.scope[n.input.main][n.input.input].keys;
-                    keys[key] || setTimeout(function () {
-                        keys[key] = true, setTimeout(function () {
+                    keys[key] || setTimeout(function() {
+                        keys[key] = true, setTimeout(function() {
                             delete keys[key]
                         }, 90)
                     }, 0)
                 },
-                getMousePos = function (event) {
+                getMousePos = function(event) {
                     var playerPos = getCurPos();
                     realMousePos = e.scope[n.camera].screenToPoint({
                         x: event.clientX + playerPos.x,
                         y: event.clientY + playerPos.y
                     });
                 },
-                selectEnemy = function () {
+                selectEnemy = function() {
                     var enemies = getEnemies(),
                         distanceArray = []
 
                     if (enemies) {
-                        enemies = enemies.filter(function (e) {
+                        enemies = enemies.filter(function(e) {
                             return e
                         });
                         for (var i = 0; i < enemies.length; i++) {
@@ -3269,14 +3269,14 @@
                         }
                         var min = Math.min.apply(null, distanceArray)
                         if (min != Infinity) {
-                            var minIndex = distanceArray.findIndex(function (e) {
+                            var minIndex = distanceArray.findIndex(function(e) {
                                 return e == min
                             })
                             return enemies[minIndex]
                         }
                     }
                 },
-                switchWeapon = function () {
+                switchWeapon = function() {
                     var gun1 = items[e.scope[n.activePlayer.main][n.activePlayer.localData].weapons["0"].name],
                         gun2 = items[e.scope[n.activePlayer.main][n.activePlayer.localData].weapons["1"].name],
                         distanceToEnemy = null,
@@ -3284,7 +3284,7 @@
                         enemy = selectEnemy(),
                         mouseDown = false
                     curAction = e.scope[n.activePlayer.main][n.activePlayer.localData].action.type,
-                        window.onmousedown = function () {
+                        window.onmousedown = function() {
                             mouseDown = true
                         }
                     if (gun1 != undefined && gun2 != undefined && !mouseDown) {
@@ -3299,7 +3299,7 @@
                             if (!enemy && curAction == 0 && !reloading && needtoReload1 && e.scope[n.activePlayer.main][n.activePlayer.localData].inventory[bullet1.tracerColor] > 0) {
                                 pressKey("49")
                                 pressKey("82")
-                                setTimeout(function () {
+                                setTimeout(function() {
                                     reloading = false
                                 }, gun1.reloadTime * 1000)
                             }
@@ -3307,7 +3307,7 @@
                                 pressKey("50")
                                 pressKey("82")
                                 reloading = true
-                                setTimeout(function () {
+                                setTimeout(function() {
                                     reloading = false
                                 }, gun2.reloadTime * 1000)
                             }
@@ -3340,7 +3340,7 @@
                     }
                 }
             return {
-                bind: function () {
+                bind: function() {
                     var pos = getCurPos()
                     realMousePos.x = pos.x
                     realMousePos.y = pos.y
@@ -3352,11 +3352,11 @@
 
                     isBinded = true
                 },
-                unbind: function () {
+                unbind: function() {
                     window.removeEventListener("mousemove", getMousePos)
                     clearTimeout(o), o = null, isBinded = false
                 },
-                isBinded: function () {
+                isBinded: function() {
                     return isBinded
                 }
             }
