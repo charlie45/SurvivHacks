@@ -1342,7 +1342,7 @@
                 lootPool: "rt",
                 pool: "de"
             },
-            version: "1.0.778",
+            version: "1.0.878",
             protocolVersion: 39
         }
     }, {}],
