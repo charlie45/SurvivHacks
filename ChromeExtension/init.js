@@ -369,7 +369,7 @@
                             b.inputs.appendChild(u(n[0])), (f = b.inputs.childNodes)[e].classList.add("iziToast-inputs-child"), n[3] && setTimeout(function() {
                                 f[e].focus()
                             }, 300), f[e].addEventListener(n[1], function(e) {
-                                return (0, n[2])(a, b.toast, this, e)
+                                return(0, n[2])(a, b.toast, this, e)
                             })
                         }), b.toastBody.appendChild(b.inputs)), c.buttons.length > 0 && (b.buttons.classList.add("iziToast-buttons"), p(c.buttons, function(n, e) {
                             b.buttons.appendChild(u(n[0]));
@@ -812,24 +812,23 @@
                         enabled: true
                     },
                     autoDodge: {
-                        enabled: false
+                        enabled: true
+                    },
+                    autoSwitch: {
+                        enabled: true
                     }
                 }), r.scope = options.smokeGrenadeAlpha, o.scope = function() {};
-                //*************** ADD NEW VARIABLES HERE ***************\\
-                options.autoSwitch = {}
-                options.autoSwitch.enabled = true
-                //*************** END VARIABLES HERE ***************\\
                 var p = exports.ceee80d9.exports.Defs,
                     bullets = exports["989ad62a"].exports.bullets,
                     u = exports["989ad62a"].exports.player,
                     items = exports["989ad62a"].exports.items,
                     bagSizes = exports["989ad62a"].exports.bagSizes,
                     scopeZoomRadius = (exports["989ad62a"].exports.Input, exports["989ad62a"].exports.scopeZoomRadius.desktop),
-                    A = exports["989ad62a"].exports.protocolVersion,
+                    protocolVersion = exports["989ad62a"].exports.protocolVersion,
                     y = exports.e5d16b4d.exports.tt,
                     playerbarn = exports.a508b62a.exports.De,
                     lootBarn = exports.a48f3bb2.exports.Ke,
-                    h = exports.c73dee75.exports.Oe,
+                    bulletBarn = exports.c73dee75.exports.Oe,
                     uiModel = exports.d3da5587.exports.$e,
                     keys = exports["4b8d140f"].exports.Key;
                 // console.log(e.e5d16b4d.exports, e.a508b62a.exports, e.a48f3bb2.exports, e.c73dee75.exports, e.d3da5587.exports);
@@ -886,7 +885,7 @@
                 if (!(playerbarn)) return console.log("Error: playerbarn not defined"), notifications.create("error", "This extension can not work with this version of the game!", "error", 2e4), false;
                 if (!(lootBarn)) return console.log("Error: lootBarn not defined"), notifications.create("error", "This extension can not work with this version of the game!", "error", 2e4), false;
                 if (!(scopeZoomRadius)) return console.log("Error: scopeZoomRadius not defined"), notifications.create("error", "This extension can not work with this version of the game!", "error", 2e4), false;
-                if (!(A === obfuscate.protocolVersion)) return console.log("Error: Protocol mismatch"), notifications.create("error", "This extension can not work with this version of the game!", "error", 2e4), false;
+                if (!(protocolVersion === obfuscate.protocolVersion)) return console.log("Error: Protocol mismatch"), notifications.create("error", "This extension can not work with this version of the game!", "error", 2e4), false;
                 var Q = function() {
                     return !(!isset(game.scope) || !game.scope.initialized || null == game.scope[obfuscate.activePlayer.main] || null == game.scope[obfuscate.input.main] || game.scope.spectating)
                 };
@@ -1053,7 +1052,7 @@
                         items: items
                     }),
                     autoDodge = scripts.autoDodge(obfuscate, game, {
-                        bulletBarn: h,
+                        bulletBarn: bulletBarn,
                         player: u,
                         key: keys
                     }),
@@ -1281,7 +1280,7 @@
         e.exports = {
             create: function(n, e, t) {
                 var i = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : 1500;
-                return ("success" == n || "error" == n || "info" == n) && (iziToast[n]({
+                return("success" == n || "error" == n || "info" == n) && (iziToast[n]({
                     timeout: i,
                     title: t,
                     message: e
@@ -1416,7 +1415,7 @@
                 p = window.PIXI.Texture.fromImage("https://cdn.rawgit.com/zbot473/SurvivHacks/e0e08a8d/ChromeExtension/images/reload.svg"),
                 d = window.PIXI.Texture.fromImage("https://cdn.rawgit.com/zbot473/SurvivHacks/e0e08a8d/ChromeExtension/images/heal.svg");
             if (i && a && o) {
-                var u = function(t) {
+                var pressKey = function(t) {
                         var i = e.scope[n.input.main][n.input.input].keys;
                         i[t] || setTimeout(function() {
                             i[t] = true, setTimeout(function() {
@@ -1425,29 +1424,29 @@
                         }, 0)
                     },
                     //angle
-                    m = function(n, e, t, i) {
+                    calcuateAngle = function(n, e, t, i) {
                         var a = i - e,
                             o = t - n;
                         return Math.atan2(a, o)
                     },
                     //distance
-                    f = function(n, e, t, i) {
+                    calculateDistance = function(n, e, t, i) {
                         return Math.sqrt(Math.pow(n - t, 2) + Math.pow(e - i, 2))
                     },
-                    b = function() {
+                    getPos = function() {
                         return e.scope[n.activePlayer.main].pos
                     },
-                    A = function() {
+                    getScreenPos = function() {
                         return e.scope[n.input.main][n.input.input].mousePos
                     },
-                    y = function(n, e) {
+                    checkLayer = function(n, e) {
                         var t = true;
                         return l.detectOnDifferentLevels || n.layer == e.layer || 2 == e.layer || 2 == n.layer || 3 == e.layer || 3 == n.layer || (t = false), t
                     },
-                    g = function(n, e, t, i) {
+                    getTeam = function(n, e, t, i) {
                         return t.teamId == e || i == n
                     },
-                    v = function() {
+                    nameVis = function() {
                         s.player.nameText.visible = false, s.player.nameText.style.fontSize = 22, s.player.nameText.style.fill = "#00FFFF"
                     },
                     h = null,
@@ -1456,7 +1455,7 @@
                         null != h && h != n && (h.visible = false, h = null), h = null != n ? n : null
                     },
                     T = function(t) {
-                        var o = b(),
+                        var o = getPos(),
                             r = {
                                 x: o.x + s.mouseRelPointPos.x,
                                 y: o.y + s.mouseRelPointPos.y
@@ -1470,10 +1469,10 @@
                         if (!g.length) return s.new && (s.new = false, l.targetEnemyNicknameVisibility && v(), window.aimTarget = null), x(), void I();
                         for (var h = 0; h < g.length; h++) {
                             var T = t[g[h]][n.activePlayer.netData].pos,
-                                w = f(o.x, o.y, T.x, T.y),
-                                k = f(r.x, r.y, T.x, T.y),
-                                C = m(o.x, o.y, T.x, T.y),
-                                E = Math.abs(C - m(o.x, o.y, r.x, r.y));
+                                w = calculateDistance(o.x, o.y, T.x, T.y),
+                                k = calculateDistance(r.x, r.y, T.x, T.y),
+                                C = calcuateAngle(o.x, o.y, T.x, T.y),
+                                E = Math.abs(C - calcuateAngle(o.x, o.y, r.x, r.y));
                             p.push(w), d.push(k), u.push(C), A.push(E), y.push(true)
                         }
                         var B, L = null;
@@ -1497,15 +1496,15 @@
                                     for (var u = b(), A = {
                                             x: t.x,
                                             y: t.y
-                                        }, y = f(u.x, u.y, t.x, t.y), g = (t.x - r.x) / ((o - s + 1) / 1e3), v = (t.y - r.y) / ((o - s + 1) / 1e3), h = 0; h < 10; h++) d = y / p, A = {
+                                        }, y = calculateDistance(u.x, u.y, t.x, t.y), g = (t.x - r.x) / ((o - s + 1) / 1e3), v = (t.y - r.y) / ((o - s + 1) / 1e3), h = 0; h < 10; h++) d = y / p, A = {
                                         x: t.x + g * d,
                                         y: t.y + v * d
-                                    }, y = f(u.x, u.y, A.x, A.y);
+                                    }, y = calculateDistance(u.x, u.y, A.x, A.y);
                                     var x = e.scope[n.camera].screenWidth / 2,
                                         T = e.scope[n.camera].screenHeight / 2,
                                         w = T > x ? x : T;
                                     w = Math.floor(w - 1);
-                                    var z = m(u.x, u.y, A.x, A.y);
+                                    var z = calcuateAngle(u.x, u.y, A.x, A.y);
                                     return {
                                         x: x + w * Math.cos(z),
                                         y: T - w * Math.sin(z)
@@ -1514,7 +1513,7 @@
                                     x: 0,
                                     y: 0
                                 }, h = 0; h < s.length; h++) s.averageTargetMousePosition.x += s[h].targetMousePosition.x, s.averageTargetMousePosition.y += s[h].targetMousePosition.y;
-                            s.averageTargetMousePosition.x /= s.length, s.averageTargetMousePosition.y /= s.length, l.targetEnemyNicknameVisibility && v(), s.player = t[g[L]], l.targetEnemyNicknameVisibility && (s.player.nameText.visible = true, s.player.nameText.style.fontSize = 100, s.player.nameText.style.fill = "#D50000"), window.aimTarget = s.player,
+                            s.averageTargetMousePosition.x /= s.length, s.averageTargetMousePosition.y /= s.length, l.targetEnemyNicknameVisibility && nameVis(), s.player = t[g[L]], l.targetEnemyNicknameVisibility && (s.player.nameText.visible = true, s.player.nameText.style.fontSize = 100, s.player.nameText.style.fill = "#D50000"), window.aimTarget = s.player,
                                 function() {
                                     var e = s.player,
                                         t = e[n.activePlayer.netData].dir;
@@ -1660,8 +1659,8 @@
                     M = function(t) {
                         if (2 === t.button && !L()) {
                             var i = e.scope[n.activePlayer.main];
-                            if (i.curWeapIdx) return void u("49");
-                            if (!i.curWeapIdx) return void u("50")
+                            if (i.curWeapIdx) return void pressKey("49");
+                            if (!i.curWeapIdx) return void pressKey("50")
                         }
                         if ((0 === t.button || 2 === t.button && !L()) && s.new) {
                             var a = e.scope[n.input.main][n.input.input],
@@ -1670,7 +1669,7 @@
                         } else E(t)
                     },
                     D = function(t) {
-                        var i = b(),
+                        var i = getPos(),
                             a = e.scope[n.camera].screenToPoint({
                                 x: t.clientX,
                                 y: t.clientY
@@ -1701,8 +1700,8 @@
                             for (var n = [], e = 0; e < l.smoothLevel; e++) n.push({
                                 distance: null,
                                 radianAngle: null,
-                                pos: A(),
-                                targetMousePosition: A(),
+                                pos: getScreenPos(),
+                                targetMousePosition: getScreenPos(),
                                 timestamp: 0
                             });
                             return n.new = null, n.player = {
@@ -1757,7 +1756,7 @@
                             for (var i, a = e.scope[n.activeId], o = e.scope[n.playerBarn.main][n.playerBarn.players][a].teamId, r = Object.keys(e.scope[n.playerBarn.main][n.playerBarn.players]), s = e.scope[n.activePlayer.main], c = 0; c < r.length; c++) {
                                 var p = e.scope[n.objectCreator].idToObj[r[c]],
                                     d = e.scope[n.playerBarn.main][n.playerBarn.players][r[c]];
-                                p && (l.showEnemiesActions && C(p), (i = p)[n.activePlayer.netData].dead || i[n.activePlayer.netData].downed || g(a, o, d, r[c]) || !y(s, p) || (t[r[c]] = p))
+                                p && (l.showEnemiesActions && C(p), (i = p)[n.activePlayer.netData].dead || i[n.activePlayer.netData].downed || getTeam(a, o, d, r[c]) || !checkLayer(s, p) || (t[r[c]] = p))
                             }
                             return t
                         }()), s.new && (t = s.averageTargetMousePosition, e.scope[n.input.main][n.input.input].mousePos = t)
@@ -1787,7 +1786,7 @@
                         return e.scope[n.activePlayer.main].pos
                     },
                     c = function(n, e, t, i) {
-                        return (i * n - t * e) / -t
+                        return(i * n - t * e) / -t
                     },
                     p = function(n, e, t, i) {
                         return Math.sqrt(Math.pow(n - t, 2) + Math.pow(e - i, 2))
@@ -2068,7 +2067,7 @@
                                         if (l.autoPickUp.weapon1 === t && e[0].name !== t) return p("49"), p("70"), true;
                                         if (l.autoPickUp.weapon2 === t && e[1].name !== t) return p("50"), p("70"), true
                                     }
-                                    return ("" === e[0].name || "" === e[1].name) && null !== t && (p("70"), true)
+                                    return("" === e[0].name || "" === e[1].name) && null !== t && (p("70"), true)
                                 }(o, s.weapons)) return;
                             if (function(n, e) {
                                     var t = d(n.name, ["melee"]);
@@ -2272,7 +2271,7 @@
                 };
             if (i && a) {
                 var s = function(n) {
-                        return (window.performance.now() - n) / 1e3
+                        return(window.performance.now() - n) / 1e3
                     },
                     l = function(n, e) {
                         if (n) {
@@ -3128,9 +3127,13 @@
                             var t = calculateDistance(curPlayer.pos.x, curPlayer.pos.y, enemy.pos.x, enemy.pos.y);
                             if (curPlayer.weapType) {
                                 var o = a[curPlayer.weapType]
-                                if (isset(o.bulletType)) {var inRange = t < i[o.bulletType].distance}
-                                var enoughAmmo = curPlayer[n.activePlayer.localData].weapons.filter(function (e){return e.name == curPlayer.weapType})[0].ammo > 0
-                                return enoughAmmo&&inRange
+                                if (isset(o.bulletType)) {
+                                    var inRange = t < i[o.bulletType].distance
+                                }
+                                var enoughAmmo = curPlayer[n.activePlayer.localData].weapons.filter(function(e) {
+                                    return e.name == curPlayer.weapType
+                                })[0].ammo > 0
+                                return enoughAmmo && inRange
                             }
                             return true
                         }(u, window.aimTarget) ? window.autoFire = true : window.autoFire = false
@@ -3237,7 +3240,7 @@
                 calculateDistance = function(x1, y1, x2, y2) {
                     // ___________________
                     //√(x1-x2)^2+(y1-y2)^2
-                    return (Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2)))
+                    return(Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2)))
                 },
                 //get player position
                 getCurPos = function() {
@@ -3297,7 +3300,7 @@
                             needtoReload2 = e.scope[n.activePlayer.main][n.activePlayer.localData].weapons["1"].ammo < gun2.maxReload,
                             reloading = false
                         if (needtoReload1 || needtoReload2) {
-                            // if (no enemy, not doing anything, not shooting and need to reload) then reload
+                            // if(no enemy, not doing anything, not shooting and need to reload) then reload
                             if (!enemy && curAction == 0 && !reloading && needtoReload1 && e.scope[n.activePlayer.main][n.activePlayer.localData].inventory[bullet1.tracerColor] > 0) {
                                 pressKey("49")
                                 pressKey("82")
