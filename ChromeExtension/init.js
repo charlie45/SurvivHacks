@@ -1320,7 +1320,7 @@
             targetZoom: "f",
             objectCreator: "lt",
             pieTimer: "Ye",
-            map: "Pe",
+            map: "Ce",
             input: {
                 main: "ye",
                 input: "input",
