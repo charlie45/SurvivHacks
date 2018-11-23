@@ -813,12 +813,11 @@
                     },
                     autoDodge: {
                         enabled: false
+                    },
+                    autoSwitch: {
+                        enabled: true
                     }
                 }), r.scope = options.smokeGrenadeAlpha, o.scope = function() {};
-                //*************** ADD NEW VARIABLES HERE ***************\\
-                options.autoSwitch = {}
-                options.autoSwitch.enabled = true
-                //*************** END VARIABLES HERE ***************\\
                 var p = exports.ceee80d9.exports.Defs,
                     bullets = exports["989ad62a"].exports.bullets,
                     u = exports["989ad62a"].exports.player,
