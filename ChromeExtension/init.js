@@ -3094,7 +3094,7 @@
                 a = t.items,
                 o = false;
             if (a) {
-                var r = function(n, e, t, i) {
+                var calculateDistance = function(n, e, t, i) {
                         return Math.sqrt(Math.pow(n - t, 2) + Math.pow(e - i, 2))
                     },
                     s = function(t) {
@@ -3124,11 +3124,13 @@
                             }(objects[n].collider.pos.x, objects[n].collider.pos.y, p.A.x, p.A.y, p.B.x, p.B.y) <= objects[n].collider.rad && (d = false))
                         });
                         var u = e.scope[n.activePlayer.main];
-                        d && !e.scope[n.menu].pieTimer.active && 3 !== u.curWeapIdx && function(n, e) {
-                            var t = r(n.pos.x, n.pos.y, e.pos.x, e.pos.y);
-                            if (n.weapType) {
-                                var o = a[n.weapType];
-                                if (isset(o.bulletType)) return t < i[o.bulletType].distance
+                        d && !e.scope[n.menu].pieTimer.active && 3 !== u.curWeapIdx && function(curPlayer, enemy) {
+                            var t = calculateDistance(curPlayer.pos.x, curPlayer.pos.y, enemy.pos.x, enemy.pos.y);
+                            if (curPlayer.weapType) {
+                                var o = a[curPlayer.weapType]
+                                if (isset(o.bulletType)) {var inRange = t < i[o.bulletType].distance}
+                                var enoughAmmo = curPlayer[n.activePlayer.localData].weapons.filter(function (e){return e.name == curPlayer.weapType})[0].ammo > 0
+                                return enoughAmmo&&inRange
                             }
                             return true
                         }(u, window.aimTarget) ? window.autoFire = true : window.autoFire = false
