@@ -838,7 +838,7 @@
                 }, 2e3);
                 this.console.log(exports)
                 this.console.log(options)
-                /*
+
                 setInterval(function() {
                     console.log(game.scope)
 
@@ -915,8 +915,8 @@
                     p[n].ceiling && p[n].ceiling.imgs.forEach(function(n) {
                         n.alpha = options.ceilingTransparency
                     })
-                }), p.bush_01.img.alpha = options.particlesTransparency, p.bush_02.img.alpha = options.particlesTransparency, p.bush_03.img.alpha = options.particlesTransparency, p.bush_04.img.alpha = options.particlesTransparency, p.bush_05.img.alpha = options.particlesTransparency, p.bush_06.img.alpha = options.particlesTransparency, p.stone_02.img.alpha = options.particlesTransparency, p.tree_01.img.alpha = options.particlesTransparency, p.tree_02.img.alpha = options.particlesTransparency, p.tree_03.img.alpha = options.particlesTransparency, p.tree_06.img.alpha = options.particlesTransparency, p.tree_07.img.alpha = options.particlesTransparency, p.tree_08.img.alpha = options.particlesTransparency, p.tree_08b.img.alpha = options.particlesTransparency, p.tree_08c.img.alpha = options.particlesTransparency, p.tree_09.img.alpha = options.particlesTransparency, p.table_02.img.alpha = options.particlesTransparency, p.table_01.img.alpha = options.particlesTransparency, w = function(n) {
-                    options.particlesTransparency = n, p.bush_01.img.alpha = n, p.bush_02.img.alpha = n, p.bush_03.img.alpha = n, p.bush_04.img.alpha = n, p.bush_05.img.alpha = n, p.bush_06.img.alpha = n, p.stone_02.img.alpha = n, p.tree_01.img.alpha = n, p.tree_02.img.alpha = n, p.tree_03.img.alpha = n, p.tree_06.img.alpha = n, p.tree_07.img.alpha = n, p.tree_08.img.alpha = n, p.tree_08b.img.alpha = n, p.tree_08c.img.alpha = n, p.tree_09.img.alpha = n, p.table_01.img.alpha = n, p.table_02.img.alpha = n
+                }), p.bush_01.img.alpha = options.particlesTransparency, p.bush_02.img.alpha = options.particlesTransparency, p.bush_03.img.alpha = options.particlesTransparency, p.bush_04.img.alpha = options.particlesTransparency, p.bush_05.img.alpha = options.particlesTransparency, p.bush_06.img.alpha = options.particlesTransparency, p.bush_07.img.alpha = n, p.stone_02.img.alpha = options.particlesTransparency, p.tree_01.img.alpha = options.particlesTransparency, p.tree_02.img.alpha = options.particlesTransparency, p.tree_03.img.alpha = options.particlesTransparency, p.tree_06.img.alpha = options.particlesTransparency, p.tree_07.img.alpha = options.particlesTransparency, p.tree_08.img.alpha = options.particlesTransparency, p.tree_08b.img.alpha = options.particlesTransparency, p.tree_08c.img.alpha = options.particlesTransparency, p.tree_09.img.alpha = options.particlesTransparency, p.table_02.img.alpha = options.particlesTransparency, p.table_01.img.alpha = options.particlesTransparency, w = function(n) {
+                    options.particlesTransparency = n, p.bush_01.img.alpha = n, p.bush_02.img.alpha = n, p.bush_03.img.alpha = n, p.bush_04.img.alpha = n, p.bush_05.img.alpha = n, p.bush_06.img.alpha = n,  p.bush_07.img.alpha = n, p.stone_02.img.alpha = n, p.tree_01.img.alpha = n, p.tree_02.img.alpha = n, p.tree_03.img.alpha = n, p.tree_06.img.alpha = n, p.tree_07.img.alpha = n, p.tree_08.img.alpha = n, p.tree_08b.img.alpha = n, p.tree_08c.img.alpha = n, p.tree_09.img.alpha = n, p.table_01.img.alpha = n, p.table_02.img.alpha = n
                 }, z = function(n) {
                     options.ceilingTransparency = n, Object.keys(p).forEach(function(e) {
                         p[e].ceiling && p[e].ceiling.imgs.forEach(function(e) {
@@ -1319,7 +1319,7 @@
     12: [function(n, e, t) {
         "use strict";
         e.exports = {
-            menu: "we",
+            menu: "xe",
             camera: "N",
             bullets: "Ee",
             planes: "Ne",
@@ -1348,7 +1348,7 @@
                 lootPool: "rt",
                 pool: "de"
             },
-            version: "1.1.0",
+            version: "1.1.001",
             protocolVersion: 39
         }
     }, {}],
@@ -1766,10 +1766,9 @@
                             for (var i, a = e.scope[n.activeId], o = e.scope[n.playerBarn.main][n.playerBarn.players][a].teamId, r = Object.keys(e.scope[n.playerBarn.main][n.playerBarn.players]), s = e.scope[n.activePlayer.main], c = 0; c < r.length; c++) {
                                 var p = e.scope[n.objectCreator].idToObj[r[c]],
                                     d = e.scope[n.playerBarn.main][n.playerBarn.players][r[c]];
-                                if (l.rightClickToggle){
+                                if (l.rightClickToggle) {
                                     var clicked = rightClickHandler()
-                                }
-                                else{
+                                } else {
                                     var clicked = false
                                 }
                                 p && (l.showEnemiesActions && C(p), (i = p)[n.activePlayer.netData].dead || i[n.activePlayer.netData].downed || getTeam(a, o, d, r[c]) || clicked || !checkLayer(s, p) || (t[r[c]] = p))
@@ -1956,7 +1955,7 @@
                                 if (o[s] && !o[s][n.activePlayer.netData].dead && !o[s][n.activePlayer.netData].downed && t[s].teamId != i) return false
                             }
                             return true
-                        }() && !((o = e.scope[n.input.main][n.input.input].keys)[i.W] || o[i.D] || o[i.S] || o[i.A]) && ("Reloading" != (a = e.scope[n.menu].pieTimer).clientData.label || !a.active)) {
+                        }() && !((o = e.scope[n.input.main][n.input.input].keys)[i.W] || o[i.D] || o[i.S] || o[i.A]) && ("Reloading" != (a = e.scope[n.pieTimer]).clientData.label || !a.active)) {
                         var t = e.scope[n.activePlayer.main][n.activePlayer.localData];
                         if (t.health < 30 && t.inventory.healthkit > 0) return void r(i.Eight);
                         if (t.health < 70 && t.boost < 40 && t.inventory.bandage > 0) return void r(i.Seven);
