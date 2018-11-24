@@ -369,7 +369,7 @@
                             b.inputs.appendChild(u(n[0])), (f = b.inputs.childNodes)[e].classList.add("iziToast-inputs-child"), n[3] && setTimeout(function() {
                                 f[e].focus()
                             }, 300), f[e].addEventListener(n[1], function(e) {
-                                return(0, n[2])(a, b.toast, this, e)
+                                return (0, n[2])(a, b.toast, this, e)
                             })
                         }), b.toastBody.appendChild(b.inputs)), c.buttons.length > 0 && (b.buttons.classList.add("iziToast-buttons"), p(c.buttons, function(n, e) {
                             b.buttons.appendChild(u(n[0]));
@@ -767,7 +767,8 @@
                         restirctions: false,
                         detectOnDifferentLevels: false,
                         enemyExtendedInfo: true,
-                        showEnemiesActions: true
+                        showEnemiesActions: true,
+                        rightClickToggle: false
                     },
                     autoLoot: {
                         enabled: true,
@@ -836,7 +837,8 @@
                     game.scope
                 }, 2e3);
                 this.console.log(exports)
-
+                this.console.log(options)
+                /*
                 setInterval(function() {
                     console.log(game.scope)
 
@@ -863,7 +865,7 @@
                     I = null,
                     C = null,
                     E = null,
-                    B = null,
+                    aaNicknameVisCb = null,
                     aaForwardFiringCoeffCb = null,
                     aaSmoothLevelCb = null,
                     aaRestirctionAngleCb = null,
@@ -871,10 +873,11 @@
                     aaDetectOnDifferentLevels = null,
                     aaEnemyExtendedInfo = null,
                     aaShowEnemiesActions = null,
+                    aaRightClickToggle = null,
                     F = null,
                     j = null,
-                    U = null,
-                    N = null,
+                    alSafeDistanceCb = null,
+                    alDropDelayCb = null,
                     X = null,
                     V = null,
                     G = false;
@@ -935,7 +938,7 @@
                 var H = function() {
                     autoAim.isBinded() && options.autoAim.enabled && (autoAimUnbind(), autoAimBind())
                 };
-                B = function() {
+                aaNicknameVisCb = function() {
                     options.autoAim.targetEnemyNicknameVisibility = !options.autoAim.targetEnemyNicknameVisibility, autoAim.setTargetEnemyNicknameVisibility(options.autoAim.targetEnemyNicknameVisibility), H()
                 }, aaForwardFiringCoeffCb = function(n) {
                     options.autoAim.forwardFiringCoeff = parseFloat(n), autoAim.setForwardFiringCoeff(options.autoAim.forwardFiringCoeff), H()
@@ -951,13 +954,15 @@
                     options.autoAim.enemyExtendedInfo = !options.autoAim.enemyExtendedInfo, autoAim.setEnemyExtendedInfo(options.autoAim.enemyExtendedInfo), H()
                 }, aaShowEnemiesActions = function() {
                     options.autoAim.showEnemiesActions = !options.autoAim.showEnemiesActions, autoAim.setShowEnemiesActions(options.autoAim.showEnemiesActions), H()
+                }, aaRightClickToggle = function() {
+                    options.autoAim.rightClickToggle = !options.autoAim.rightClickToggle, autoAim.setRightClickToggle(options.autoAim.rightClickToggle), H()
                 }, F = function(n) {
                     return autoLoot.getItemsFromSlot(n)
                 }, j = function(n, e) {
                     1 === n ? options.autoLoot.autoPickUp.weapon1 = e : 2 === n ? options.autoLoot.autoPickUp.weapon2 = e : 3 === n ? options.autoLoot.autoPickUp.weapon3 = e : 5 === n && (options.autoLoot.autoPickUp.skin = e), autoLoot.setAutoPickUp(options.autoLoot.autoPickUp)
-                }, U = function(n) {
+                }, alSafeDistanceCb = function(n) {
                     options.autoLoot.safeDistance = n, autoLoot.setSafeDistance(options.autoLoot.safeDistance)
-                }, N = function(n) {
+                }, alDropDelayCb = function(n) {
                     options.autoLoot.dropDelay = n, autoLoot.setDropDelay(options.autoLoot.dropDelay)
                 };
                 var autoAimBind = function() {
@@ -969,7 +974,8 @@
                             restirctions: options.autoAim.restirctions,
                             detectOnDifferentLevels: options.autoAim.detectOnDifferentLevels,
                             enemyExtendedInfo: options.autoAim.enemyExtendedInfo,
-                            showEnemiesActions: options.autoAim.showEnemiesActions
+                            showEnemiesActions: options.autoAim.showEnemiesActions,
+                            rightClickToggle: options.autoAim.rightClickToggle
                         })
                     },
                     autoAimUnbind = function() {
@@ -1097,15 +1103,16 @@
                     autoAimEnemyExtendedInfoCb: aaEnemyExtendedInfo,
                     autoAimForwardFiringCoeffCb: aaForwardFiringCoeffCb,
                     autoAimDetectOnDifferentLevelsCb: aaDetectOnDifferentLevels,
-                    autoAimTargetEnemyNicknameVisibilityCb: B,
+                    autoAimTargetEnemyNicknameVisibilityCb: aaNicknameVisCb,
                     autoAimShowEnemiesActionsCb: aaShowEnemiesActions,
+                    autoAimRightClickToggleCb: aaRightClickToggle,
                     autoLootEnableCb: function() {
                         options.autoLoot.enabled ? (q(autoLoot) && autoLootUnbind(), options.autoLoot.enabled = false) : options.autoLoot.enabled || (!q(autoLoot) && Q() && autoLootBind(), options.autoLoot.enabled = true)
                     },
                     getAutoLootAutoPickUpCb: F,
                     setAutoLootAutoPickUpCb: j,
-                    autoLootSafeDistanceCb: U,
-                    autoLootDropDelayCb: N,
+                    autoLootSafeDistanceCb: alSafeDistanceCb,
+                    autoLootDropDelayCb: alDropDelayCb,
                     airDropTrackingEnableCb: function() {
                         options.airDropTracking.enabled ? (q(airDropTracking) && airDropTracking.unbind(), options.airDropTracking.enabled = false) : options.airDropTracking.enabled || (!q(airDropTracking) && Q() && airDropTracking.bind(), options.airDropTracking.enabled = true)
                     },
@@ -1280,7 +1287,7 @@
         e.exports = {
             create: function(n, e, t) {
                 var i = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : 1500;
-                return("success" == n || "error" == n || "info" == n) && (iziToast[n]({
+                return ("success" == n || "error" == n || "info" == n) && (iziToast[n]({
                     timeout: i,
                     title: t,
                     message: e
@@ -1341,7 +1348,7 @@
                 lootPool: "rt",
                 pool: "de"
             },
-            version: "1.0.878",
+            version: "1.1.0",
             protocolVersion: 39
         }
     }, {}],
@@ -1446,8 +1453,13 @@
                     getTeam = function(n, e, t, i) {
                         return t.teamId == e || i == n
                     },
-                    nameVis = function() {
+                    setPlayerNameStyle = function() {
                         s.player.nameText.visible = false, s.player.nameText.style.fontSize = 22, s.player.nameText.style.fill = "#00FFFF"
+                    },
+                    rightClickHandler = function() {
+                        if (e.scope[n.input.main][n.input.input].mouseButtons["2"] != undefined) {
+                            return !e.scope[n.input.main][n.input.input].mouseButtons["2"]
+                        }
                     },
                     h = null,
                     x = function() {
@@ -1466,7 +1478,7 @@
                             A = [],
                             y = [],
                             g = Object.keys(t);
-                        if (!g.length) return s.new && (s.new = false, l.targetEnemyNicknameVisibility && v(), window.aimTarget = null), x(), void I();
+                        if (!g.length) return s.new && (s.new = false, l.targetEnemyNicknameVisibility && setPlayerNameStyle(), window.aimTarget = null), x(), void I();
                         for (var h = 0; h < g.length; h++) {
                             var T = t[g[h]][n.activePlayer.netData].pos,
                                 w = calculateDistance(o.x, o.y, T.x, T.y),
@@ -1493,7 +1505,7 @@
                                     var p = 0,
                                         d = 1 / 0;
                                     p = e.scope[n.activePlayer.main].weapType && a[e.scope[n.activePlayer.main].weapType].bulletType ? i[a[e.scope[n.activePlayer.main].weapType].bulletType].speed * l.forwardFiringCoeff : 1e3;
-                                    for (var u = b(), A = {
+                                    for (var u = getPos(), A = {
                                             x: t.x,
                                             y: t.y
                                         }, y = calculateDistance(u.x, u.y, t.x, t.y), g = (t.x - r.x) / ((o - s + 1) / 1e3), v = (t.y - r.y) / ((o - s + 1) / 1e3), h = 0; h < 10; h++) d = y / p, A = {
@@ -1513,7 +1525,7 @@
                                     x: 0,
                                     y: 0
                                 }, h = 0; h < s.length; h++) s.averageTargetMousePosition.x += s[h].targetMousePosition.x, s.averageTargetMousePosition.y += s[h].targetMousePosition.y;
-                            s.averageTargetMousePosition.x /= s.length, s.averageTargetMousePosition.y /= s.length, l.targetEnemyNicknameVisibility && nameVis(), s.player = t[g[L]], l.targetEnemyNicknameVisibility && (s.player.nameText.visible = true, s.player.nameText.style.fontSize = 100, s.player.nameText.style.fill = "#D50000"), window.aimTarget = s.player,
+                            s.averageTargetMousePosition.x /= s.length, s.averageTargetMousePosition.y /= s.length, l.targetEnemyNicknameVisibility && setPlayerNameStyle(), s.player = t[g[L]], l.targetEnemyNicknameVisibility && (s.player.nameText.visible = true, s.player.nameText.style.fontSize = 100, s.player.nameText.style.fill = "#D50000"), window.aimTarget = s.player,
                                 function() {
                                     var e = s.player,
                                         t = e[n.activePlayer.netData].dir;
@@ -1657,11 +1669,6 @@
                         return false
                     },
                     M = function(t) {
-                        if (2 === t.button && !L()) {
-                            var i = e.scope[n.activePlayer.main];
-                            if (i.curWeapIdx) return void pressKey("49");
-                            if (!i.curWeapIdx) return void pressKey("50")
-                        }
                         if ((0 === t.button || 2 === t.button && !L()) && s.new) {
                             var a = e.scope[n.input.main][n.input.input],
                                 o = t.button;
@@ -1748,6 +1755,9 @@
                     setShowEnemiesActions: function(n) {
                         l.showEnemiesActions = n
                     },
+                    setRightClickToggle: function(n) {
+                        l.rightClickToggle = n
+                    },
                     render: function() {
                         var t;
                         T(function() {
@@ -1756,7 +1766,13 @@
                             for (var i, a = e.scope[n.activeId], o = e.scope[n.playerBarn.main][n.playerBarn.players][a].teamId, r = Object.keys(e.scope[n.playerBarn.main][n.playerBarn.players]), s = e.scope[n.activePlayer.main], c = 0; c < r.length; c++) {
                                 var p = e.scope[n.objectCreator].idToObj[r[c]],
                                     d = e.scope[n.playerBarn.main][n.playerBarn.players][r[c]];
-                                p && (l.showEnemiesActions && C(p), (i = p)[n.activePlayer.netData].dead || i[n.activePlayer.netData].downed || getTeam(a, o, d, r[c]) || !checkLayer(s, p) || (t[r[c]] = p))
+                                if (l.rightClickToggle){
+                                    var clicked = rightClickHandler()
+                                }
+                                else{
+                                    var clicked = false
+                                }
+                                p && (l.showEnemiesActions && C(p), (i = p)[n.activePlayer.netData].dead || i[n.activePlayer.netData].downed || getTeam(a, o, d, r[c]) || clicked || !checkLayer(s, p) || (t[r[c]] = p))
                             }
                             return t
                         }()), s.new && (t = s.averageTargetMousePosition, e.scope[n.input.main][n.input.input].mousePos = t)
@@ -1786,7 +1802,7 @@
                         return e.scope[n.activePlayer.main].pos
                     },
                     c = function(n, e, t, i) {
-                        return(i * n - t * e) / -t
+                        return (i * n - t * e) / -t
                     },
                     p = function(n, e, t, i) {
                         return Math.sqrt(Math.pow(n - t, 2) + Math.pow(e - i, 2))
@@ -2067,7 +2083,7 @@
                                         if (l.autoPickUp.weapon1 === t && e[0].name !== t) return p("49"), p("70"), true;
                                         if (l.autoPickUp.weapon2 === t && e[1].name !== t) return p("50"), p("70"), true
                                     }
-                                    return("" === e[0].name || "" === e[1].name) && null !== t && (p("70"), true)
+                                    return ("" === e[0].name || "" === e[1].name) && null !== t && (p("70"), true)
                                 }(o, s.weapons)) return;
                             if (function(n, e) {
                                     var t = d(n.name, ["melee"]);
@@ -2271,7 +2287,7 @@
                 };
             if (i && a) {
                 var s = function(n) {
-                        return(window.performance.now() - n) / 1e3
+                        return (window.performance.now() - n) / 1e3
                     },
                     l = function(n, e) {
                         if (n) {
@@ -2685,6 +2701,16 @@
                     },
                     options: {
                         showOrHide: ["autoAimrestirctionAngle"]
+                    },
+                    tabId: 1
+                }, {
+                    type: "checkbox",
+                    description: "Right Click Toggle",
+                    inputProps: {
+                        value: "autoAim.rightClickToggle"
+                    },
+                    callbacks: {
+                        value: "autoAimRightClickToggleCb"
                     },
                     tabId: 1
                 }, {
@@ -3240,7 +3266,7 @@
                 calculateDistance = function(x1, y1, x2, y2) {
                     // ___________________
                     //√(x1-x2)^2+(y1-y2)^2
-                    return(Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2)))
+                    return (Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2)))
                 },
                 //get player position
                 getCurPos = function() {
