@@ -768,7 +768,8 @@
                         detectOnDifferentLevels: false,
                         enemyExtendedInfo: true,
                         showEnemiesActions: true,
-                        rightClickToggle: false
+                        rightClickToggle: false,
+                        rightClickSwitch:true
                     },
                     autoLoot: {
                         enabled: true,
@@ -874,6 +875,7 @@
                     aaEnemyExtendedInfo = null,
                     aaShowEnemiesActions = null,
                     aaRightClickToggle = null,
+                    aaRightClickSwitch = null,
                     F = null,
                     j = null,
                     alSafeDistanceCb = null,
@@ -955,7 +957,9 @@
                 }, aaShowEnemiesActions = function() {
                     options.autoAim.showEnemiesActions = !options.autoAim.showEnemiesActions, autoAim.setShowEnemiesActions(options.autoAim.showEnemiesActions), H()
                 }, aaRightClickToggle = function() {
-                    options.autoAim.rightClickToggle = !options.autoAim.rightClickToggle, autoAim.setRightClickToggle(options.autoAim.rightClickToggle), H()
+                    options.autoAim.rightClickToggle = !options.autoAim.rightClickToggle, options.autoAim.rightClickSwitch = !options.autoAim.rightClickToggle, autoAim.setRightClickToggle(options.autoAim.rightClickToggle), H()
+                }, aaRightClickSwitch = function() {
+                    options.autoAim.rightClickSwitch = !options.autoAim.rightClickSwitch, options.autoAim.rightClickToggle = !options.autoAim.rightClickSwitch, autoAim.setRightClickSwitch(options.autoAim.rightClickSwitch), H()
                 }, F = function(n) {
                     return autoLoot.getItemsFromSlot(n)
                 }, j = function(n, e) {
@@ -975,7 +979,8 @@
                             detectOnDifferentLevels: options.autoAim.detectOnDifferentLevels,
                             enemyExtendedInfo: options.autoAim.enemyExtendedInfo,
                             showEnemiesActions: options.autoAim.showEnemiesActions,
-                            rightClickToggle: options.autoAim.rightClickToggle
+                            rightClickToggle: options.autoAim.rightClickToggle,
+                            rightClickSwitch: options.autoAim.rightClickSwitch
                         })
                     },
                     autoAimUnbind = function() {
@@ -1019,7 +1024,8 @@
                 var autoAim = scripts.autoAim(obfuscate, game, {
                         bullets: bullets,
                         items: items,
-                        playerBarn: playerbarn
+                        playerBarn: playerbarn,
+                        options: options
                     }),
                     autoLoot = scripts.autoLoot(obfuscate, game, {
                         lootBarn: lootBarn,
@@ -1106,6 +1112,7 @@
                     autoAimTargetEnemyNicknameVisibilityCb: aaNicknameVisCb,
                     autoAimShowEnemiesActionsCb: aaShowEnemiesActions,
                     autoAimRightClickToggleCb: aaRightClickToggle,
+                    autoAimRightClickSwitchCb: aaRightClickSwitch,
                     autoLootEnableCb: function() {
                         options.autoLoot.enabled ? (q(autoLoot) && autoLootUnbind(), options.autoLoot.enabled = false) : options.autoLoot.enabled || (!q(autoLoot) && Q() && autoLootBind(), options.autoLoot.enabled = true)
                     },
@@ -1415,6 +1422,7 @@
             var i = t.bullets,
                 a = t.items,
                 o = t.playerBarn,
+                op = t.options,
                 r = false,
                 s = null,
                 l = {},
@@ -1669,6 +1677,12 @@
                         return false
                     },
                     M = function(t) {
+                        console.log(op)
+                        if (2 === t.button && !L() && op.rightClickSwitch) {
+                            var i = e.scope[n.activePlayer.main];
+                            if (i.curWeapIdx) return void u("49");
+                            if (!i.curWeapIdx) return void u("50")
+                        }
                         if ((0 === t.button || 2 === t.button && !L()) && s.new) {
                             var a = e.scope[n.input.main][n.input.input],
                                 o = t.button;
@@ -1703,7 +1717,7 @@
                 return {
                     bind: function(t) {
                         var i, a, o, c = e.scope[n.input.main][n.input.input];
-                        i = t, l.targetEnemyNicknameVisibility = i.targetEnemyNicknameVisibility, l.forwardFiringCoeff = i.forwardFiringCoeff, l.smoothLevel = i.smoothLevel, l.restirctionAngle = i.restirctionAngle, l.restirctions = i.restirctions, l.detectOnDifferentLevels = i.detectOnDifferentLevels, l.enemyExtendedInfo = i.enemyExtendedInfo, l.showEnemiesActions = i.showEnemiesActions, s = function() {
+                        i = t, l.targetEnemyNicknameVisibility = i.targetEnemyNicknameVisibility, l.forwardFiringCoeff = i.forwardFiringCoeff, l.smoothLevel = i.smoothLevel, l.restirctionAngle = i.restirctionAngle, l.restirctions = i.restirctions, l.detectOnDifferentLevels = i.detectOnDifferentLevels, l.enemyExtendedInfo = i.enemyExtendedInfo, l.showEnemiesActions = i.showEnemiesActions,l.rightClickToggle = i.rightClickToggle, l.rightClickSwitch = i.rightClickSwitch, s = function() {
                             for (var n = [], e = 0; e < l.smoothLevel; e++) n.push({
                                 distance: null,
                                 radianAngle: null,
@@ -1757,6 +1771,9 @@
                     },
                     setRightClickToggle: function(n) {
                         l.rightClickToggle = n
+                    },
+                    setRightClickSwitch: function(n) {
+                        l.rightClickSwitch = n
                     },
                     render: function() {
                         var t;
@@ -2710,6 +2727,16 @@
                     },
                     callbacks: {
                         value: "autoAimRightClickToggleCb"
+                    },
+                    tabId: 1
+                }, {
+                    type: "checkbox",
+                    description: "Switch Guns",
+                    inputProps: {
+                        value: "autoAim.rightClickSwitch"
+                    },
+                    callbacks: {
+                        value: "autoAimRightClickSwitchCb"
                     },
                     tabId: 1
                 }, {
