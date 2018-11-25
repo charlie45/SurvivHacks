@@ -1,6 +1,6 @@
-#Contributing Guide
+# Contributing Guide
 It is really important that you know how to navigate a file system and how to code in JavaScript. If not, it will be very difficult for you to contribute.
-##How Do I fix the hack after an update?
+## How Do I fix the hack after an update?
 
 1. Fork the Reopsitory
 2. Clone your fork to your computer
