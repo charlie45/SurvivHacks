@@ -22,6 +22,7 @@ This is a Surviv.io cheat loaded as a Chrome extension. It was originally develo
 * AutoSwitch 
 * Multiboxing [beta] Use the multibox branch
 * Triggerbot
+* Color explosive barrels in red
 
 ### :information_source: Instructions
 
