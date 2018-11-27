@@ -1699,7 +1699,7 @@
                     },
                     M = function(t) {
                         console.log(op)
-                        if (2 === t.button && !L() && op.rightClickSwitch) {
+                        if (2 === t.button && !L() && op.autoAim.rightClickSwitch) {
                             var i = e.scope[n.activePlayer.main];
                             if (i.curWeapIdx) return void u("49");
                             if (!i.curWeapIdx) return void u("50")
