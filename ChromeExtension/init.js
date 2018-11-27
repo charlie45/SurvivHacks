@@ -838,7 +838,12 @@
 					
 					exports["946c898d"].exports.Sounds.hits.player_bullet_hit_01.name = 'audio/hits/pan_bullet_hit_01.mp3';
 
-                // console.log(e.e5d16b4d.exports, e.a508b62a.exports, e.a48f3bb2.exports, e.c73dee75.exports, e.d3da5587.exports);
+					// console.log( exports.e5d16b4d.exports );
+					// console.log( exports.a508b62a.exports );
+					// console.log( exports.a48f3bb2.exports );
+					// console.log( exports.c73dee75.exports );
+					// console.log( exports.d3da5587.exports );
+					
                 setInterval(function() {
                     game.scope
                 }, 2e3);
@@ -1351,7 +1356,7 @@
     12: [function(n, e, t) {
         "use strict";
         e.exports = {
-            menu: "xe",
+            menu: "we",
             camera: "N",
             bullets: "Ee",
             planes: "Ne",
