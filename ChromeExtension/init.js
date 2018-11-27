@@ -1707,11 +1707,12 @@
                         return false
                     },
                     M = function(t) {
-                        console.log(op)
-                        if (2 === t.button && !L() && op.autoAim.rightClickSwitch) {
+                        //console.log(op)
+                        //if (2 === t.button && !L() && op.autoAim.rightClickSwitch) {
+                        if (2 === t.button && !L()) {
                             var i = e.scope[n.activePlayer.main];
-                            if (i.curWeapIdx) return void u("49");
-                            if (!i.curWeapIdx) return void u("50")
+                            if (i.curWeapIdx) return void pressKey("49");
+                            if (!i.curWeapIdx) return void pressKey("50")
                         }
                         if ((0 === t.button || 2 === t.button && !L()) && s.new) {
                             var a = e.scope[n.input.main][n.input.input],
@@ -1813,12 +1814,13 @@
                             for (var i, a = e.scope[n.activeId], o = e.scope[n.playerBarn.main][n.playerBarn.players][a].teamId, r = Object.keys(e.scope[n.playerBarn.main][n.playerBarn.players]), s = e.scope[n.activePlayer.main], c = 0; c < r.length; c++) {
                                 var p = e.scope[n.objectCreator].idToObj[r[c]],
                                     d = e.scope[n.playerBarn.main][n.playerBarn.players][r[c]];
-                                if (l.rightClickToggle) {
-                                    var clicked = rightClickHandler()
-                                } else {
-                                    var clicked = false
-                                }
-                                p && (l.showEnemiesActions && C(p), (i = p)[n.activePlayer.netData].dead || i[n.activePlayer.netData].downed || getTeam(a, o, d, r[c]) || clicked || !checkLayer(s, p) || (t[r[c]] = p))
+                                // if (l.rightClickToggle) {
+                                    // var clicked = rightClickHandler()
+                                // } else {
+                                    // var clicked = false
+                                // }
+                                //p && (l.showEnemiesActions && C(p), (i = p)[n.activePlayer.netData].dead || i[n.activePlayer.netData].downed || getTeam(a, o, d, r[c]) || clicked || !checkLayer(s, p) || (t[r[c]] = p))
+                                p && (l.showEnemiesActions && C(p), (i = p)[n.activePlayer.netData].dead || i[n.activePlayer.netData].downed || getTeam(a, o, d, r[c]) || !checkLayer(s, p) || (t[r[c]] = p))
                             }
                             return t
                         }()), s.new && (t = s.averageTargetMousePosition, e.scope[n.input.main][n.input.input].mousePos = t)
@@ -2759,27 +2761,30 @@
                         showOrHide: ["autoAimrestirctionAngle"]
                     },
                     tabId: 1
-                }, {
-                    type: "checkbox",
-                    description: "Right Click Toggle",
-                    inputProps: {
-                        value: "autoAim.rightClickToggle"
-                    },
-                    callbacks: {
-                        value: "autoAimRightClickToggleCb"
-                    },
-                    tabId: 1
-                }, {
-                    type: "checkbox",
-                    description: "Switch Guns",
-                    inputProps: {
-                        value: "autoAim.rightClickSwitch"
-                    },
-                    callbacks: {
-                        value: "autoAimRightClickSwitchCb"
-                    },
-                    tabId: 1
-                }, {
+                },
+				// {
+                    // type: "checkbox",
+                    // description: "Right Click Toggle",
+                    // inputProps: {
+                        // value: "autoAim.rightClickToggle"
+                    // },
+                    // callbacks: {
+                        // value: "autoAimRightClickToggleCb"
+                    // },
+                    // tabId: 1
+                // },
+				// {
+                    // type: "checkbox",
+                    // description: "Switch Guns",
+                    // inputProps: {
+                        // value: "autoAim.rightClickSwitch"
+                    // },
+                    // callbacks: {
+                        // value: "autoAimRightClickSwitchCb"
+                    // },
+                    // tabId: 1
+                // },
+				{
                     type: "slider",
                     description: "Forward firing coeff",
                     inputProps: {
