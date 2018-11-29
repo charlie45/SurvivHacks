@@ -829,15 +829,15 @@
                     bagSizes = exports["989ad62a"].exports.bagSizes,
                     scopeZoomRadius = (exports["989ad62a"].exports.Input, exports["989ad62a"].exports.scopeZoomRadius.desktop),
                     protocolVersion = exports["989ad62a"].exports.protocolVersion,
-                    y = exports.e5d16b4d.exports.tt,
-                    playerbarn = exports.a508b62a.exports.De,
-                    lootBarn = exports.a48f3bb2.exports.Ke,
-                    bulletBarn = exports.c73dee75.exports.Oe,
-                    uiModel = exports.d3da5587.exports.$e,
+                    y = exports.e5d16b4d.exports.et,
+                    playerbarn = exports.a508b62a.exports.Ie,
+                    lootBarn = exports.a48f3bb2.exports.He,
+                    bulletBarn = exports.c73dee75.exports.Ee,
+                    uiModel = exports.d3da5587.exports.Qe,
                     keys = exports["4b8d140f"].exports.Key;
 					
 					exports["946c898d"].exports.Sounds.hits.player_bullet_hit_01.name = 'audio/hits/pan_bullet_hit_01.mp3';
-
+                    
 					// console.log( exports.e5d16b4d.exports );
 					// console.log( exports.a508b62a.exports );
 					// console.log( exports.a48f3bb2.exports );
@@ -849,9 +849,9 @@
                 }, 2e3);
                 this.console.log(exports)
                 this.console.log(options)
-
+                
                 setInterval(function() {
-                   // console.log(game.scope)
+                    console.log(game.scope)
 
                 }, 2000)
                 //*/
@@ -1356,17 +1356,17 @@
     12: [function(n, e, t) {
         "use strict";
         e.exports = {
-            menu: "we",
+            menu: "fe",
             camera: "N",
-            bullets: "Ee",
-            planes: "Ne",
-            activeId: "me",
+            bullets: "De",
+            planes: "je",
+            activeId: "ct",
             targetZoom: "f",
-            objectCreator: "lt",
-            pieTimer: "Ye",
+            objectCreator: "st",
+            pieTimer: "Ze",
             map: "Ce",
             input: {
-                main: "ye",
+                main: "ge",
                 input: "input",
                 mousePressed: "$"
             },
@@ -1376,17 +1376,17 @@
                 localData: "U"
             },
             playerBarn: {
-                main: "Ie",
+                main: "Ae",
                 players: "At"
             },
             lootBarn: {
-                main: "He",
+                main: "We",
                 itemf: "Pt",
-                lootPool: "rt",
-                pool: "de"
+                lootPool: "it",
+                pool: "pe"
             },
-            version: "1.1.002",
-            protocolVersion: 39
+            version: "1.1.003",
+            protocolVersion: 40
         }
     }, {}],
     13: [function(n, e, t) {
