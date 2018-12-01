@@ -824,6 +824,7 @@
                 // **Exports**
                 var p = exports.ceee80d9.exports.Defs,
                     bullets = exports["989ad62a"].exports.bullets,
+					tracerColors = exports["989ad62a"].exports.tracerColors,
                     u = exports["989ad62a"].exports.player,
                     items = exports["989ad62a"].exports.items,
                     bagSizes = exports["989ad62a"].exports.bagSizes,
@@ -841,6 +842,22 @@
 					Object.keys(bullets).forEach(function(key) {
 						exports["989ad62a"].exports.bullets[key].tracerWidth = 0.2;
 					});
+
+					// Make 9mm bullets yellow
+					exports["989ad62a"].exports.tracerColors["9mm"].regular = 16756224;
+					exports["989ad62a"].exports.tracerColors["9mm"].saturated = 16756224;
+					
+					// Make 7.62mm bullets blue
+					exports["989ad62a"].exports.tracerColors["762mm"].regular = 26367;
+					exports["989ad62a"].exports.tracerColors["762mm"].saturated = 26367;
+					
+					// Make 12gauge bullets red
+					exports["989ad62a"].exports.tracerColors["12gauge"].regular = 16711680;
+					exports["989ad62a"].exports.tracerColors["12gauge"].saturated = 16711680;
+					
+					// Make 556mm bullets green
+					exports["989ad62a"].exports.tracerColors["556mm"].regular = 237056;
+					exports["989ad62a"].exports.tracerColors["556mm"].saturated = 237056;
 
 					// console.log( exports.e5d16b4d.exports );
 					// console.log( exports.a508b62a.exports );
