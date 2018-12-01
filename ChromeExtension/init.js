@@ -837,7 +837,11 @@
                     keys = exports["4b8d140f"].exports.Key;
 					
 					exports["946c898d"].exports.Sounds.hits.player_bullet_hit_01.name = 'audio/hits/pan_bullet_hit_01.mp3';
-                    
+					
+					Object.keys(bullets).forEach(function(key) {
+						exports["989ad62a"].exports.bullets[key].tracerWidth = 0.2;
+					});
+
 					// console.log( exports.e5d16b4d.exports );
 					// console.log( exports.a508b62a.exports );
 					// console.log( exports.a48f3bb2.exports );
