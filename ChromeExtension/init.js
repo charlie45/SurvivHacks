@@ -840,7 +840,7 @@
                 exports["946c898d"].exports.Sounds.hits.player_bullet_hit_01.name = 'audio/hits/pan_bullet_hit_01.mp3';
 
                 Object.keys(bullets).forEach(function(key) {
-                    exports["989ad62a"].exports.bullets[key].tracerWidth = 0.2;
+                    exports["989ad62a"].exports.bullets[key].tracerWidth += 0.1;
                 });
 
                 // Make 9mm bullets yellow
