@@ -23,6 +23,7 @@ This is a Surviv.io cheat loaded as a Chrome extension. It was originally develo
 * Multiboxing [beta] Use the multibox branch
 * Triggerbot
 * Color explosive barrels in red
+* Bigger and more vibrant bullets
 
 ### :information_source: Instructions
 
