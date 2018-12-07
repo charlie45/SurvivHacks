@@ -1406,8 +1406,8 @@
                 lootPool: "it",
                 pool: "pe"
             },
-            version: "1.1.003",
-            protocolVersion: 40
+            version: "1.1.004",
+            protocolVersion: 41
         }
     }, {}],
     13: [function(n, e, t) {
