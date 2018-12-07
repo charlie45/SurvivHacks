@@ -91,11 +91,7 @@
                                 name: "Console Fix",
 		                    	from: /console.log=i,/g,
                                 to: "i(\"Nice try. ;) --zbot473\");\n"
-                            },{
-                                name: "Attempt Fix freeze",
-		                    	from: /e\){if\(this.ws\&\&.*?}.*?}/g,
-                                to: "e){"
-                            }, {
+                            },  {
                                 name: "Window onerror",
                                 from: /window.onerror/g,
                                 to: "window.onrandomvariable"
