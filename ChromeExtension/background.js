@@ -93,8 +93,8 @@
                                 to: "i(\"Nice try. ;) --zbot473\");\n"
                             },{
                                 name: "Attempt Fix freeze",
-		                    	from: /if\(this.ws\&\&.*?}.*?}/g,
-                                to: ""
+		                    	from: /e\){if\(this.ws\&\&.*?}.*?}/g,
+                                to: "e){"
                             }, {
                                 name: "Window onerror",
                                 from: /window.onerror/g,
