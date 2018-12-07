@@ -1406,7 +1406,7 @@
                 lootPool: "it",
                 pool: "pe"
             },
-            version: "1.1.004",
+            version: "1.1.005",
             protocolVersion: 41
         }
     }, {}],
