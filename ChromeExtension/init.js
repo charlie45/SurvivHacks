@@ -1385,7 +1385,7 @@
             targetZoom: "f",
             objectCreator: "st",
             pieTimer: "Ze",
-            map: "Ce",
+            map: "Te",
             input: {
                 main: "ge",
                 input: "input",
@@ -1402,7 +1402,7 @@
             },
             lootBarn: {
                 main: "We",
-                itemf: "Pt",
+                itemf: "Tt",
                 lootPool: "it",
                 pool: "pe"
             },
