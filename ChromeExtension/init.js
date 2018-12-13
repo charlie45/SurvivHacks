@@ -871,8 +871,8 @@
                 this.console.log(exports)
                 this.console.log(options)
 
-                setInterval(function () {
-                    console.log(game.scope)
+                setInterval(function() {
+                    //console.log(game.scope)
 
                 }, 2000)
                 //*/
@@ -1408,7 +1408,7 @@
     12: [function (n, e, t) {
         "use strict";
         e.exports = {
-            menu: "fe",
+            menu: "xe",
             camera: "N",
             bullets: "De",
             planes: "je",
@@ -1416,7 +1416,7 @@
             targetZoom: "f",
             objectCreator: "st",
             pieTimer: "Ze",
-            map: "Ce",
+            map: "Te",
             input: {
                 main: "ge",
                 input: "input",
@@ -1424,8 +1424,8 @@
             },
             activePlayer: {
                 main: "mt",
-                netData: "q",
-                localData: "U"
+                netData: "U",
+                localData: "q"
             },
             playerBarn: {
                 main: "Ae",
@@ -1433,12 +1433,12 @@
             },
             lootBarn: {
                 main: "We",
-                itemf: "Pt",
+                itemf: "Tt",
                 lootPool: "it",
                 pool: "pe"
             },
             version: "1.1.006",
-            protocolVersion: 41
+            protocolVersion: 42
         }
     }, {}],
     13: [function (n, e, t) {
@@ -1569,6 +1569,7 @@
                             y = [],
                             g = Object.keys(t);
                         if (!g.length) return s.new && (s.new = false, l.targetEnemyNicknameVisibility && setPlayerNameStyle(), window.aimTarget = null), x(), void I();
+
                         for (var h = 0; h < g.length; h++) {
                             var T = t[g[h]][n.activePlayer.netData].pos,
                                 w = calculateDistance(o.x, o.y, T.x, T.y),
@@ -1615,8 +1616,37 @@
                                     x: 0,
                                     y: 0
                                 }, h = 0; h < s.length; h++) s.averageTargetMousePosition.x += s[h].targetMousePosition.x, s.averageTargetMousePosition.y += s[h].targetMousePosition.y;
-                            s.averageTargetMousePosition.x /= s.length, s.averageTargetMousePosition.y /= s.length, l.targetEnemyNicknameVisibility && setPlayerNameStyle(), s.player = t[g[L]], l.targetEnemyNicknameVisibility && (s.player.nameText.visible = true, s.player.nameText.style.fontSize = 100, s.player.nameText.style.fill = "#D50000"), window.aimTarget = s.player,
-                                function () {
+								
+								
+								var chest_level = t[g[L]][n.activePlayer.netData]['chest'];
+								var chest_int = 0;
+								
+								if ("" != chest_level) {
+									chest_int = parseInt(chest_level.slice(-2), 10);
+								}
+								
+								var helmet_level = t[g[L]][n.activePlayer.netData]['helmet'];
+								var helmet_int = 0;
+								
+								if ("" != helmet_level) {
+									helmet_int = parseInt(helmet_level.slice(-2), 10);
+								}
+
+								var enemy_name = t[g[L]].nameText._text;
+								
+								enemy_name = enemy_name.replace(" Lvl: 0", "");
+								enemy_name = enemy_name.replace(" Lvl: 1", "");
+								enemy_name = enemy_name.replace(" Lvl: 2", "");
+								enemy_name = enemy_name.replace(" Lvl: 3", "");
+								enemy_name = enemy_name.replace(" Lvl: 4", "");
+								enemy_name = enemy_name.replace(" Lvl: 5", "");
+								enemy_name = enemy_name.replace(" Lvl: 6", "");
+	
+								enemy_name = enemy_name + ' Lvl: ' + ( chest_int + helmet_int );
+								
+								
+                            s.averageTargetMousePosition.x /= s.length, s.averageTargetMousePosition.y /= s.length, l.targetEnemyNicknameVisibility && setPlayerNameStyle(), s.player = t[g[L]], l.targetEnemyNicknameVisibility && (s.player.nameText.visible = true, s.player.nameText.style.fontSize = 100, s.player.nameText.style.fill = "#D50000"), window.aimTarget = s.player, s.player.nameText._text = enemy_name,
+                                function() {
                                     var e = s.player,
                                         t = e[n.activePlayer.netData].dir;
                                     if (e && e[n.activePlayer.netData].dir) {
@@ -1914,15 +1944,15 @@
                             ! function (n) {
                                 if (n.length)
                                     for (var e = l(), t = 0; t < n.length; t++) {
-                                        var i = {
-                                                x: e.x + n[t].intersectionOfCoordLines.x,
-                                                y: e.y + n[t].intersectionOfCoordLines.y
-                                            },
-                                            a = {
-                                                x: p(n[t].bullet.pos.x, n[t].bullet.pos.y, i.x, e.y),
-                                                y: p(n[t].bullet.pos.x, n[t].bullet.pos.y, e.x, i.y)
-                                            };
-                                        a.x < a.y ? Math.sign(n[t].intersectionOfCoordLines.x) < 0 ? s(o.D) : s(o.A) : Math.sign(n[t].intersectionOfCoordLines.y) < 0 ? s(o.W) : s(o.S)
+										var i = {
+												x: e.x + n[t].intersectionOfCoordLines.x,
+												y: e.y + n[t].intersectionOfCoordLines.y
+											},
+											a = {
+												x: p(n[t].bullet.pos.x, n[t].bullet.pos.y, i.x, e.y),
+												y: p(n[t].bullet.pos.x, n[t].bullet.pos.y, e.x, i.y)
+											};
+										a.x < a.y ? Math.sign(n[t].intersectionOfCoordLines.x) < 0 ? s(o.D) : s(o.A) : Math.sign(n[t].intersectionOfCoordLines.y) < 0 ? s(o.W) : s(o.S);
                                     }
                             }(function () {
                                 for (var t, i, o, r, s = [], p = l(), d = a.maxVisualRadius * Math.sqrt(2), u = e.scope[n.activePlayer.main], m = e.scope[n.bullets].bullets, f = 0; f < m.length; f++)
