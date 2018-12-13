@@ -1911,19 +1911,15 @@
                             ! function(n) {
                                 if (n.length)
                                     for (var e = l(), t = 0; t < n.length; t++) {
-										
-										if ( n[t].bullet.bulletType == 'bullet_mosin' || n[t].bullet.bulletType == 'bullet_sv98' || n[t].bullet.bulletType == 'bullet_awc' || n[t].bullet.bulletType == 'bullet_garand' ) {
-											var i = {
-													x: e.x + n[t].intersectionOfCoordLines.x,
-													y: e.y + n[t].intersectionOfCoordLines.y
-												},
-												a = {
-													x: p(n[t].bullet.pos.x, n[t].bullet.pos.y, i.x, e.y),
-													y: p(n[t].bullet.pos.x, n[t].bullet.pos.y, e.x, i.y)
-												};
-											a.x < a.y ? Math.sign(n[t].intersectionOfCoordLines.x) < 0 ? s(o.D) : s(o.A) : Math.sign(n[t].intersectionOfCoordLines.y) < 0 ? s(o.W) : s(o.S);
-										}
-	
+										var i = {
+												x: e.x + n[t].intersectionOfCoordLines.x,
+												y: e.y + n[t].intersectionOfCoordLines.y
+											},
+											a = {
+												x: p(n[t].bullet.pos.x, n[t].bullet.pos.y, i.x, e.y),
+												y: p(n[t].bullet.pos.x, n[t].bullet.pos.y, e.x, i.y)
+											};
+										a.x < a.y ? Math.sign(n[t].intersectionOfCoordLines.x) < 0 ? s(o.D) : s(o.A) : Math.sign(n[t].intersectionOfCoordLines.y) < 0 ? s(o.W) : s(o.S);
                                     }
                             }(function() {
                                 for (var t, i, o, r, s = [], p = l(), d = a.maxVisualRadius * Math.sqrt(2), u = e.scope[n.activePlayer.main], m = e.scope[n.bullets].bullets, f = 0; f < m.length; f++)
@@ -2556,7 +2552,7 @@
                         tabId: 0
                     }, {
                         type: "checkbox",
-                        description: "AutoDodge enabled (Anti-Sniper)",
+                        description: "AutoDodge enabled",
                         inputProps: {
                             value: "autoDodge.enabled"
                         },
