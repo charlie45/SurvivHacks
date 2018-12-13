@@ -872,7 +872,7 @@
                 this.console.log(options)
 
                 setInterval(function() {
-                    console.log(game.scope)
+                    //console.log(game.scope)
 
                 }, 2000)
                 //*/
@@ -929,8 +929,6 @@
                 setInterval(function() {
                     vn && !Q() ? Tn() : Q() && !G ? xn() : vn || Q() || !G || (G = false)
                 }, 500);
-
-
 
                 var Y = y.prototype.l;
                 y.prototype.l = function() {
@@ -1393,8 +1391,8 @@
             },
             activePlayer: {
                 main: "mt",
-                netData: "q",
-                localData: "U"
+                netData: "U",
+                localData: "q"
             },
             playerBarn: {
                 main: "Ae",
@@ -1538,14 +1536,15 @@
                             y = [],
                             g = Object.keys(t);
                         if (!g.length) return s.new && (s.new = false, l.targetEnemyNicknameVisibility && setPlayerNameStyle(), window.aimTarget = null), x(), void I();
-                        // for (var h = 0; h < g.length; h++) {
-                            // var T = t[g[h]][n.activePlayer.netData].pos,
-                                // w = calculateDistance(o.x, o.y, T.x, T.y),
-                                // k = calculateDistance(r.x, r.y, T.x, T.y),
-                                // C = calcuateAngle(o.x, o.y, T.x, T.y),
-                                // E = Math.abs(C - calcuateAngle(o.x, o.y, r.x, r.y));
-                            // p.push(w), d.push(k), u.push(C), A.push(E), y.push(true)
-                        // }
+
+                        for (var h = 0; h < g.length; h++) {
+                            var T = t[g[h]][n.activePlayer.netData].pos,
+                                w = calculateDistance(o.x, o.y, T.x, T.y),
+                                k = calculateDistance(r.x, r.y, T.x, T.y),
+                                C = calcuateAngle(o.x, o.y, T.x, T.y),
+                                E = Math.abs(C - calcuateAngle(o.x, o.y, r.x, r.y));
+                            p.push(w), d.push(k), u.push(C), A.push(E), y.push(true)
+                        }
                         var B, L = null;
                         if (l.restirctions) {
                             var M = null;
@@ -1555,50 +1554,79 @@
                             }), L = M
                         } else L = (B = d).indexOf(Math.min.apply(null, B));
                         if (null != L) {
-                            // for (s.unshift({
-                                    // distance: p[L],
-                                    // radianAngle: u[L],
-                                    // pos: t[g[L]][n.activePlayer.netData].pos,
-                                    // timestamp: Date.now()
-                                // }), s.pop(), s[0].targetMousePosition = function(t, o, r, s, c) {
-                                    // var p = 0,
-                                        // d = 1 / 0;
-                                    // p = e.scope[n.activePlayer.main].weapType && a[e.scope[n.activePlayer.main].weapType].bulletType ? i[a[e.scope[n.activePlayer.main].weapType].bulletType].speed * l.forwardFiringCoeff : 1e3;
-                                    // for (var u = getPos(), A = {
-                                            // x: t.x,
-                                            // y: t.y
-                                        // }, y = calculateDistance(u.x, u.y, t.x, t.y), g = (t.x - r.x) / ((o - s + 1) / 1e3), v = (t.y - r.y) / ((o - s + 1) / 1e3), h = 0; h < 10; h++) d = y / p, A = {
-                                        // x: t.x + g * d,
-                                        // y: t.y + v * d
-                                    // }, y = calculateDistance(u.x, u.y, A.x, A.y);
-                                    // var x = e.scope[n.camera].screenWidth / 2,
-                                        // T = e.scope[n.camera].screenHeight / 2,
-                                        // w = T > x ? x : T;
-                                    // w = Math.floor(w - 1);
-                                    // var z = calcuateAngle(u.x, u.y, A.x, A.y);
-                                    // return {
-                                        // x: x + w * Math.cos(z),
-                                        // y: T - w * Math.sin(z)
-                                    // }
-                                // }(s[0].pos, s[0].timestamp, s[1].pos, s[1].timestamp, s.distance), s.averageTargetMousePosition = {
-                                    // x: 0,
-                                    // y: 0
-                                // }, h = 0; h < s.length; h++) s.averageTargetMousePosition.x += s[h].targetMousePosition.x, s.averageTargetMousePosition.y += s[h].targetMousePosition.y;
-                            // s.averageTargetMousePosition.x /= s.length, s.averageTargetMousePosition.y /= s.length, l.targetEnemyNicknameVisibility && setPlayerNameStyle(), s.player = t[g[L]], l.targetEnemyNicknameVisibility && (s.player.nameText.visible = true, s.player.nameText.style.fontSize = 100, s.player.nameText.style.fill = "#D50000"), window.aimTarget = s.player,
-                                // function() {
-                                    // var e = s.player,
-                                        // t = e[n.activePlayer.netData].dir;
-                                    // if (e && e[n.activePlayer.netData].dir) {
-                                        // var i = e.targetIndicator;
-                                        // if (i || ((i = window.PIXI.Sprite.from(c)).visible = false, i.scale.set(.6, .6), i.tint = 16711680, i.alpha = .5, e.container.addChild(i), e.targetIndicator = i), i) {
-                                            // var a = {
-                                                // x: -.5 * i.width + t.x,
-                                                // y: -.5 * i.height + t.y
-                                            // };
-                                            // i.position.set(a.x, a.y), i.visible = true, x(i)
-                                        // }
-                                    // }
-                                // }(), l.enemyExtendedInfo && z(), s.new = true
+                            for (s.unshift({
+                                    distance: p[L],
+                                    radianAngle: u[L],
+                                    pos: t[g[L]][n.activePlayer.netData].pos,
+                                    timestamp: Date.now()
+                                }), s.pop(), s[0].targetMousePosition = function(t, o, r, s, c) {
+                                    var p = 0,
+                                        d = 1 / 0;
+                                    p = e.scope[n.activePlayer.main].weapType && a[e.scope[n.activePlayer.main].weapType].bulletType ? i[a[e.scope[n.activePlayer.main].weapType].bulletType].speed * l.forwardFiringCoeff : 1e3;
+                                    for (var u = getPos(), A = {
+                                            x: t.x,
+                                            y: t.y
+                                        }, y = calculateDistance(u.x, u.y, t.x, t.y), g = (t.x - r.x) / ((o - s + 1) / 1e3), v = (t.y - r.y) / ((o - s + 1) / 1e3), h = 0; h < 10; h++) d = y / p, A = {
+                                        x: t.x + g * d,
+                                        y: t.y + v * d
+                                    }, y = calculateDistance(u.x, u.y, A.x, A.y);
+                                    var x = e.scope[n.camera].screenWidth / 2,
+                                        T = e.scope[n.camera].screenHeight / 2,
+                                        w = T > x ? x : T;
+                                    w = Math.floor(w - 1);
+                                    var z = calcuateAngle(u.x, u.y, A.x, A.y);
+                                    return {
+                                        x: x + w * Math.cos(z),
+                                        y: T - w * Math.sin(z)
+                                    }
+                                }(s[0].pos, s[0].timestamp, s[1].pos, s[1].timestamp, s.distance), s.averageTargetMousePosition = {
+                                    x: 0,
+                                    y: 0
+                                }, h = 0; h < s.length; h++) s.averageTargetMousePosition.x += s[h].targetMousePosition.x, s.averageTargetMousePosition.y += s[h].targetMousePosition.y;
+								
+								
+								var chest_level = t[g[L]][n.activePlayer.netData]['chest'];
+								var chest_int = 0;
+								
+								if ("" != chest_level) {
+									chest_int = parseInt(chest_level.slice(-2), 10);
+								}
+								
+								var helmet_level = t[g[L]][n.activePlayer.netData]['helmet'];
+								var helmet_int = 0;
+								
+								if ("" != helmet_level) {
+									helmet_int = parseInt(helmet_level.slice(-2), 10);
+								}
+
+								var enemy_name = t[g[L]].nameText._text;
+								
+								enemy_name = enemy_name.replace(" Lvl: 0", "");
+								enemy_name = enemy_name.replace(" Lvl: 1", "");
+								enemy_name = enemy_name.replace(" Lvl: 2", "");
+								enemy_name = enemy_name.replace(" Lvl: 3", "");
+								enemy_name = enemy_name.replace(" Lvl: 4", "");
+								enemy_name = enemy_name.replace(" Lvl: 5", "");
+								enemy_name = enemy_name.replace(" Lvl: 6", "");
+	
+								enemy_name = enemy_name + ' Lvl: ' + ( chest_int + helmet_int );
+								
+								
+                            s.averageTargetMousePosition.x /= s.length, s.averageTargetMousePosition.y /= s.length, l.targetEnemyNicknameVisibility && setPlayerNameStyle(), s.player = t[g[L]], l.targetEnemyNicknameVisibility && (s.player.nameText.visible = true, s.player.nameText.style.fontSize = 100, s.player.nameText.style.fill = "#D50000"), window.aimTarget = s.player, s.player.nameText._text = enemy_name,
+                                function() {
+                                    var e = s.player,
+                                        t = e[n.activePlayer.netData].dir;
+                                    if (e && e[n.activePlayer.netData].dir) {
+                                        var i = e.targetIndicator;
+                                        if (i || ((i = window.PIXI.Sprite.from(c)).visible = false, i.scale.set(.6, .6), i.tint = 16711680, i.alpha = .5, e.container.addChild(i), e.targetIndicator = i), i) {
+                                            var a = {
+                                                x: -.5 * i.width + t.x,
+                                                y: -.5 * i.height + t.y
+                                            };
+                                            i.position.set(a.x, a.y), i.visible = true, x(i)
+                                        }
+                                    }
+                                }(), l.enemyExtendedInfo && z(), s.new = true
                         } else s.new = false, window.aimTarget = null, x()
                     },
                     w = function(n) {
@@ -1883,15 +1911,19 @@
                             ! function(n) {
                                 if (n.length)
                                     for (var e = l(), t = 0; t < n.length; t++) {
-                                        var i = {
-                                                x: e.x + n[t].intersectionOfCoordLines.x,
-                                                y: e.y + n[t].intersectionOfCoordLines.y
-                                            },
-                                            a = {
-                                                x: p(n[t].bullet.pos.x, n[t].bullet.pos.y, i.x, e.y),
-                                                y: p(n[t].bullet.pos.x, n[t].bullet.pos.y, e.x, i.y)
-                                            };
-                                        a.x < a.y ? Math.sign(n[t].intersectionOfCoordLines.x) < 0 ? s(o.D) : s(o.A) : Math.sign(n[t].intersectionOfCoordLines.y) < 0 ? s(o.W) : s(o.S)
+										
+										if ( n[t].bullet.bulletType == 'bullet_mosin' || n[t].bullet.bulletType == 'bullet_sv98' || n[t].bullet.bulletType == 'bullet_awc' || n[t].bullet.bulletType == 'bullet_garand' ) {
+											var i = {
+													x: e.x + n[t].intersectionOfCoordLines.x,
+													y: e.y + n[t].intersectionOfCoordLines.y
+												},
+												a = {
+													x: p(n[t].bullet.pos.x, n[t].bullet.pos.y, i.x, e.y),
+													y: p(n[t].bullet.pos.x, n[t].bullet.pos.y, e.x, i.y)
+												};
+											a.x < a.y ? Math.sign(n[t].intersectionOfCoordLines.x) < 0 ? s(o.D) : s(o.A) : Math.sign(n[t].intersectionOfCoordLines.y) < 0 ? s(o.W) : s(o.S);
+										}
+	
                                     }
                             }(function() {
                                 for (var t, i, o, r, s = [], p = l(), d = a.maxVisualRadius * Math.sqrt(2), u = e.scope[n.activePlayer.main], m = e.scope[n.bullets].bullets, f = 0; f < m.length; f++)
@@ -2396,18 +2428,18 @@
                         if (t.weapType) {
                             var o = e.scope[n.camera],
                                 s = a[t.weapType];
-                            // isset(s.shotSpread) && isset(s.bulletType) ? (l(t[n.activePlayer.netData], .1), r.range = i[s.bulletType].distance * o.ppu, r.direction = Math.atan2(t[n.activePlayer.netData].dir.x, t[n.activePlayer.netData].dir.y) - Math.PI / 2, r.angle = .01745329252 * (s.shotSpread + (t[n.activePlayer.netData].speed > .01 ? s.moveSpread : 0)) / 2, function() {
-                                // var t, i = r.draw;
-                                // if (i || (i = new window.PIXI.Graphics, r.draw = i, (t = e.scope[n.activePlayer.main]).container.addChild(i), t.container.setChildIndex(i, 0)), i.graphicsData) {
-                                    // i.clear();
-                                    // var a = 0,
-                                        // o = 0,
-                                        // s = r.range,
-                                        // l = r.direction - r.angle,
-                                        // c = r.direction + r.angle;
-                                    // l = l > 2 * Math.PI ? l - 2 * Math.PI : l < 0 ? l + 2 * Math.PI : l, c = c > 2 * Math.PI ? c - 2 * Math.PI : c < 0 ? c + 2 * Math.PI : c, i.beginFill(16711680, .35), i.moveTo(a, o), i.arc(a, o, s, l, c), i.lineTo(a, o), i.endFill()
-                                // }
-                            // }()) : c()
+                            isset(s.shotSpread) && isset(s.bulletType) ? (l(t[n.activePlayer.netData], .1), r.range = i[s.bulletType].distance * o.ppu, r.direction = Math.atan2(t[n.activePlayer.netData].dir.x, t[n.activePlayer.netData].dir.y) - Math.PI / 2, r.angle = .01745329252 * (s.shotSpread + (t[n.activePlayer.netData].speed > .01 ? s.moveSpread : 0)) / 2, function() {
+                                var t, i = r.draw;
+                                if (i || (i = new window.PIXI.Graphics, r.draw = i, (t = e.scope[n.activePlayer.main]).container.addChild(i), t.container.setChildIndex(i, 0)), i.graphicsData) {
+                                    i.clear();
+                                    var a = 0,
+                                        o = 0,
+                                        s = r.range,
+                                        l = r.direction - r.angle,
+                                        c = r.direction + r.angle;
+                                    l = l > 2 * Math.PI ? l - 2 * Math.PI : l < 0 ? l + 2 * Math.PI : l, c = c > 2 * Math.PI ? c - 2 * Math.PI : c < 0 ? c + 2 * Math.PI : c, i.beginFill(16711680, .35), i.moveTo(a, o), i.arc(a, o, s, l, c), i.lineTo(a, o), i.endFill()
+                                }
+                            }()) : c()
                         }
                     }
                 }
@@ -2424,21 +2456,21 @@
                     points: null
                 },
                 a = function(t) {
-                    // var a = function() {
-                            // var t = e.scope[n.playerBarn.main][n.playerBarn.players],
-                                // i = e.scope[n.activeId],
-                                // a = [];
-                            // if (!t[i]) return a;
-                            // for (var o = e.scope[n.objectCreator].idToObj, r = t[i].teamId, s = Object.keys(t), l = 0; l < s.length; l++) !o[s[l]] || o[s[l]][n.activePlayer.netData].dead || o[s[l]][n.activePlayer.netData].downed || t[s[l]].teamId == r || s[l] != i && (a[s[l]] = o[s[l]]);
-                            // return a
-                        // }(),
-                        // o = e.scope[n.camera];
-                    // i.points = a.map(function(e) {
-                        // return {
-                            // x: (e.pos.x - t[n.activePlayer.netData].pos.x) * o.ppu,
-                            // y: (t[n.activePlayer.netData].pos.y - e.pos.y) * o.ppu
-                        // }
-                    // })
+                    var a = function() {
+                            var t = e.scope[n.playerBarn.main][n.playerBarn.players],
+                                i = e.scope[n.activeId],
+                                a = [];
+                            if (!t[i]) return a;
+                            for (var o = e.scope[n.objectCreator].idToObj, r = t[i].teamId, s = Object.keys(t), l = 0; l < s.length; l++) !o[s[l]] || o[s[l]][n.activePlayer.netData].dead || o[s[l]][n.activePlayer.netData].downed || t[s[l]].teamId == r || s[l] != i && (a[s[l]] = o[s[l]]);
+                            return a
+                        }(),
+                        o = e.scope[n.camera];
+                    i.points = a.map(function(e) {
+                        return {
+                            x: (e.pos.x - t[n.activePlayer.netData].pos.x) * o.ppu,
+                            y: (t[n.activePlayer.netData].pos.y - e.pos.y) * o.ppu
+                        }
+                    })
                 },
                 o = function() {
                     i.draw && e.scope.initialized && i.draw.clear()
@@ -2454,17 +2486,17 @@
                     return t
                 },
                 render: function() {
-                    // var t = e.scope[n.activePlayer.main];
-                    // a(t),
-                        // function(n) {
-                            // if (n && n.container) {
-                                // var e = i.points,
-                                    // t = i.draw;
-                                // !e && e.length > 0 || (t || (t = new window.PIXI.Graphics, i.draw = t, n.container.addChild(t), n.container.setChildIndex(t, 0)), t.graphicsData && (t.clear(), t.beginFill(), t.lineStyle(2, 16562432), e.forEach(function(n) {
-                                    // t.moveTo(0, 0), t.lineTo(n.x, n.y)
-                                // }), t.endFill()))
-                            // }
-                        // }(t)
+                    var t = e.scope[n.activePlayer.main];
+                    a(t),
+                        function(n) {
+                            if (n && n.container) {
+                                var e = i.points,
+                                    t = i.draw;
+                                !e && e.length > 0 || (t || (t = new window.PIXI.Graphics, i.draw = t, n.container.addChild(t), n.container.setChildIndex(t, 0)), t.graphicsData && (t.clear(), t.beginFill(), t.lineStyle(2, 16562432), e.forEach(function(n) {
+                                    t.moveTo(0, 0), t.lineTo(n.x, n.y)
+                                }), t.endFill()))
+                            }
+                        }(t)
                 }
             }
         }
@@ -2524,7 +2556,7 @@
                         tabId: 0
                     }, {
                         type: "checkbox",
-                        description: "AutoDodge enabled",
+                        description: "AutoDodge enabled (Anti-Sniper)",
                         inputProps: {
                             value: "autoDodge.enabled"
                         },
