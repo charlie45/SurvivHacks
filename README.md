@@ -1,5 +1,5 @@
 ![alt text](http://i67.tinypic.com/357hs47.png "Survivio Banner")
-# Welcome to Surviv.io-Cheats (Working on all modes for client version: 0.6.7 as of December 4, 2018)!
+# Welcome to Surviv.io-Cheats (Working on all modes for client version: 0.6.8 as of December 13, 2018)!
 This is a Surviv.io cheat loaded as a Chrome extension. It was originally developed by w3x731 and I've decided to continue the development of the code.
 
 
@@ -18,7 +18,7 @@ This is a Surviv.io cheat loaded as a Chrome extension. It was originally develo
 * Auto heal
 * Auto fire(Just press the left mouse button)
 * Planes tracking + visibility of air drop on minimap has been extended
-* AutoDodge 
+* AutoDodge (only works against sniper)
 * AutoSwitch 
 * Multiboxing [beta] Use the multibox branch
 * Triggerbot
