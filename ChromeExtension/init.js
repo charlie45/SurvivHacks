@@ -1427,7 +1427,7 @@
             }
         }
     }, {}],
-    12: [function (n, e, t) {
+    12: [function (n, e, t) {//game_vars 
         "use strict";
         e.exports = {
             menu: "xe",
