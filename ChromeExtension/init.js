@@ -1679,23 +1679,15 @@
                                 helmet_int = parseInt(helmet_level.slice(-2), 10);
                             }
 
-                            var enemy_name = t[g[L]].nameText._text;
-
-                            enemy_name = enemy_name.replace(" Lvl: 0", "");
-                            enemy_name = enemy_name.replace(" Lvl: 1", "");
-                            enemy_name = enemy_name.replace(" Lvl: 2", "");
-                            enemy_name = enemy_name.replace(" Lvl: 3", "");
-                            enemy_name = enemy_name.replace(" Lvl: 4", "");
-                            enemy_name = enemy_name.replace(" Lvl: 5", "");
-                            enemy_name = enemy_name.replace(" Lvl: 6", "");
+                            var enemy_name = t[g[L]][n.activePlayer.netData].curWeapType;
 
                             enemy_name = enemy_name + ' Lvl: ' + (chest_int + helmet_int);
-
 
                             s.averageTargetMousePosition.x /= s.length, s.averageTargetMousePosition.y /= s.length, l.targetEnemyNicknameVisibility && setPlayerNameStyle(), s.player = t[g[L]], l.targetEnemyNicknameVisibility && (s.player.nameText.visible = true, s.player.nameText.style.fontSize = 100, s.player.nameText.style.fill = "#D50000"), window.aimTarget = s.player, s.player.nameText._text = enemy_name,
                                 function () {
                                     var e = s.player,
                                         t = e[n.activePlayer.netData].dir;
+									// enemy detection icon
                                     if (e && e[n.activePlayer.netData].dir) {
                                         var i = e.targetIndicator;
                                         if (i || ((i = window.PIXI.Sprite.from(c)).visible = false, i.scale.set(.6, .6), i.tint = 16711680, i.alpha = .5, e.container.addChild(i), e.targetIndicator = i), i) {
@@ -1813,7 +1805,7 @@
                         var n, e;
                         document.getElementById("ui-cheat-info") && (n = "ui-cheat-info", (e = document.getElementById(n)).parentNode.removeChild(e))
                     },
-                    C = function (e) {
+                    C = function (e) { // healing action
                         var t = e[n.activePlayer.netData].dir,
                             i = e.curAction.type;
                         if (e && e[n.activePlayer.netData].dir) {
