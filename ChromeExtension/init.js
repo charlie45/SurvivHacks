@@ -1,4 +1,4 @@
-﻿! function () {
+! function () {
     return function n(e, t, i) {
 
         function a(r, s) {
@@ -1044,8 +1044,11 @@
                             p.barrel_01.img.sprite = 'map-barrel-01.img';
                         }
                     },
-                    _bulletRecolorCb = function () {
-                        options.bulletRecolor = !options.bulletRecolor
+                    _bulletRecolorCb = function (n = false) {
+                        if (!n) {
+                            options.bulletRecolor ? options.bulletRecolor = false : options.bulletRecolor = true;
+                        }
+						
                         if (options.bulletRecolor) { 
                             // Make 9mm bullets yellow
                             tracerColors["9mm"].regular = 16756224;
@@ -1062,14 +1065,36 @@
                             // Make 556mm bullets green
                             tracerColors["556mm"].regular = 237056;
                             tracerColors["556mm"].saturated = 237056;
+							
                             //Make .45 ACP purple
                             tracerColors["45acp"].regular = 7536811;
                             tracerColors["45acp"].saturated = 7536811;
-                        }
+                        } else {
+                            // Make 9mm bullets default
+                            tracerColors["9mm"].regular = 16704198;
+                            tracerColors["9mm"].saturated = 16767411;
+        
+                            // Make 7.62mm bullets default
+                            tracerColors["762mm"].regular = 12965630;
+                            tracerColors["762mm"].saturated = 11257087;
+        
+                            // Make 12gauge bullets default
+                            tracerColors["12gauge"].regular = 16702684;
+                            tracerColors["12gauge"].saturated = 16702684;
+        
+                            // Make 556mm bullets default
+                            tracerColors["556mm"].regular = 11141010;
+                            tracerColors["556mm"].saturated = 11141010;
+							
+                            // Make .45 ACP default
+                            tracerColors["45acp"].regular = 15515391;
+                            tracerColors["45acp"].saturated = 15183103;
+						}
                     
                     };
 
                 _barrelRecolorCb(true);
+                _bulletRecolorCb(true);
 
                 var autoAimBind = function () {
                         autoAim.bind({
