@@ -835,11 +835,11 @@
                     bagSizes = exports["989ad62a"].exports.bagSizes,
                     scopeZoomRadius = (exports["989ad62a"].exports.Input, exports["989ad62a"].exports.scopeZoomRadius.desktop),
                     protocolVersion = exports["989ad62a"].exports.protocolVersion,
-                    y = exports.e5d16b4d.exports.$e,
-                    playerbarn = exports.a508b62a.exports.Ae,
-                    lootBarn = exports.a48f3bb2.exports.We,
-                    bulletBarn = exports.c73dee75.exports.De,
-                    uiModel = exports.d3da5587.exports.Je,
+                    y = exports.e5d16b4d.exports.tt,
+                    playerbarn = exports.a508b62a.exports.De,
+                    lootBarn = exports.a48f3bb2.exports.Ke,
+                    bulletBarn = exports.c73dee75.exports.Oe,
+                    uiModel = exports.d3da5587.exports.$e,
                     keys = exports["4b8d140f"].exports.Key;
 
                 exports["946c898d"].exports.Sounds.hits.player_bullet_hit_01.name = 'audio/hits/pan_bullet_hit_01.mp3';
@@ -859,12 +859,14 @@
                 }, 2e3);
                 this.console.log(exports)
                 this.console.log(options)
-                /*
+				
+
                 setInterval(function () {
                     console.log(game.scope)
 
-                }, 2000)
-                //*/
+                }, 3000)
+
+				
                 //start menu help
                 var help = this.document.getElementById("start-help")
                 help.innerHTML += `
@@ -1455,30 +1457,43 @@
     12: [function (n, e, t) {//game_vars 
         "use strict";
         e.exports = {
+			// xe: o {game: r, particleBarn: l, localization: i, touch: e, inputBinds: e, …}
             menu: "xe",
+			// N: i {pos: {…}, ppu: 16, zoom: 1.132234974067752, f: 0.5785845588235294, screenWidth: 1259, …}
             camera: "N",
+			// Ee: o {bullets: Array(0)}
             bullets: "Ee",
+			// can not find planes variable
             planes: "Re",
-            activeId: "st",
+			// ct: 3058
+            activeId: "ct",
+			// f: 1
             targetZoom: "f",
-            objectCreator: "nt",
-            pieTimer: "Xe",
-            map: "Te",
+			// lt: r {idToObj: {…}, types: {…}, seenCount: 34}
+            objectCreator: "lt",
+			// maybe Te: l {renderer: c, particles: Array(256), emitters: Array(0), valueAdjust: 1, elapsed: 125.73665200001706}
+            pieTimer: "Te",
+			// maybe Xe: e {mode: 1, circleT: 0.29530785076676586, duration: 65, circleOld: {…}, circleNew: {…}, …}
+            map: "Xe",
             input: {
+				// ge: e {input: o, config: e, binds: Array(36), boundKeys: {…}, menuHovered: false}
                 main: "ge",
                 input: "input",
                 mousePressed: "$"
             },
             activePlayer: {
-                main: "ct",
+				// dt: n {bodySprite: e, chestSprite: e, helmetSprite: e, backpackSprite: e, handLSprite: e, …}
+                main: "dt",
                 netData: "U",
                 localData: "q"
             },
             playerBarn: {
-                main: "Ce",
-                players: "Ct"
+				// Ie: s {it: i, It: {…}, teamInfo: {…}, teammateData: {…}}
+                main: "Ie",
+                players: "It"
             },
             lootBarn: {
+				// need to find, Ce maybe
                 main: "Ge",
                 itemf: "Pt",
                 lootPool: "at",
@@ -1533,14 +1548,14 @@
                     return t
                 },
                 render: function () {
-                    t && e.scope.initialized && (s(), function () {
-                        var t = e.scope[n.planes].planes,
-                            a = t.length;
-                        if (a > 0) {
-                            for (var o = 0; o < a; o++) r(t[o]);
-                            t[a - 1].id != i.lastPlaneId && (i.lastPlaneId = t[a - 1].id, notifications.create("info", "Attention, the next plane is coming!", "OK", 5e3))
-                        }
-                    }())
+                    // t && e.scope.initialized && (s(), function () {
+                        // var t = e.scope[n.planes].planes,
+                            // a = t.length;
+                        // if (a > 0) {
+                            // for (var o = 0; o < a; o++) r(t[o]);
+                            // t[a - 1].id != i.lastPlaneId && (i.lastPlaneId = t[a - 1].id, notifications.create("info", "Attention, the next plane is coming!", "OK", 5e3))
+                        // }
+                    // }())
                 }
             }
         }
