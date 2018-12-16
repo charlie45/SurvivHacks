@@ -1004,6 +1004,7 @@
                 var H = function () {
                     autoAim.isBinded() && options.autoAim.enabled && (autoAimUnbind(), autoAimBind())
                 };
+
                 aaNicknameVisCb = function () {
                         options.autoAim.targetEnemyNicknameVisibility = !options.autoAim.targetEnemyNicknameVisibility, autoAim.setTargetEnemyNicknameVisibility(options.autoAim.targetEnemyNicknameVisibility), H()
                     }, aaForwardFiringCoeffCb = function (n) {
@@ -1471,10 +1472,10 @@
             targetZoom: "f",
 			// lt: r {idToObj: {…}, types: {…}, seenCount: 34}
             objectCreator: "lt",
-			// maybe Te: l {renderer: c, particles: Array(256), emitters: Array(0), valueAdjust: 1, elapsed: 125.73665200001706}
-            pieTimer: "Te",
-			// maybe Xe: e {mode: 1, circleT: 0.29530785076676586, duration: 65, circleOld: {…}, circleNew: {…}, …}
-            map: "Xe",
+			// Ye: i {Gt: false, dirty: false, container: e, mobileOffset: 0, clientData: {…}, …}
+            pieTimer: "Ye",
+			// Ce: s {display: {…}, width: 720, height: 720, seed: 192487212, biome: 1, …}
+            map: "Ce",
             input: {
 				// ge: e {input: o, config: e, binds: Array(36), boundKeys: {…}, menuHovered: false}
                 main: "ge",
@@ -1493,10 +1494,10 @@
                 players: "It"
             },
             lootBarn: {
-				// need to find, Ce maybe
-                main: "Ge",
-                itemf: "Pt",
-                lootPool: "at",
+				// He: r {rt: i, Ct: null}
+                main: "He",
+                itemf: "Ct",
+                lootPool: "rt",
                 pool: "pe"
             },
             version: "1.1.007",
