@@ -861,8 +861,9 @@
                 this.console.log(options)
 				
 
+				// game_scope
                 setInterval(function () {
-                    console.log(game.scope)
+                    //console.log(game.scope)
 
                 }, 3000)
 
@@ -1096,7 +1097,7 @@
 						}
                     
                     };
-
+					
                 _barrelRecolorCb(true);
                 _bulletRecolorCb(true);
 
@@ -1615,6 +1616,48 @@
                             return !e.scope[n.input.main][n.input.input].mouseButtons["2"]
                         }
                     },
+					l_function = function (n) {
+						return !! function (n) {
+							return c_function(n.A, n.B, n.C) || c_function(n.A, n.B, n.D) || c_function(n.C, n.D, n.A) || c_function(n.C, n.D, n.B)
+						}(n) || !(p_function(n.A, n.B, n.C) * p_function(n.A, n.B, n.D) >= 0 || p_function(n.C, n.D, n.A) * p_function(n.C, n.D, n.B) >= 0)
+					},
+					c_function = function (n, e, t) {
+						return 0 == n.x * e.y + e.x * t.y + t.x * n.y - t.x * e.y - n.x * t.y - e.x * n.y && Math.min([n.x, e.x]) <= t.x && t.x <= Math.max([n.x, e.x]) && Math.min([n.y, e.y]) <= t.y && t.y <= Math.max([n.y], e.y)
+					},
+					p_function = function (n, e, t) {
+						return n.x * e.y + e.x * t.y + t.x * n.y - t.x * e.y - n.x * t.y - e.x * n.y
+					},
+					isNotCollideble = function (t) {
+						var pos = (u = e.scope[n.activePlayer.main]).pos,
+							objects = e.scope[n.objectCreator].idToObj,
+							collidableObjects = Object.keys(objects).filter(function (n) {
+								var curObj = objects[n]
+								if (typeof curObj.img == "string") {
+									// collidable elements filter
+									return void 0 !== objects[n].collidable && objects[n].collidable || !objects[n].isDoor || !objects[n].isBush || !objects[n].img.includes("stair")
+								} else {
+									return void 0 !== objects[n].collidable && objects[n].collidable
+								}
+							}, ),
+							p = [];
+						p.A = [], p.B = [], p.C = [], p.D = [], p.A.x = pos.x, p.A.y = pos.y, p.B.x = t.x, p.B.y = t.y;
+						var d = true;
+						collidableObjects.forEach(function (n, e, t) {
+							var i;
+							objects[n].layer !== u.layer || objects[n].dead || void 0 !== (i = objects[n]).img && i.img.indexOf("window") > -1 || (void 0 !== objects[n].collider && void 0 !== objects[n].collider.min && void 0 !== objects[n].collider.max ? (p.C.x = objects[n].collider.min.x, p.C.y = objects[n].collider.min.y, p.D.x = objects[n].collider.max.x, p.D.y = objects[n].collider.min.y, l_function(p) && (d = false), p.C.x = objects[n].collider.max.x, p.C.y = objects[n].collider.min.y, p.D.x = objects[n].collider.max.x, p.D.y = objects[n].collider.max.y, l_function(p) && (d = false), p.C.x = objects[n].collider.max.x, p.C.y = objects[n].collider.max.y, p.D.x = objects[n].collider.min.x, p.D.y = objects[n].collider.max.y, l_function(p) && (d = false), p.C.x = objects[n].collider.min.x, p.C.y = objects[n].collider.max.y, p.D.x = objects[n].collider.min.x, p.D.y = objects[n].collider.max.y, l_function(p) && (d = false)) : function (n, e, t, i, a, o) {
+								var r, s, l = a - t,
+									c = o - i,
+									p = l * l + c * c,
+									d = -1;
+								0 != p && (d = ((n - t) * l + (e - i) * c) / p), d < 0 ? (r = t, s = i) : d > 1 ? (r = a, s = o) : (r = t + d * l, s = i + d * c);
+								var u = n - r,
+									m = e - s;
+								return Math.sqrt(u * u + m * m)
+							}(objects[n].collider.pos.x, objects[n].collider.pos.y, p.A.x, p.A.y, p.B.x, p.B.y) <= objects[n].collider.rad && (d = false))
+						});
+						var u = e.scope[n.activePlayer.main];
+						return d;
+					},
                     h = null,
                     x = function () {
                         var n = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : null;
@@ -1946,22 +1989,42 @@
                     },
                     render: function () {
                         var t;
-                        T(function () {
-                            var t = [];
-                            if (!e.scope[n.playerBarn.main][n.playerBarn.players][e.scope[n.activeId]]) return t;
-                            for (var i, a = e.scope[n.activeId], o = e.scope[n.playerBarn.main][n.playerBarn.players][a].teamId, r = Object.keys(e.scope[n.playerBarn.main][n.playerBarn.players]), s = e.scope[n.activePlayer.main], c = 0; c < r.length; c++) {
-                                var p = e.scope[n.objectCreator].idToObj[r[c]],
-                                    d = e.scope[n.playerBarn.main][n.playerBarn.players][r[c]];
-                                // if (l.rightClickToggle) {
-                                // var clicked = rightClickHandler()
-                                // } else {
-                                // var clicked = false
-                                // }
-                                //p && (l.showEnemiesActions && C(p), (i = p)[n.activePlayer.netData].dead || i[n.activePlayer.netData].downed || getTeam(a, o, d, r[c]) || clicked || !checkLayer(s, p) || (t[r[c]] = p))
-                                p && (l.showEnemiesActions && C(p), (i = p)[n.activePlayer.netData].dead || i[n.activePlayer.netData].downed || getTeam(a, o, d, r[c]) || !checkLayer(s, p) || (t[r[c]] = p))
-                            }
-                            return t
-                        }()), s.new && (t = s.averageTargetMousePosition, e.scope[n.input.main][n.input.input].mousePos = t)
+
+						var allow_auto_aim_if_no_collisions = false;
+						if ( 0 !== window.aimTarget && null != window.aimTarget ) {
+							var tt = window.aimTarget.pos;
+							var allow_auto_aim_if_no_collisions = isNotCollideble( tt );
+						}
+						
+						if ( allow_auto_aim_if_no_collisions ) {
+							console.log( 'no collisions' );
+						} else {
+							console.log( 'there area collisions, move to other player of disable auto aim' );
+						}
+
+						T(function () {
+							var t = [];
+							
+							if (!e.scope[n.playerBarn.main][n.playerBarn.players][e.scope[n.activeId]]) return t;
+	
+							for (var i, a = e.scope[n.activeId], o = e.scope[n.playerBarn.main][n.playerBarn.players][a].teamId, r = Object.keys(e.scope[n.playerBarn.main][n.playerBarn.players]), s = e.scope[n.activePlayer.main], c = 0; c < r.length; c++) {
+								var p = e.scope[n.objectCreator].idToObj[r[c]],
+									d = e.scope[n.playerBarn.main][n.playerBarn.players][r[c]];
+								// if (l.rightClickToggle) {
+								// var clicked = rightClickHandler()
+								// } else {
+								// var clicked = false
+								// }
+								//p && (l.showEnemiesActions && C(p), (i = p)[n.activePlayer.netData].dead || i[n.activePlayer.netData].downed || getTeam(a, o, d, r[c]) || clicked || !checkLayer(s, p) || (t[r[c]] = p))
+								//console.log( 'test' );
+								//var th = ;
+								
+								p && (l.showEnemiesActions && C(p), (i = p)[n.activePlayer.netData].dead || i[n.activePlayer.netData].downed || getTeam(a, o, d, r[c]) || !checkLayer(s, p) || (t[r[c]] = p))
+							}
+
+							return t
+						}()), s.new && (t = s.averageTargetMousePosition, e.scope[n.input.main][n.input.input].mousePos = t)
+					
                     }
                 }
             }
@@ -3382,7 +3445,6 @@
                                 return Math.sqrt(u * u + m * m)
                             }(objects[n].collider.pos.x, objects[n].collider.pos.y, p.A.x, p.A.y, p.B.x, p.B.y) <= objects[n].collider.rad && (d = false))
                         });
-						console.log( d );
                         var u = e.scope[n.activePlayer.main];
                         d && !e.scope[n.menu].pieTimer.active && 3 !== u.curWeapIdx && function (curPlayer, enemy) {
                             var t = calculateDistance(curPlayer.pos.x, curPlayer.pos.y, enemy.pos.x, enemy.pos.y);
