@@ -3348,6 +3348,7 @@
                         var pos = (u = e.scope[n.activePlayer.main]).pos,
                             objects = e.scope[n.objectCreator].idToObj,
                             shootable = function (curObj) {
+								// what is this? :D
                                 if (curObj.collidable && curObj.collidable) {
                                     if (curObj.isBush != undefined && curObj.isBush) {
                                         return true
@@ -3359,9 +3360,10 @@
                             collidableObjects = Object.keys(objects).filter(function (n) {
                                 var curObj = objects[n]
                                 if (typeof curObj.img == "string") {
-                                    return void 1 == shootable(curObj) && !curObj.isDoor && !curObj.img.includes("stair")
+									// collidable elements filter
+                                    return void 0 !== objects[n].collidable && objects[n].collidable || !objects[n].isDoor || !objects[n].isBush || !objects[n].img.includes("stair")
                                 } else {
-                                    return void 1 == shootable(curObj)
+                                    return void 0 !== objects[n].collidable && objects[n].collidable
                                 }
                             }, ),
                             p = [];
@@ -3380,6 +3382,7 @@
                                 return Math.sqrt(u * u + m * m)
                             }(objects[n].collider.pos.x, objects[n].collider.pos.y, p.A.x, p.A.y, p.B.x, p.B.y) <= objects[n].collider.rad && (d = false))
                         });
+						console.log( d );
                         var u = e.scope[n.activePlayer.main];
                         d && !e.scope[n.menu].pieTimer.active && 3 !== u.curWeapIdx && function (curPlayer, enemy) {
                             var t = calculateDistance(curPlayer.pos.x, curPlayer.pos.y, enemy.pos.x, enemy.pos.y);
