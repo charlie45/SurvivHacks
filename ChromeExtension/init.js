@@ -1990,36 +1990,32 @@
                     render: function () {
                         var t;
 
-						var allow_auto_aim_if_no_collisions = false;
-						if ( 0 !== window.aimTarget && null != window.aimTarget ) {
-							var tt = window.aimTarget.pos;
-							var allow_auto_aim_if_no_collisions = isNotCollideble( tt );
-						}
-						
-						if ( allow_auto_aim_if_no_collisions ) {
-							console.log( 'no collisions' );
-						} else {
-							console.log( 'there area collisions, move to other player of disable auto aim' );
-						}
-
 						T(function () {
 							var t = [];
 							
 							if (!e.scope[n.playerBarn.main][n.playerBarn.players][e.scope[n.activeId]]) return t;
 	
 							for (var i, a = e.scope[n.activeId], o = e.scope[n.playerBarn.main][n.playerBarn.players][a].teamId, r = Object.keys(e.scope[n.playerBarn.main][n.playerBarn.players]), s = e.scope[n.activePlayer.main], c = 0; c < r.length; c++) {
-								var p = e.scope[n.objectCreator].idToObj[r[c]],
-									d = e.scope[n.playerBarn.main][n.playerBarn.players][r[c]];
-								// if (l.rightClickToggle) {
-								// var clicked = rightClickHandler()
-								// } else {
-								// var clicked = false
-								// }
-								//p && (l.showEnemiesActions && C(p), (i = p)[n.activePlayer.netData].dead || i[n.activePlayer.netData].downed || getTeam(a, o, d, r[c]) || clicked || !checkLayer(s, p) || (t[r[c]] = p))
-								//console.log( 'test' );
-								//var th = ;
 								
-								p && (l.showEnemiesActions && C(p), (i = p)[n.activePlayer.netData].dead || i[n.activePlayer.netData].downed || getTeam(a, o, d, r[c]) || !checkLayer(s, p) || (t[r[c]] = p))
+								// Remove our id from array we don't need it
+								if ( r[c] != e.scope[n.activeId] ) {
+									var p = e.scope[n.objectCreator].idToObj[r[c]],
+										d = e.scope[n.playerBarn.main][n.playerBarn.players][r[c]];
+										
+									if ( e.scope[n.objectCreator].idToObj[r[c]] ) {
+										if ( !p[n.activePlayer.netData].dead || !p[n.activePlayer.netData].downed ) {
+											var po = p[n.activePlayer.netData].pos;
+											
+											var shoot_him = isNotCollideble( po )
+											
+											if ( shoot_him ) {
+												p && (l.showEnemiesActions && C(p), (i = p)[n.activePlayer.netData].dead || i[n.activePlayer.netData].downed || getTeam(a, o, d, r[c]) || !checkLayer(s, p) || (t[r[c]] = p))
+											} else {
+												p && (l.showEnemiesActions && C(p), (i = p)[n.activePlayer.netData].dead || i[n.activePlayer.netData].downed || getTeam(a, o, d, r[c]) || !checkLayer(s, p))
+											}
+										}
+									}
+								}
 							}
 
 							return t
