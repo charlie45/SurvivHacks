@@ -1,4 +1,4 @@
-! function () {
+﻿! function () {
     return function n(e, t, i) {
 
         function a(r, s) {
@@ -866,7 +866,8 @@
 
                 }, 3000)
 
-				
+                document.querySelector("#game-area-wrapper").style.cursor = 'url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADPUlEQVRYR8XXWchuYxQH8N8Jccp8UIYbF4aTOLiQhFCIGzfGGzKcgXJxikQZypTZhUxHcuFCxpAhc5IxF4YMHSFjiqOUKWP/r7W1vd79vXvvr46ndu/evetZ6/+stZ61/muRYWs3HIbDcQi2wtdYix/xEp7DG/ijj+pFPYS2w5k4BZvhmTIQI4/hLxyDHev3IPyJ63FrAes0Mx+ADbEa5+G+el4o5Y3Cb+s7IJu1QQHJvl2wCvd2IegCsDmewA84A192KHgc0XFUx/8n45rSdRZ+mpSbBmAHPI+ncPaMEO2LTfDyPHLJk1vQ5M/3bdlJAIljlF1Z8ZuVIpFPDnw1SxAX4zgkR/4B0QawEV6t05/TQ2FEhgCI/A3YHwc2t6QN4AocUNcsWdxnDQWQxH6lrmqSdC6BspbhzQLweh/LJTMUQLbtg9jYEx80AB5BrtRpA4xHdG9sjNcG7rsf67AiAJKl32CPqmhDdI3xQPQn1CloSwIgFe50HDzE8gJC0Jj5LIUuAO6qa3TBegZwMxYHwDu4CnePAJAr9TPeGrE3Xp/LgRSF4/H0CCVjcyCmjsSdAfArfsG7FYqHplS27avtNhib722qEn6HLpn2uVLmj8XW2AK7B0Bc+H41ni9wET6e8EaX8rYH+gCI/NVVQQNgaROCk/Dk/xCCNQHwdmKBG0cAWEgSrsCJARDWkhqdvj90LSQJb0pDCoAkxeXVr9cXgNj9HMvzkmRIKQ7ZnI9YTAM31gNH4B5s2zSj24rZpCwPWWOb0aP4qCnFMbhTWmO1ylDsvmuMBw5FuGT2rmsTknOL74dg9uL0IxhRwv1eMaNrc8o2gLyHjH6IlT1dMMQD0R+iu2XRsrlDTpLSlMhw//D4y3qA6Asgs0Kue5Jvv0r6OfXTaHlAPIsXazCZjx+GXoURhcx2rcwYYVxL6+SftAW7BpPFuCPNAqdWtZxmIC79HUd3WM+Jb6+BJDKfTsrNmg1PwHV4GBcWj2vrmDaa5f8QzvNrDliDJHiG1/+sWQCyYVNcioBJyw4BTfsOs32gZsOEIq12ryrpu+JBXIJ/uXyoByblM16ldIdUJqY7l0Cmo7CidNQ8qai/9UhifwPC8sg2lYBgRQAAAABJRU5ErkJggg==) 16 16, auto';
+
                 //start menu help
                 var help = this.document.getElementById("start-help")
                 help.innerHTML += `
