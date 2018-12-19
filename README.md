@@ -7,6 +7,7 @@ This is a Surviv.io cheat loaded as a Chrome extension. It was originally develo
 ### 💪 Features
 
 * Aimbot
+* Aimbot with collision detection [beta]
 * Custom zooming control with scroll wheel
 * Autoloot
 * Transparent buildings, ceilings, obstacles, and trees
@@ -14,16 +15,17 @@ This is a Surviv.io cheat loaded as a Chrome extension. It was originally develo
 * Displays enemy lines
 * Frag grenade timer
 * Auto opening doors
-* Fast weapon changing
+* Fast weapon changing (right click)
 * Auto heal
-* Auto fire(Just press the left mouse button)
-* Planes tracking + visibility of air drop on minimap has been extended
-* AutoDodge (only works against sniper)
-* AutoSwitch 
+* Planes tracking + visibility of air drop on minimap has been extended (not working)
+* AutoDodge [beta]
+* AutoSwitch
 * Multiboxing [beta] Use the multibox branch
 * Triggerbot
 * Color explosive barrels in red
 * Bigger and more vibrant bullets
+* New Default Cursor
+
 
 ### :information_source: Instructions
 
