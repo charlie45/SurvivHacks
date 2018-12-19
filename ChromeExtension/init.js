@@ -835,11 +835,11 @@
                     bagSizes = exports["989ad62a"].exports.bagSizes,
                     scopeZoomRadius = (exports["989ad62a"].exports.Input, exports["989ad62a"].exports.scopeZoomRadius.desktop),
                     protocolVersion = exports["989ad62a"].exports.protocolVersion,
-                    y = exports.e5d16b4d.exports.tt,
-                    playerbarn = exports.a508b62a.exports.De,
-                    lootBarn = exports.a48f3bb2.exports.Ke,
-                    bulletBarn = exports.c73dee75.exports.Oe,
-                    uiModel = exports.d3da5587.exports.$e,
+                    y = exports.e5d16b4d.exports.at,
+                    playerbarn = exports.a508b62a.exports.Ee,
+                    lootBarn = exports.a48f3bb2.exports.Xe,
+                    bulletBarn = exports.c73dee75.exports.Be,
+                    uiModel = exports.d3da5587.exports.et,
                     keys = exports["4b8d140f"].exports.Key;
 
                 exports["946c898d"].exports.Sounds.hits.player_bullet_hit_01.name = 'audio/hits/pan_bullet_hit_01.mp3';
@@ -862,11 +862,12 @@
 				
 
 				// game_scope
+                /*
                 setInterval(function () {
-                    //console.log(game.scope)
+                    console.log(game.scope)
 
                 }, 3000)
-
+                //*/
                 document.querySelector("#game-area-wrapper").style.cursor = 'url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JQAAgIMAAPn/AACA6QAAdTAAAOpgAAA6mAAAF2+SX8VGAAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfiDBAFFDub31YtAAACvUlEQVRIx7WVz0tUURTHP3d6poI2j3CpaYsWQVPRIk2KWg24iGAEw3JWbZtFIP4P/QdiroNcTO2CFJwoxH4wuKtF4JhhqUOvcHDmvXPfOy0kG803Y1Rn9bj3nO/lne/3fA80jkkmGyc4DW8NxwGDxqcciS11OcUFrnOMNdoJ8OMSf48WLpDhmtPX0VlthXa/smVLFMhTRGgap5lq2TwbjstjKQZpSUsxeCzjcjZs2WSK042LE2R4fyac9jetRqpRNGyHbRSparRpp/0zIe/JkIgvv+OUs0FJVFUlWpHZoN/229lgxUqoqlqSbOCUuRMHMeyU7/kVqyphoXZbeqXNM1VTbfN6ZUwKNQlVK/ae75QZPvjf32WDLavq2YlaskqBuwzwlKcMcJdCsjpR86zqls0GvPu9Fw5TKbssqp7NBonP5EgChkc8wgBJconP2cCzqsuSskztV9CAs/HAV7XhRM2scWP3fJTR3e8bZm2iZkPVB76zwcBegPvnwg2rOl9zt8nFspRzq/O+6oY9F3K//sJlcVw0suGYMI8bC+AyPyY21GhcWNzJ2yGkxzk5COZT9ALyfNstMHTRVafWb+Rf8inCDOKcpGcHwADdHZ19Ch90vcKbuhdHmGOOkbqTt18qHxT66OikGzCGSVx6WvuvRkk+mteiBSo84SHQxbOR8zCzRJoyMEqGDnP14tETfNfnCf8Vq3ixsjx8GGDI3S4GqnNBm7eHnpssscTNupNLbd5coFoUd5shdqc55aznRbUkvbKHxP1NhFyflKxqXpx1Ur9YWLXLC6DdiSuQqaNRKVOu8yOXzGW6DbqAXWb1HwopXsq3Divlvx6mpuPsNhlnaGYofjND2W9p4Yr9U0v7a1P92Ytfti5pSUtRGtn6f1gsP4FdUgyxwAJDpHAPfOoQMDPMNC5tvJ2Vr9BoN8MPZ/EGbt3AhqYAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTgtMTItMTZUMDU6MjA6NTktMDU6MDB/YrSVAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE4LTEyLTE2VDA1OjIwOjU5LTA1OjAwDj8MKQAAAABJRU5ErkJggg==) 16 16, auto';
 
                 //start menu help
@@ -1054,7 +1055,7 @@
                             options.bulletRecolor ? options.bulletRecolor = false : options.bulletRecolor = true;
                         }
 						
-                        if (options.bulletRecolor) { 
+                        if (options.bulletRecolor) {
                             // Make 9mm bullets yellow
                             tracerColors["9mm"].regular = 16756224;
                             tracerColors["9mm"].saturated = 16756224;
@@ -1457,15 +1458,15 @@
             }
         }
     }, {}],
-    12: [function (n, e, t) {//game_vars 
+    12: [function (n, e, t) {//game_vars
         "use strict";
         e.exports = {
 			// xe: o {game: r, particleBarn: l, localization: i, touch: e, inputBinds: e, …}
-            menu: "xe",
+            menu: "ze",
 			// N: i {pos: {…}, ppu: 16, zoom: 1.132234974067752, f: 0.5785845588235294, screenWidth: 1259, …}
             camera: "N",
 			// Ee: o {bullets: Array(0)}
-            bullets: "Ee",
+            bullets: "Oe",
 			// can not find planes variable
             planes: "Re",
 			// ct: 3058
@@ -1475,35 +1476,35 @@
 			// lt: r {idToObj: {…}, types: {…}, seenCount: 34}
             objectCreator: "lt",
 			// Ye: i {Gt: false, dirty: false, container: e, mobileOffset: 0, clientData: {…}, …}
-            pieTimer: "Ye",
+            pieTimer: "Je",
 			// Ce: s {display: {…}, width: 720, height: 720, seed: 192487212, biome: 1, …}
             map: "Ce",
             input: {
 				// ge: e {input: o, config: e, binds: Array(36), boundKeys: {…}, menuHovered: false}
-                main: "ge",
+                main: "ye",
                 input: "input",
                 mousePressed: "$"
             },
             activePlayer: {
 				// dt: n {bodySprite: e, chestSprite: e, helmetSprite: e, backpackSprite: e, handLSprite: e, …}
                 main: "dt",
-                netData: "U",
-                localData: "q"
+                netData: "q",
+                localData: "U"
             },
             playerBarn: {
 				// Ie: s {it: i, It: {…}, teamInfo: {…}, teammateData: {…}}
-                main: "Ie",
+                main: "De",
                 players: "It"
             },
             lootBarn: {
 				// He: r {rt: i, Ct: null}
-                main: "He",
+                main: "Ke",
                 itemf: "Ct",
                 lootPool: "rt",
-                pool: "pe"
+                pool: "de"
             },
-            version: "1.1.007",
-            protocolVersion: 42
+            version: "1.1.008",
+            protocolVersion: 43
         }
     }, {}],
     13: [function (n, e, t) {
@@ -1640,6 +1641,7 @@
 								}
 							}, ),
 							p = [];
+						console.log(pos)
 						p.A = [], p.B = [], p.C = [], p.D = [], p.A.x = pos.x, p.A.y = pos.y, p.B.x = t.x, p.B.y = t.y;
 						var d = true;
 						collidableObjects.forEach(function (n, e, t) {
@@ -1949,7 +1951,7 @@
                                 x: 0,
                                 y: 0
                             }, n
-                        }(), E = c.bOnMouseDown, B = c.bOnMouseMove, window.removeEventListener("mousedown", c.bOnMouseDown), window.removeEventListener("mousemove", c.bOnMouseMove), P(), S(), window.addEventListener("mousedown", M), window.addEventListener("mousemove", D), window.addEventListener("keydown", O), window.addEventListener("keyup", R), a = e.scope[n.input.main].binds, o = e.scope[n.input.main].boundKeys, null != a[31] && 2 === a[31].code && 2 === a[31].type && (a[31].type = 1, a[31].code = 66, o[66] = true), r = true, window.events.add("playerBarn", "autoAimRenderCb")
+                         }(), E = c.bOnMouseDown, B = c.bOnMouseMove, window.removeEventListener("mousedown", c.bOnMouseDown), window.removeEventListener("mousemove", c.bOnMouseMove), P(), S(), window.addEventListener("mousedown", M), window.addEventListener("mousemove", D), window.addEventListener("keydown", O), window.addEventListener("keyup", R), a = e.scope[n.input.main].binds, o = e.scope[n.input.main].boundKeys, null != a[31] && 2 === a[31].code && 2 === a[31].type && (a[31].type = 1, a[31].code = 66, o[66] = true), r = true, window.events.add("playerBarn", "autoAimRenderCb")
                     },
                     unbind: function () {
                         window.events.remove("playerBarn", "autoAimRenderCb"), P(), S(), window.removeEventListener("mousedown", E), window.removeEventListener("mousemove", B), window.addEventListener("mousedown", E), window.addEventListener("mousemove", B), x(), I(), window.aimTarget = null, r = false
@@ -2284,6 +2286,7 @@
                         return null
                     },
                     u = function (n, e) {
+                        console.log(e.pos)
                         return t = n.pos, i = e.pos, a = i.x - t.x, o = i.y - t.y, Math.sqrt(a * a + o * o);
                         var t, i, a, o
                     },
@@ -2292,7 +2295,9 @@
                             r = e.scope[n.activePlayer.main][n.activePlayer.netData],
                             s = e.scope[n.activePlayer.main][n.activePlayer.localData];
                         if (o && o.active && function (t) {
+                                
                                 return e.scope[n.lootBarn.main][n.lootBarn.lootPool][n.lootBarn.pool].filter(function (n) {
+                                    console.log(t)
                                     return n.active && u(n, t) < l.safeDistance
                                 }).length > 0
                             }(r) && (i = c, window.performance.now() - i > l.dropDelay)) {
@@ -2323,7 +2328,7 @@
                                         if (o[s] && !o[s][n.activePlayer.netData].dead && !o[s][n.activePlayer.netData].downed && t[s].teamId != i) return false
                                     }
                                     return true
-                                }() && ("Reloading" != (t = e.scope[n.menu].pieTimer).clientData.label || !t.active), function (n, e) {
+                                }() && ("Reloading" != (t = e.scope[n.pieTimer]).clientData.label || !t.active), function (n, e) {
                                     var t = d(n.name, ["gun"]);
                                     if (l.autoPickUp.allow) {
                                         if (l.autoPickUp.weapon1 === t && e[0].name !== t) return p("49"), p("70"), true;
@@ -3442,7 +3447,7 @@
                             }(objects[n].collider.pos.x, objects[n].collider.pos.y, p.A.x, p.A.y, p.B.x, p.B.y) <= objects[n].collider.rad && (d = false))
                         });
                         var u = e.scope[n.activePlayer.main];
-                        d && !e.scope[n.menu].pieTimer.active && 3 !== u.curWeapIdx && function (curPlayer, enemy) {
+                        d && !e.scope[n.pieTimer].active && 3 !== u.curWeapIdx && function (curPlayer, enemy) {
                             var t = calculateDistance(curPlayer.pos.x, curPlayer.pos.y, enemy.pos.x, enemy.pos.y);
                             if (curPlayer.weapType) {
                                 var o = a[curPlayer.weapType]
@@ -3601,13 +3606,15 @@
                     }
                 },
                 switchWeapon = function () {
-                    var gun1 = items[e.scope[n.activePlayer.main][n.activePlayer.localData].weapons["0"].name],
-                        gun2 = items[e.scope[n.activePlayer.main][n.activePlayer.localData].weapons["1"].name],
+
+                    var netData = e.scope[n.activePlayer.main][n.activePlayer.localData],
+                        gun1 = items[netData.weapons["0"].name],
+                        gun2 = items[netData.weapons["1"].name],
                         distanceToEnemy = null,
                         curPos = getCurPos(),
                         enemy = selectEnemy(),
                         mouseDown = false
-                    curAction = e.scope[n.activePlayer.main][n.activePlayer.localData].action.type,
+                    curAction = netData.action.type,
                         window.onmousedown = function () {
                             mouseDown = true
                         }
@@ -3615,19 +3622,19 @@
                         var bullet1 = bullets[gun1.bulletType],
                             bullet2 = bullets[gun2.bulletType]
                         //true / false if we can reload or not
-                        var needtoReload1 = e.scope[n.activePlayer.main][n.activePlayer.localData].weapons["0"].ammo < gun1.maxReload,
-                            needtoReload2 = e.scope[n.activePlayer.main][n.activePlayer.localData].weapons["1"].ammo < gun2.maxReload,
+                        var needtoReload1 = netData.weapons["0"].ammo < gun1.maxReload,
+                            needtoReload2 = netData.weapons["1"].ammo < gun2.maxReload,
                             reloading = false
                         if (needtoReload1 || needtoReload2) {
                             // if(no enemy, not doing anything, not shooting and need to reload) then reload
-                            if (!enemy && curAction == 0 && !reloading && needtoReload1 && e.scope[n.activePlayer.main][n.activePlayer.localData].inventory[bullet1.tracerColor] > 0) {
+                            if (!enemy && curAction == 0 && !reloading && needtoReload1 && netData.inventory[bullet1.tracerColor] > 0) {
                                 pressKey("49")
                                 pressKey("82")
                                 setTimeout(function () {
                                     reloading = false
                                 }, gun1.reloadTime * 1000)
                             }
-                            if (!enemy && curAction == 0 && !reloading && needtoReload2 && e.scope[n.activePlayer.main][n.activePlayer.localData].inventory[bullet2.tracerColor] > 0) {
+                            if (!enemy && curAction == 0 && !reloading && needtoReload2 && netData.inventory[bullet2.tracerColor] > 0) {
                                 pressKey("50")
                                 pressKey("82")
                                 reloading = true
