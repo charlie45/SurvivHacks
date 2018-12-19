@@ -8,15 +8,17 @@ This is a Surviv.io cheat loaded as a Chrome extension. It was originally develo
 
 * Aimbot
 * Aimbot with collision detection [beta]
+* Continuous Fire (hold click button)
 * Custom zooming control with scroll wheel
 * Autoloot
 * Transparent buildings, ceilings, obstacles, and trees
-* Lasersight(shot range)
+* Lasersight (shot range)
 * Displays enemy lines
 * Frag grenade timer
 * Auto opening doors
 * Fast weapon changing (right click)
 * Auto heal
+* FPS Counter
 * Planes tracking + visibility of air drop on minimap has been extended (not working)
 * AutoDodge [beta]
 * AutoSwitch
