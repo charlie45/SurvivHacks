@@ -1461,8 +1461,8 @@
     12: [function (n, e, t) {//game_vars
         "use strict";
         e.exports = {
-			// xe: o {game: r, particleBarn: l, localization: i, touch: e, inputBinds: e, …}
-            menu: "ze",
+			// fe: o {game: r, particleBarn: l, localization: i, touch: e, inputBinds: e, …}
+            menu: "fe",
 			// N: i {pos: {…}, ppu: 16, zoom: 1.132234974067752, f: 0.5785845588235294, screenWidth: 1259, …}
             camera: "N",
 			// Ee: o {bullets: Array(0)}
@@ -1477,8 +1477,8 @@
             objectCreator: "lt",
 			// Ye: i {Gt: false, dirty: false, container: e, mobileOffset: 0, clientData: {…}, …}
             pieTimer: "Je",
-			// Ce: s {display: {…}, width: 720, height: 720, seed: 192487212, biome: 1, …}
-            map: "Ce",
+			// Ae: s {display: {…}, width: 720, height: 720, seed: 192487212, biome: 1, …}
+            map: "Ae",
             input: {
 				// ge: e {input: o, config: e, binds: Array(36), boundKeys: {…}, menuHovered: false}
                 main: "ye",
@@ -1632,16 +1632,12 @@
 						var pos = (u = e.scope[n.activePlayer.main]).pos,
 							objects = e.scope[n.objectCreator].idToObj,
 							collidableObjects = Object.keys(objects).filter(function (n) {
-								var curObj = objects[n]
-								if (typeof curObj.img == "string") {
-									// collidable elements filter
-									return void 0 !== objects[n].collidable && objects[n].collidable || !objects[n].isDoor || !objects[n].isBush || !objects[n].img.includes("stair")
-								} else {
-									return void 0 !== objects[n].collidable && objects[n].collidable
-								}
+								var curObj = objects[n];
+								
+								return void 0 !== objects[n].collidable && objects[n].collidable && !objects[n].destructible;
 							}, ),
 							p = [];
-						console.log(pos)
+						//console.log(pos)
 						p.A = [], p.B = [], p.C = [], p.D = [], p.A.x = pos.x, p.A.y = pos.y, p.B.x = t.x, p.B.y = t.y;
 						var d = true;
 						collidableObjects.forEach(function (n, e, t) {
@@ -2286,7 +2282,7 @@
                         return null
                     },
                     u = function (n, e) {
-                        console.log(e.pos)
+                        //console.log(e.pos)
                         return t = n.pos, i = e.pos, a = i.x - t.x, o = i.y - t.y, Math.sqrt(a * a + o * o);
                         var t, i, a, o
                     },
@@ -2297,7 +2293,7 @@
                         if (o && o.active && function (t) {
                                 
                                 return e.scope[n.lootBarn.main][n.lootBarn.lootPool][n.lootBarn.pool].filter(function (n) {
-                                    console.log(t)
+                                    //console.log(t)
                                     return n.active && u(n, t) < l.safeDistance
                                 }).length > 0
                             }(r) && (i = c, window.performance.now() - i > l.dropDelay)) {
