@@ -91,6 +91,10 @@
                                 name: "Console Fix",
 		                    	from: /console.log=i,/g,
                                 to: "i(\"Nice try. ;) --zbot473\");\n"
+                            }, {
+                                name: "WS Fix",
+		                    	from: /this\.ws\.send\(e\.getBuffer\(\)\)/g,
+                                to: "if(e.getBuffer().length!=10){this.ws.send(e.getBuffer())}"
                             },  {
                                 name: "Window onerror",
                                 from: /window.onerror/g,
