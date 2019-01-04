@@ -61,7 +61,7 @@ Windows:
 1. Whenever you get a blue popup saying "New version available," just double click on the update-windows.ps1 file
 
 ## :video_game: Discord
-https://discord.gg/VVhKnyn
+https://discord.gg/bpNrDQz
 
 ## Warning!
 All actions you take at your own risk. The author is not responsible for the consequences of your actions.
