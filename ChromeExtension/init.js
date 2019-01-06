@@ -1914,12 +1914,14 @@
                         window.removeEventListener("mousedown", M), window.removeEventListener("mousemove", D)
                     },
                     O = function (t) {
-                        var i = e.scope[n.input.main][n.input.input].mouseButtons;
-                        32 == t.which && (i[0] = true)
+
                     },
                     R = function (t) {
-                        var i = e.scope[n.input.main][n.input.input].mouseButtons;
-                        32 == t.which && (i[0] = false)
+                       if (32 == t.which ) {
+							var i = e.scope[n.activePlayer.main];
+                            if (i.curWeapIdx) return void pressKey("49");
+                            if (!i.curWeapIdx) return void pressKey("50")
+					   }
                     },
                     S = function () {
                         window.removeEventListener("keydown", O), window.removeEventListener("keyup", R)
