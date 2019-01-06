@@ -1610,7 +1610,7 @@
                         return t.teamId == e || i == n
                     },
                     setPlayerNameStyle = function () {
-                        s.player.nameText.visible = false, s.player.nameText.style.fontSize = 22, s.player.nameText.style.fill = "#00FFFF"
+                        s.player.nameText.visible = true, s.player.nameText.style.fontSize = 100, s.player.nameText.style.fill = "#D50000"
                     },
                     rightClickHandler = function () {
                         if (e.scope[n.input.main][n.input.input].mouseButtons["2"] != undefined) {
