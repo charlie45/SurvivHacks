@@ -1,5 +1,5 @@
 ![alt text](http://i67.tinypic.com/357hs47.png "Survivio Banner")
-# Welcome to Surviv.io-Cheats (Working on all modes for client version: 0.6.8 as of December 13, 2018)!
+# Welcome to Surviv.io-Cheats (Working on all modes for client version: 0.6.9 as of January 8, 2019)!
 This is a Surviv.io cheat loaded as a Chrome extension. It was originally developed by w3x731 and I've decided to continue the development of the code.
 
 
@@ -65,4 +65,5 @@ https://discord.gg/bpNrDQz
 
 ## Warning!
 All actions you take at your own risk. The author is not responsible for the consequences of your actions.
+
 Hippity hoppity it's your own responsibility!
