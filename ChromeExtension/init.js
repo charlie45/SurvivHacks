@@ -835,11 +835,11 @@
                     bagSizes = exports["989ad62a"].exports.bagSizes,
                     scopeZoomRadius = (exports["989ad62a"].exports.Input, exports["989ad62a"].exports.scopeZoomRadius.desktop),
                     protocolVersion = exports["989ad62a"].exports.protocolVersion,
-                    y = exports.e5d16b4d.exports.at,
-                    playerbarn = exports.a508b62a.exports.Ee,
-                    lootBarn = exports.a48f3bb2.exports.Xe,
-                    bulletBarn = exports.c73dee75.exports.Be,
-                    uiModel = exports.d3da5587.exports.et,
+                    y = exports.e5d16b4d.exports.tt,
+                    playerbarn = exports.a508b62a.exports.De,
+                    lootBarn = exports.a48f3bb2.exports.Ke,
+                    bulletBarn = exports.c73dee75.exports.Oe,
+                    uiModel = exports.d3da5587.exports.$e,
                     keys = exports["4b8d140f"].exports.Key;
 
                 exports["946c898d"].exports.Sounds.hits.player_bullet_hit_01.name = 'audio/hits/pan_bullet_hit_01.mp3';
@@ -1466,45 +1466,45 @@
 			// N: i {pos: {…}, ppu: 16, zoom: 1.132234974067752, f: 0.5785845588235294, screenWidth: 1259, …}
             camera: "N",
 			// Ee: o {bullets: Array(0)}
-            bullets: "Oe",
+            bullets: "Ee",
 			// can not find planes variable
             planes: "Re",
 			// ct: 3058
             activeId: "ct",
 			// f: 1
             targetZoom: "f",
-			// lt: r {idToObj: {…}, types: {…}, seenCount: 34}
-            objectCreator: "lt",
+			// st: r {idToObj: {…}, types: {…}, seenCount: 34}
+            objectCreator: "st",
 			// Ye: i {Gt: false, dirty: false, container: e, mobileOffset: 0, clientData: {…}, …}
-            pieTimer: "Je",
+            pieTimer: "Ye",
 			// Ae: s {display: {…}, width: 720, height: 720, seed: 192487212, biome: 1, …}
             map: "Ae",
             input: {
-				// ge: e {input: o, config: e, binds: Array(36), boundKeys: {…}, menuHovered: false}
+				// ye: e {input: o, config: e, binds: Array(36), boundKeys: {…}, menuHovered: false}
                 main: "ye",
                 input: "input",
                 mousePressed: "$"
             },
             activePlayer: {
-				// dt: n {bodySprite: e, chestSprite: e, helmetSprite: e, backpackSprite: e, handLSprite: e, …}
-                main: "dt",
+				// mt: n {bodySprite: e, chestSprite: e, helmetSprite: e, backpackSprite: e, handLSprite: e, …}
+                main: "mt",
                 netData: "q",
                 localData: "U"
             },
             playerBarn: {
-				// Ie: s {it: i, It: {…}, teamInfo: {…}, teammateData: {…}}
-                main: "De",
-                players: "It"
+				// Ie: s {ne: i, At: {…}, teamInfo: {…}, teammateData: {…}}
+                main: "Ie",
+                players: "At"
             },
             lootBarn: {
-				// He: r {rt: i, Ct: null}
-                main: "Ke",
-                itemf: "Ct",
-                lootPool: "rt",
+				// He: r {it: i, Pt: null}
+                main: "He",
+                itemf: "Pt",
+                lootPool: "it",
                 pool: "de"
             },
             version: "1.1.009",
-            protocolVersion: 43
+            protocolVersion: 44
         }
     }, {}],
     13: [function (n, e, t) {
