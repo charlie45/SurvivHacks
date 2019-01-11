@@ -2,7 +2,8 @@
 # Welcome to Surviv.io-Cheats (Working on all modes for client version: 0.6.9 as of January 8, 2019)!
 This is a Surviv.io cheat loaded as a Chrome extension. It was originally developed by w3x731 and I've decided to continue the development of the code.
 
-
+### Future of this hack 
+I may or may not return to this in the future. For now, i'm done
 
 ### 💪 Features
 
