@@ -1,4 +1,4 @@
-! function () {
+﻿! function () {
     return function n(e, t, i) {
 
         function a(r, s) {
@@ -835,11 +835,11 @@
                     bagSizes = exports["989ad62a"].exports.bagSizes,
                     scopeZoomRadius = (exports["989ad62a"].exports.Input, exports["989ad62a"].exports.scopeZoomRadius.desktop),
                     protocolVersion = exports["989ad62a"].exports.protocolVersion,
-                    y = exports.e5d16b4d.exports.tt,
-                    playerbarn = exports.a508b62a.exports.De,
-                    lootBarn = exports.a48f3bb2.exports.Ke,
-                    bulletBarn = exports.c73dee75.exports.Oe,
-                    uiModel = exports.d3da5587.exports.$e,
+                    y = exports.e5d16b4d.exports.at,
+                    playerbarn = exports.a508b62a.exports.Ee,
+                    lootBarn = exports.a48f3bb2.exports.Xe,
+                    bulletBarn = exports.c73dee75.exports.Be,
+                    uiModel = exports.d3da5587.exports.et,
                     keys = exports["4b8d140f"].exports.Key;
 
                 exports["946c898d"].exports.Sounds.hits.player_bullet_hit_01.name = 'audio/hits/pan_bullet_hit_01.mp3';
@@ -862,7 +862,7 @@
 				
 
 				// game_scope
-                /*
+                
                 setInterval(function () {
                     console.log(game.scope)
 
@@ -917,7 +917,7 @@
                 if (!(playerbarn)) return console.error("Error: playerbarn not defined"), notifications.create("error", "This extension can not work with this version of the game!", "error", 2e4), false;
                 if (!(lootBarn)) return console.error("Error: lootBarn not defined"), notifications.create("error", "This extension can not work with this version of the game!", "error", 2e4), false;
                 if (!(scopeZoomRadius)) return console.error("Error: scopeZoomRadius not defined"), notifications.create("error", "This extension can not work with this version of the game!", "error", 2e4), false;
-                if (!(protocolVersion === obfuscate.protocolVersion)) return console.log("Error: Protocol mismatch"), notifications.create("error", "This extension can not work with this version of the game!", "error", 2e4), false;
+                if (!(protocolVersion === obfuscate.protocolVersion)) return console.error("Error: Protocol mismatch"), notifications.create("error", "This extension can not work with this version of the game!", "error", 2e4), false;
                 var Q = function () {
                     return !(!isset(game.scope) || !game.scope.initialized || null == game.scope[obfuscate.activePlayer.main] || null == game.scope[obfuscate.input.main] || game.scope.spectating)
                 };
@@ -1466,17 +1466,17 @@
 			// N: i {pos: {…}, ppu: 16, zoom: 1.132234974067752, f: 0.5785845588235294, screenWidth: 1259, …}
             camera: "N",
 			// Ee: o {bullets: Array(0)}
-            bullets: "Ee",
+            bullets: "Oe",
 			// can not find planes variable
             planes: "Re",
 			// ct: 3058
             activeId: "ct",
 			// f: 1
             targetZoom: "f",
-			// st: r {idToObj: {…}, types: {…}, seenCount: 34}
-            objectCreator: "st",
+			// ;t: r {idToObj: {…}, types: {…}, seenCount: 34}
+            objectCreator: "lt",
 			// Ye: i {Gt: false, dirty: false, container: e, mobileOffset: 0, clientData: {…}, …}
-            pieTimer: "Ye",
+            pieTimer: "Je",
 			// Ae: s {display: {…}, width: 720, height: 720, seed: 192487212, biome: 1, …}
             map: "Ae",
             input: {
@@ -1486,15 +1486,15 @@
                 mousePressed: "$"
             },
             activePlayer: {
-				// mt: n {bodySprite: e, chestSprite: e, helmetSprite: e, backpackSprite: e, handLSprite: e, …}
-                main: "mt",
+				// dt: n {bodySprite: e, chestSprite: e, helmetSprite: e, backpackSprite: e, handLSprite: e, …}
+                main: "dt",
                 netData: "q",
                 localData: "U"
             },
             playerBarn: {
 				// Ie: s {ne: i, At: {…}, teamInfo: {…}, teammateData: {…}}
-                main: "Ie",
-                players: "At"
+                main: "De",
+                players: "It"
             },
             lootBarn: {
 				// He: r {it: i, Pt: null}
