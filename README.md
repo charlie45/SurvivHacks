@@ -1,29 +1,34 @@
 ![alt text](http://i67.tinypic.com/357hs47.png "Survivio Banner")
-# Welcome to Surviv.io-Cheats (Working on all modes for client version: 0.6.7 as of December 4, 2018)!
+# Welcome to Surviv.io-Cheats (Working on all modes for client version: 0.6.9 as of January 8, 2019)!
 This is a Surviv.io cheat loaded as a Chrome extension. It was originally developed by w3x731 and I've decided to continue the development of the code.
 
-
+### Future of this hack 
+I may or may not return to this in the future. For now, i'm done
 
 ### 💪 Features
 
 * Aimbot
+* Aimbot with collision detection [beta]
+* Continuous Fire (hold click button)
 * Custom zooming control with scroll wheel
 * Autoloot
 * Transparent buildings, ceilings, obstacles, and trees
-* Lasersight(shot range)
+* Lasersight (shot range)
 * Displays enemy lines
 * Frag grenade timer
 * Auto opening doors
-* Fast weapon changing
+* Fast weapon changing (right click)
 * Auto heal
-* Auto fire(Just press the left mouse button)
-* Planes tracking + visibility of air drop on minimap has been extended
-* AutoDodge 
-* AutoSwitch 
+* FPS Counter
+* Planes tracking + visibility of air drop on minimap has been extended (not working)
+* AutoDodge [beta]
+* AutoSwitch
 * Multiboxing [beta] Use the multibox branch
 * Triggerbot
 * Color explosive barrels in red
 * Bigger and more vibrant bullets
+* New Default Cursor
+
 
 ### :information_source: Instructions
 
@@ -57,8 +62,9 @@ Windows:
 1. Whenever you get a blue popup saying "New version available," just double click on the update-windows.ps1 file
 
 ## :video_game: Discord
-https://discord.gg/PAePXxY
+https://discord.gg/bpNrDQz
 
 ## Warning!
 All actions you take at your own risk. The author is not responsible for the consequences of your actions.
+
 Hippity hoppity it's your own responsibility!

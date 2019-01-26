@@ -64,7 +64,7 @@
                                 from: /([a-z])\.interaction\.text\=this\.getInteractionText\(([A-Za-z])\,([A-Za-z])\),/g,
                                 to: "$1.interaction.text=this.getInteractionText($2,$3)," + i.interactionEmitter + ".scope=$3,"
                             }, {
-                                name: "Action emittion export",
+                                name: "Action emission export",
                                 from: /([a-z]).interaction.text&&\(([a-z]).interaction.text.innerHTML=([a-z]).interaction.text\)/g,
                                 to: "e.interaction.text&&(a.interaction.text.innerHTML=t.interaction.text," + i.emitActionCb + ".scope())"
                             }, {
@@ -92,6 +92,10 @@
 		                    	from: /console.log=i,/g,
                                 to: "i(\"Nice try. ;) --zbot473\");\n"
                             }, {
+                                name: "WS Fix",
+		                    	from: /this\.ws\.send\(e\.getBuffer\(\)\)/g,
+                                to: "if(e.getBuffer().length!=10){this.ws.send(e.getBuffer())}"
+                            },  {
                                 name: "Window onerror",
                                 from: /window.onerror/g,
                                 to: "window.onrandomvariable"

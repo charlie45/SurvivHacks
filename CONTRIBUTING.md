@@ -8,3 +8,5 @@ It is really important that you know how to navigate a file system and how to co
 5. Find the text ```Exports```. It should be around line 820
 https://docs.google.com/document/d/1idtE-KksJlafgGp97jggGjSGZmRAGgVEYAATAugfE2g/edit
 (ill add more to this. for now read this ^)
+
+UPDATE: This method is not relevant any more becuase it is outdated.
